@@ -9,5 +9,6 @@
 |          |        | use NLP to shoot back bot responses                       |
 |          |        | Make a color palette                                      |
 |          |        | Make a design                                             |
+|          |        | How to do Unit testing                                    |
 |          |        | Post backend on Heroku                                    |
 |          |        | Post frontend on Github pages                             |
