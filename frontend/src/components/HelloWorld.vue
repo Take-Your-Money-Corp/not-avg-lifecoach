@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <button @click="submit">Send Data</button>
+    <button @click="submit">GET Data</button>
   </div>
 </template>
 
