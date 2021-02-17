@@ -1,4 +1,4 @@
-# not-avg-lifecoach
+# NOT YOUR AVERAGE LIFE COACH
 
 ## Project setup
 ```
