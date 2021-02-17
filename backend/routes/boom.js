@@ -4,7 +4,7 @@ var router = express.Router();
 /* GET boom */
 router.get('/', function (req, res, next) {
 
-    res.send('BOOM!');
+    res.send('HECK YEAH');
 });
 
 module.exports = router;
