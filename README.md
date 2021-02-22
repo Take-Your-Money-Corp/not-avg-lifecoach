@@ -1,6 +1,6 @@
 # NOT YOUR AVERAGE LIFE COACH
 
-## Task List
+## Task Assignment
 
 | Task | Assigned To | Status                                                      |
 |----------|--------|-----------------------------------------------------------|
