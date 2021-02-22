@@ -1,9 +1,10 @@
 <template>
-  <div class="hello">
-    <button @click="submit">Make Conversation</button>
-    <p>The convo Id is: {{ convoId }}</p>
+  <div class="chat-bot">
+    <button @click="nlpHandshake">Make Conversation</button>
+    <p>The convo Id is: {{ nlpRestToken }}</p>
+    <input type="text" :ourMessage="ourMessage" />
     <button @click="sendMessage">Send Message</button>
-    <!-- <p>The reply is {{ reply }}</p> -->
+    <p>Our message is {{ ourMessage }}</p>
     <button @click="getReply">Get Reply</button>
     <p>The reply is {{ reply }}</p>
   </div>
@@ -11,10 +12,12 @@
 
 <script>
 import axios from "axios";
+
 export default {
   data() {
     return {
-      convoId: "",
+      nlpRestToken: "",
+      ourMessage: "Hey you",
       reply: ""
     };
   },
@@ -23,12 +26,12 @@ export default {
     msg: String
   },
   methods: {
-    submit() {
+    nlpHandshake() {
       axios
         .get("http://localhost:3000/rest/token")
         .then(response => {
           console.log(response.data);
-          this.convoId = response.data.id;
+          this.nlpRestToken = response.data.id;
         })
         .catch(error => {
           console.log(error);
@@ -37,31 +40,14 @@ export default {
     sendMessage() {
       axios({
         method: "post",
-        url: `http://localhost:3000/directline/conversations/${this.convoId}/activities`,
-        headers: {
-          "Content-Type": "application/json"
-        },
+        url: `http://localhost:3000/directline/conversations/${this.nlpRestToken}/activities`,
         data: {
-          text: "who are you",
-          textFormat: "plain",
-          type: "message",
-          channelId: "webchat",
-          from: { id: "User", name: "", role: "user" },
-          locale: "es-ES",
-          timestamp: "2021-02-02T14:14:04.268Z",
-          entities: [
-            {
-              requiresBotState: true,
-              supportsListening: true,
-              supportsTts: true,
-              type: "ClientCapabilities"
-            }
-          ]
+          text: this.ourMessage
         }
       })
         .then(response => {
-          console.log(response.data);
-          // this.reply = response.data;
+          console.log(response.data.activities[1].text);
+          this.reply = response.data;
         })
         .catch(error => {
           console.log(error);
@@ -70,7 +56,7 @@ export default {
     getReply() {
       axios
         .get(
-          `http://localhost:3000/directline/conversations/${this.convoId}/activities`
+          `http://localhost:3000/directline/conversations/${this.nlpRestToken}/activities`
         )
         .then(response => {
           this.reply = response.data.activities[1].text;
