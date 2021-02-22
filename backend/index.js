@@ -8,6 +8,6 @@ const { RestConnector } = require("@nlpjs/rest-connector");
     await container.get('rest').start();
     const nlp = dock.get('nlp');
     await nlp.train();
-    await nlp.addCorpus('./corpus.json');
+
 
 })();

@@ -1,5 +1,5 @@
 <template>
-  <div class="chat-bot">
+  <div id="chat-bot">
     <input type="text" v-model="ourMessage" />
     <button @click="sendMessage">Send Message</button>
     <p v-if="showMessageFlag">You said: {{ ourMessage }}</p>
@@ -91,5 +91,9 @@ li {
 }
 a {
   color: #42b983;
+}
+
+#chat-bot {
+  padding: 100px;
 }
 </style>

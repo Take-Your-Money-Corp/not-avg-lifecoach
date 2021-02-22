@@ -1,3 +1,4 @@
 run bot:
-node .
-go to localhost:3000
+```
+npm run backend
+```
