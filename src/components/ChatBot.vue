@@ -1,12 +1,10 @@
 <template>
   <div class="chat-bot">
-    <button @click="nlpHandshake">Make Conversation</button>
-    <p>The convo Id is: {{ nlpRestToken }}</p>
-    <input type="text" :ourMessage="ourMessage" />
+    <input type="text" v-model="ourMessage" />
     <button @click="sendMessage">Send Message</button>
-    <p>Our message is {{ ourMessage }}</p>
+    <p v-if="showMessageFlag">You said: {{ ourMessage }}</p>
     <button @click="getReply">Get Reply</button>
-    <p>The reply is {{ reply }}</p>
+    <p v-if="showReplyFlag">Bot said: {{ reply }}</p>
   </div>
 </template>
 
@@ -14,11 +12,16 @@
 import axios from "axios";
 
 export default {
+  created() {
+    this.nlpHandshake();
+  },
   data() {
     return {
       nlpRestToken: "",
-      ourMessage: "Hey you",
-      reply: ""
+      ourMessage: "",
+      reply: "",
+      showMessageFlag: false,
+      showReplyFlag: false
     };
   },
   name: "HelloWorld",
@@ -30,7 +33,6 @@ export default {
       axios
         .get("http://localhost:3000/rest/token")
         .then(response => {
-          console.log(response.data);
           this.nlpRestToken = response.data.id;
         })
         .catch(error => {
@@ -38,6 +40,7 @@ export default {
         });
     },
     sendMessage() {
+      console.log(this.ourMessage);
       axios({
         method: "post",
         url: `http://localhost:3000/directline/conversations/${this.nlpRestToken}/activities`,
@@ -46,7 +49,7 @@ export default {
         }
       })
         .then(response => {
-          console.log(response.data.activities[1].text);
+          this.showMessageFlag = true;
           this.reply = response.data;
         })
         .catch(error => {
@@ -60,11 +63,14 @@ export default {
         )
         .then(response => {
           this.reply = response.data.activities[1].text;
-          console.log(response.data.activities[1].text);
+          this.showReplyFlag = true;
         })
         .catch(error => {
           console.log(error);
         });
+    },
+    updateMessage(currentMessage) {
+      this.ourMessage = currentMessage;
     }
   }
 };
