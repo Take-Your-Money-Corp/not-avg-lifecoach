@@ -7,24 +7,26 @@
         </button>
       </div>
     </header>
-    <div v-if="showReplyFlag">
-      <p
-        v-for="botMessage in botMessages"
-        :key="botMessage.index"
-        class="bot-message"
-      >
-        Bot said: {{ botMessage }}
-      </p>
-    </div>
+    <div class="chat-messages">
+      <div v-if="showReplyFlag">
+        <p
+          v-for="botMessage in botMessages"
+          :key="botMessage.index"
+          class="bot-message chat-message"
+        >
+          Bot said: {{ botMessage }}
+        </p>
+      </div>
 
-    <div v-if="showMessageFlag">
-      <p
-        v-for="userMessage in userMessages"
-        :key="userMessage.index"
-        class="user-message"
-      >
-        You said: {{ userMessage }}
-      </p>
+      <div v-if="showMessageFlag">
+        <p
+          v-for="userMessage in userMessages"
+          :key="userMessage.index"
+          class="user-message chat-message"
+        >
+          You said: {{ userMessage }}
+        </p>
+      </div>
     </div>
     <div class="user-input">
       <input
@@ -32,6 +34,7 @@
         type="text"
         @keyup.enter="sendMessage"
         v-model="ourMessage"
+        placeholder="Type a message..."
       />
       <button @click="sendMessage" class="send-message">
         <img id="send-icon" src="./sendIcon.png" />
@@ -56,9 +59,11 @@ export default {
       showReplyFlag: false,
       botMessages: [],
       userMessages: [],
-      botMessageCount: -1
+      botMessageCount: -1,
+      conversation: []
     };
   },
+
   name: "ChatBot",
   props: {
     msg: String
@@ -76,6 +81,7 @@ export default {
     },
     sendMessage() {
       this.userMessages.push(this.ourMessage);
+      this.conversation.push(this.ourMessage);
 
       axios({
         method: "post",
@@ -91,6 +97,9 @@ export default {
         })
         .catch(error => {
           console.log(error);
+        })
+        .finally(() => {
+          this.ourMessage = "";
         });
     },
 
@@ -103,6 +112,7 @@ export default {
           this.reply =
             response.data.activities[(this.botMessageCount += 2)].text;
           this.botMessages.push(this.reply);
+          this.conversation.push(this.reply);
           this.showReplyFlag = true;
         })
         .catch(error => {
@@ -152,7 +162,7 @@ header {
 }
 .user-input {
   border-top: grey solid 1px;
-  margin: auto 0em 0em 0em;
+  margin: 0em 0em 0em 0em;
   display: flex;
 }
 .text-input {
@@ -163,27 +173,42 @@ header {
   border-top: none;
   width: -webkit-fill-available;
 }
+.chat-messages {
+  display: flex;
+  margin-top: auto;
+  // justify-content: space-between;
+
+  flex-direction: column;
+}
+.chat-message {
+  display: flex;
+  width: 50%;
+  padding: 0.2em;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
 .bot-message {
   background-color: #ff9671;
-  margin: 0em auto 0em 0.5em;
-  border: grey solid 1px;
-  display: flex;
-  border-radius: 10px;
-  padding: 0.2em;
+  margin-right: auto;
+  margin-left: 5px;
+  border-radius: 5px;
+  box-shadow: 0px 4px 4px rgba(100, 75, 65, 0.25);
 }
+
 .user-message {
   background-color: #ffc75f;
-  border: grey solid 1px;
-  margin: 0em 0.5em 0em auto;
-  display: flex;
-  border-radius: 10px;
-  padding: 0.2em;
+  margin-left: auto;
+  margin-right: 5px;
+  border-radius: 5px;
+  margin-bottom: 1em;
+  box-shadow: 0px 4px 4px rgba(100, 86, 61, 0.25);
 }
 header .filler {
   flex: 0 10000 100%;
 }
 #send-icon {
   width: 1.75rem;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
 #chat-bot {
@@ -196,5 +221,6 @@ header .filler {
   flex-direction: column;
   // justify-self: center;
   margin: 30px auto;
+  border-radius: 5px;
 }
 </style>
