@@ -1,9 +1,26 @@
 <template>
   <div id="chat-bot">
-    <p class="bot-message" v-if="showReplyFlag">Bot said: {{ reply }}</p>
-    <p class="user-message" v-if="showMessageFlag">You said: {{ ourMessage }}</p>
-    <input type="text" v-model="ourMessage" />
-    <button @click="sendMessage">Send Message</button>
+    <div v-if="showReplyFlag">
+      <p
+        v-for="botMessage in botMessages"
+        :key="botMessage.index"
+        class="bot-message"
+      >
+        Bot said: {{ botMessage }}
+      </p>
+    </div>
+
+    <div v-if="showMessageFlag">
+      <p
+        v-for="userMessage in userMessages"
+        :key="userMessage.index"
+        class="user-message"
+      >
+        You said: {{ userMessage }}
+      </p>
+    </div>
+    <input type="text" @keyup.enter="sendMessage" v-model="ourMessage" />
+    <button @click="sendMessage">Send</button>
   </div>
 </template>
 
@@ -20,10 +37,13 @@ export default {
       ourMessage: "",
       reply: "",
       showMessageFlag: false,
-      showReplyFlag: false
+      showReplyFlag: false,
+      botMessages: [],
+      userMessages: [],
+      botMessageCount: -1
     };
   },
-  name: "HelloWorld",
+  name: "ChatBot",
   props: {
     msg: String
   },
@@ -39,7 +59,8 @@ export default {
         });
     },
     sendMessage() {
-      console.log(this.ourMessage);
+      this.userMessages.push(this.ourMessage);
+
       axios({
         method: "post",
         url: `http://localhost:3000/directline/conversations/${this.nlpRestToken}/activities`,
@@ -50,23 +71,30 @@ export default {
         .then(response => {
           this.showMessageFlag = true;
           this.reply = response.data;
-          this.getReply()
+          this.getReply();
         })
         .catch(error => {
           console.log(error);
         });
     },
+
     getReply() {
       axios
         .get(
           `http://localhost:3000/directline/conversations/${this.nlpRestToken}/activities`
         )
         .then(response => {
-          this.reply = response.data.activities[1].text;
+          this.reply =
+            response.data.activities[(this.botMessageCount += 2)].text;
+          this.botMessages.push(this.reply);
           this.showReplyFlag = true;
         })
         .catch(error => {
           console.log(error);
+        })
+        .finally(() => {
+          console.log("user messages " + this.userMessages);
+          console.log("bot messages " + this.botMessages);
         });
     },
     updateMessage(currentMessage) {
@@ -95,9 +123,9 @@ a {
 
 #chat-bot {
   padding: 100px;
-  border:#42b983 solid 1px;
+  border: #42b983 solid 1px;
   width: 300px;
-  display:flex;
+  display: flex;
   flex-direction: column;
   // justify-self: center;
   margin: 0 auto;
