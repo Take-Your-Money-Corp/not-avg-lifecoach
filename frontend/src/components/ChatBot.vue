@@ -1,31 +1,24 @@
 <template>
   <div id="chat-bot">
-    <header>
+    <div id="chat-header">
       <div class="filler">
         <button class="minimize">
           <span class="ms-Icon ms-Icon--ChromeMinimize"> </span>
         </button>
       </div>
-    </header>
+    </div>
     <div class="chat-messages">
-      <div v-if="showReplyFlag">
-        <p
-          v-for="botMessage in botMessages"
-          :key="botMessage.index"
-          class="bot-message chat-message"
-        >
-          Bot said: {{ botMessage }}
-        </p>
-      </div>
-
-      <div v-if="showMessageFlag">
-        <p
-          v-for="userMessage in userMessages"
-          :key="userMessage.index"
-          class="user-message chat-message"
-        >
-          You said: {{ userMessage }}
-        </p>
+      <div v-for="(message, index) in conversation" :key="message.index">
+        <div v-if="conversation[index].chatStyle === 'bot'">
+          <p class="chat-message botMessage">
+            Bot said: {{ conversation[index].message }}
+          </p>
+        </div>
+        <div v-if="conversation[index].chatStyle === 'user'">
+          <p class="chat-message userMessage">
+            You said: {{ conversation[index].message }}
+          </p>
+        </div>
       </div>
     </div>
     <div class="user-input">
@@ -55,8 +48,6 @@ export default {
       nlpRestToken: "",
       ourMessage: "",
       reply: "",
-      showMessageFlag: false,
-      showReplyFlag: false,
       botMessages: [],
       userMessages: [],
       botMessageCount: -1,
@@ -81,7 +72,7 @@ export default {
     },
     sendMessage() {
       this.userMessages.push(this.ourMessage);
-      this.conversation.push(this.ourMessage);
+      this.conversation.push({ chatStyle: "user", message: this.ourMessage });
 
       axios({
         method: "post",
@@ -91,7 +82,6 @@ export default {
         }
       })
         .then(response => {
-          this.showMessageFlag = true;
           this.reply = response.data;
           this.getReply();
         })
@@ -112,19 +102,25 @@ export default {
           this.reply =
             response.data.activities[(this.botMessageCount += 2)].text;
           this.botMessages.push(this.reply);
-          this.conversation.push(this.reply);
-          this.showReplyFlag = true;
+          this.conversation.push({ chatStyle: "bot", message: this.reply });
         })
         .catch(error => {
           console.log(error);
         })
         .finally(() => {
-          console.log("user messages " + this.userMessages);
-          console.log("bot messages " + this.botMessages);
+          console.log(this.conversation);
+          this.scrollToElement();
         });
     },
     updateMessage(currentMessage) {
       this.ourMessage = currentMessage;
+    },
+    scrollToElement() {
+      const el = this.$el.getElementsByClassName("chat-messages");
+
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth", block: "end" });
+      }
     }
   }
 };
@@ -146,10 +142,10 @@ li {
 a {
   color: #42b983;
 }
-header {
-  margin: 0em 0em 5em 0em;
+#chat-header {
+  margin: 0em 0em auto 0em;
   background-color: #d65db1;
-  width: 20em;
+  justify-content: center;
   height: 2.5em;
   display: flex;
 }
@@ -175,11 +171,11 @@ header {
 }
 .chat-messages {
   display: flex;
-  margin-top: auto;
-  // justify-content: space-between;
-
   flex-direction: column;
+  overflow: hidden;
+  overflow-y: scroll;
 }
+
 .chat-message {
   display: flex;
   width: 50%;
@@ -187,7 +183,7 @@ header {
   margin-top: 0.5em;
   margin-bottom: 0.5em;
 }
-.bot-message {
+.botMessage {
   background-color: #ff9671;
   margin-right: auto;
   margin-left: 5px;
@@ -195,7 +191,7 @@ header {
   box-shadow: 0px 4px 4px rgba(100, 75, 65, 0.25);
 }
 
-.user-message {
+.userMessage {
   background-color: #ffc75f;
   margin-left: auto;
   margin-right: 5px;
