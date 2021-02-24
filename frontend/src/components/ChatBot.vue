@@ -1,10 +1,9 @@
 <template>
   <div id="chat-bot">
+    <p class="bot-message" v-if="showReplyFlag">Bot said: {{ reply }}</p>
+    <p class="user-message" v-if="showMessageFlag">You said: {{ ourMessage }}</p>
     <input type="text" v-model="ourMessage" />
     <button @click="sendMessage">Send Message</button>
-    <p v-if="showMessageFlag">You said: {{ ourMessage }}</p>
-    <button @click="getReply">Get Reply</button>
-    <p v-if="showReplyFlag">Bot said: {{ reply }}</p>
   </div>
 </template>
 
@@ -51,6 +50,7 @@ export default {
         .then(response => {
           this.showMessageFlag = true;
           this.reply = response.data;
+          this.getReply()
         })
         .catch(error => {
           console.log(error);
@@ -95,5 +95,11 @@ a {
 
 #chat-bot {
   padding: 100px;
+  border:#42b983 solid 1px;
+  width: 300px;
+  display:flex;
+  flex-direction: column;
+  // justify-self: center;
+  margin: 0 auto;
 }
 </style>
