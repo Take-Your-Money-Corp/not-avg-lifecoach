@@ -14,7 +14,10 @@ export default {
 </script>
 
 <style lang="scss">
-body{
+html,
+body {
+  margin: 0;
+  padding: 0;
   background-color: thistle;
 }
 #app {
@@ -22,8 +25,6 @@ body{
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-
-  color: #2c3e50;
 }
 
 #nav {
