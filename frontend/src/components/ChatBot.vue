@@ -1,22 +1,20 @@
 <template>
   <div id="chat-bot">
     <div id="chat-header">
-      <div class="filler">
-        <button class="minimize">
-          <span class="ms-Icon ms-Icon--ChromeMinimize"> </span>
-        </button>
-      </div>
+        <h3>Not Your Average Life Coach</h3>
     </div>
-    <div class="chat-messages">
+    <div class="chat-messages" v-chat-scroll>
       <div v-for="(message, index) in conversation" :key="message.index">
         <div v-if="conversation[index].chatStyle === 'bot'">
+          <img class="botPic" src="../assets/male.png" />
           <p class="chat-message botMessage">
-            Bot said: {{ conversation[index].message }}
+            {{ conversation[index].message }}
           </p>
         </div>
         <div v-if="conversation[index].chatStyle === 'user'">
+          <img class="userPic" src="../assets/female.png" />
           <p class="chat-message userMessage">
-            You said: {{ conversation[index].message }}
+            {{ conversation[index].message }}
           </p>
         </div>
       </div>
@@ -30,14 +28,17 @@
         placeholder="Type a message..."
       />
       <button @click="sendMessage" class="send-message">
-        <img id="send-icon" src="./sendIcon.png" />
+        <img id="send-icon" src="../assets/sendIcon.png" />
       </button>
     </div>
   </div>
 </template>
 
 <script>
+import Vue from "vue";
 import axios from "axios";
+import VueChatScroll from "vue-chat-scroll";
+Vue.use(VueChatScroll);
 
 export default {
   created() {
@@ -52,29 +53,29 @@ export default {
       botMessages: [],
       userMessages: [],
       botMessageCount: -1,
-      conversation: []
+      conversation: [],
     };
   },
 
   name: "ChatBot",
   props: {
-    msg: String
+    msg: String,
   },
   methods: {
     nlpHandshake() {
       axios
         .get("http://localhost:3000/rest/token")
-        .then(response => {
+        .then((response) => {
           this.nlpRestToken = response.data.id;
         })
-        .catch(error => {
+        .catch((error) => {
           console.log(error);
         });
     },
     initialMessage() {
       this.conversation.push({
         chatStyle: "bot",
-        message: "Hello, I am your Motivational Lifecoach, ask me anything!"
+        message: "Hello, I am your Motivational Lifecoach, ask me anything!",
       });
     },
     sendMessage() {
@@ -87,14 +88,14 @@ export default {
           method: "post",
           url: `http://localhost:3000/directline/conversations/${this.nlpRestToken}/activities`,
           data: {
-            text: this.ourMessage
-          }
+            text: this.ourMessage,
+          },
         })
-          .then(response => {
+          .then((response) => {
             this.reply = response.data;
             this.getReply();
           })
-          .catch(error => {
+          .catch((error) => {
             console.log(error);
           })
           .finally(() => {
@@ -108,13 +109,13 @@ export default {
         .get(
           `http://localhost:3000/directline/conversations/${this.nlpRestToken}/activities`
         )
-        .then(response => {
+        .then((response) => {
           this.reply =
             response.data.activities[(this.botMessageCount += 2)].text;
           this.botMessages.push(this.reply);
           this.conversation.push({ chatStyle: "bot", message: this.reply });
         })
-        .catch(error => {
+        .catch((error) => {
           console.log(error);
         })
         .finally(() => {
@@ -131,8 +132,8 @@ export default {
       if (el) {
         el.scrollIntoView({ behavior: "smooth", block: "end" });
       }
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -159,6 +160,10 @@ a {
   height: 2.5em;
   display: flex;
 }
+#chat-header h3 {
+  color: white;
+  margin-top: 3%;
+}
 .send-message {
   background-color: white;
   z-index: 1;
@@ -167,7 +172,8 @@ a {
   border-radius: 40px;
 }
 .user-input {
-  border-top: grey solid 1px;
+  background-color: white;
+  border-top: grey solid 2px;
   margin: 0em 0em 0em 0em;
   display: flex;
 }
@@ -199,6 +205,16 @@ a {
   margin-left: 5px;
   border-radius: 5px;
   box-shadow: 0px 4px 4px rgba(100, 75, 65, 0.25);
+  padding-left: 15px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-right: 15px;
+}
+
+.botPic {
+  width: 3em;
+  height: 3em;
+  float: left;
 }
 
 .userMessage {
@@ -208,18 +224,28 @@ a {
   border-radius: 5px;
   margin-bottom: 1em;
   box-shadow: 0px 4px 4px rgba(100, 86, 61, 0.25);
+  padding-left: 15px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-right: 15px;
 }
+.userPic {
+  width: 3em;
+  height: 3em;
+  float: right;
+}
+
 header .filler {
   flex: 0 10000 100%;
 }
 #send-icon {
   width: 1.75rem;
-  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+
 }
 
 #chat-bot {
   padding: 0px;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.747);
   border: #845ec2 solid 4px;
   width: 20em;
   height: 80vh;
@@ -228,5 +254,9 @@ header .filler {
   // justify-self: center;
   margin: 30px auto;
   border-radius: 5px;
+}
+textarea:focus,
+input:focus, button:focus {
+  outline: none;
 }
 </style>
