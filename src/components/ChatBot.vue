@@ -162,7 +162,7 @@ a {
 }
 #chat-header h3 {
   color: white;
-  margin: 0em, auto, auto, auto;
+  margin-top: 3%;
 }
 .send-message {
   background-color: white;
@@ -172,7 +172,8 @@ a {
   border-radius: 40px;
 }
 .user-input {
-  border-top: grey solid 1px;
+  background-color: white;
+  border-top: grey solid 2px;
   margin: 0em 0em 0em 0em;
   display: flex;
 }
@@ -239,12 +240,12 @@ header .filler {
 }
 #send-icon {
   width: 1.75rem;
-  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+
 }
 
 #chat-bot {
   padding: 0px;
-  background-color: rgba(255, 255, 255, 0.774);
+  background-color: rgba(255, 255, 255, 0.747);
   border: #845ec2 solid 4px;
   width: 20em;
   height: 80vh;
@@ -255,7 +256,7 @@ header .filler {
   border-radius: 5px;
 }
 textarea:focus,
-input:focus {
+input:focus, button:focus {
   outline: none;
 }
 </style>
