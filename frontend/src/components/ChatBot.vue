@@ -10,11 +10,13 @@
     <div class="chat-messages">
       <div v-for="(message, index) in conversation" :key="message.index">
         <div v-if="conversation[index].chatStyle === 'bot'">
+          <img class="botPic" src="../assets/male.png" />
           <p class="chat-message botMessage">
             {{ conversation[index].message }}
           </p>
         </div>
         <div v-if="conversation[index].chatStyle === 'user'">
+          <img class="userPic" src="../assets/female.png" />
           <p class="chat-message userMessage">
             {{ conversation[index].message }}
           </p>
@@ -200,6 +202,11 @@ a {
   border-radius: 5px;
   box-shadow: 0px 4px 4px rgba(100, 75, 65, 0.25);
 }
+.botPic{
+  width: 3em;
+  height:3em;
+  float: left;
+}
 
 .userMessage {
   background-color: #ffc75f;
@@ -208,6 +215,11 @@ a {
   border-radius: 5px;
   margin-bottom: 1em;
   box-shadow: 0px 4px 4px rgba(100, 86, 61, 0.25);
+}
+.userPic{
+  width: 3em;
+  height:3em;
+  float: right;
 }
 header .filler {
   flex: 0 10000 100%;
