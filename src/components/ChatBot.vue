@@ -74,7 +74,7 @@ export default {
     initialMessage() {
       this.conversation.push({
         chatStyle: "bot",
-        message: "Hello, I am your motivational Lifecoach, Ask me anything!"
+        message: "Hello, I am your Motivational Lifecoach, ask me anything!"
       });
     },
     sendMessage() {
