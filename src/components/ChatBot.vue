@@ -30,7 +30,7 @@
         placeholder="Type a message..."
       />
       <button @click="sendMessage" class="send-message">
-        <img id="send-icon" src="./sendIcon.png" />
+        <img id="send-icon" src="../assets/sendIcon.png" />
       </button>
     </div>
   </div>
