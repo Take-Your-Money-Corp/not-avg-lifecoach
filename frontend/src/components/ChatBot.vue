@@ -7,7 +7,7 @@
         </button>
       </div>
     </div>
-    <div class="chat-messages">
+    <div class="chat-messages" v-chat-scroll>
       <div v-for="(message, index) in conversation" :key="message.index">
         <div v-if="conversation[index].chatStyle === 'bot'">
           <img class="botPic" src="../assets/male.png" />
@@ -39,7 +39,10 @@
 </template>
 
 <script>
+import Vue from "vue";
 import axios from "axios";
+import VueChatScroll from "vue-chat-scroll";
+Vue.use(VueChatScroll);
 
 export default {
   created() {
@@ -206,9 +209,9 @@ a {
   padding-bottom: 15px;
   padding-right: 15px;
 }
-.botPic{
+.botPic {
   width: 3em;
-  height:3em;
+  height: 3em;
   float: left;
 }
 
@@ -224,9 +227,9 @@ a {
   padding-bottom: 15px;
   padding-right: 15px;
 }
-.userPic{
+.userPic {
   width: 3em;
-  height:3em;
+  height: 3em;
   float: right;
 }
 
