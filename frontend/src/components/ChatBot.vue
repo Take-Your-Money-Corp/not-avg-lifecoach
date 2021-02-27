@@ -71,26 +71,29 @@ export default {
         });
     },
     sendMessage() {
-      this.userMessages.push(this.ourMessage);
-      this.conversation.push({ chatStyle: "user", message: this.ourMessage });
+      console.log(this.ourMessage);
+      if (this.ourMessage != "") {
+        this.userMessages.push(this.ourMessage);
+        this.conversation.push({ chatStyle: "user", message: this.ourMessage });
 
-      axios({
-        method: "post",
-        url: `http://localhost:3000/directline/conversations/${this.nlpRestToken}/activities`,
-        data: {
-          text: this.ourMessage
-        }
-      })
-        .then(response => {
-          this.reply = response.data;
-          this.getReply();
+        axios({
+          method: "post",
+          url: `http://localhost:3000/directline/conversations/${this.nlpRestToken}/activities`,
+          data: {
+            text: this.ourMessage
+          }
         })
-        .catch(error => {
-          console.log(error);
-        })
-        .finally(() => {
-          this.ourMessage = "";
-        });
+          .then(response => {
+            this.reply = response.data;
+            this.getReply();
+          })
+          .catch(error => {
+            console.log(error);
+          })
+          .finally(() => {
+            this.ourMessage = "";
+          });
+      }
     },
 
     getReply() {
