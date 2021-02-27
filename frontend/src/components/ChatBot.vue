@@ -199,6 +199,10 @@ a {
   margin-left: 5px;
   border-radius: 5px;
   box-shadow: 0px 4px 4px rgba(100, 75, 65, 0.25);
+  padding-left: 15px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-right: 15px;
 }
 
 .userMessage {
@@ -208,7 +212,12 @@ a {
   border-radius: 5px;
   margin-bottom: 1em;
   box-shadow: 0px 4px 4px rgba(100, 86, 61, 0.25);
+  padding-left: 15px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-right: 15px;
 }
+
 header .filler {
   flex: 0 10000 100%;
 }
