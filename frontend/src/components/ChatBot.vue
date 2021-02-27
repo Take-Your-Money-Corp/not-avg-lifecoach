@@ -11,12 +11,12 @@
       <div v-for="(message, index) in conversation" :key="message.index">
         <div v-if="conversation[index].chatStyle === 'bot'">
           <p class="chat-message botMessage">
-            Bot said: {{ conversation[index].message }}
+            {{ conversation[index].message }}
           </p>
         </div>
         <div v-if="conversation[index].chatStyle === 'user'">
           <p class="chat-message userMessage">
-            You said: {{ conversation[index].message }}
+            {{ conversation[index].message }}
           </p>
         </div>
       </div>
