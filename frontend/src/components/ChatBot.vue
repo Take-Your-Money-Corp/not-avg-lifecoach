@@ -42,6 +42,7 @@ import axios from "axios";
 export default {
   created() {
     this.nlpHandshake();
+    this.initialMessage();
   },
   data() {
     return {
@@ -69,6 +70,12 @@ export default {
         .catch(error => {
           console.log(error);
         });
+    },
+    initialMessage() {
+      this.conversation.push({
+        chatStyle: "bot",
+        message: "Hello, I am your Motivational Lifecoach, ask me anything!"
+      });
     },
     sendMessage() {
       this.userMessages.push(this.ourMessage);
