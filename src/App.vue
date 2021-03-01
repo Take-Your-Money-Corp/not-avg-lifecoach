@@ -1,14 +1,14 @@
 <template>
   <div id="app">
-    <ChatBot />
+    <ChatMessenger />
   </div>
 </template>
 <script>
-import ChatBot from "@/components/ChatBot.vue";
+import ChatMessenger from "./components/ChatMessenger.vue";
 
 export default {
   components: {
-    ChatBot
+    ChatMessenger
   }
 };
 </script>
