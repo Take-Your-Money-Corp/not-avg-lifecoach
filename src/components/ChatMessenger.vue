@@ -268,11 +268,10 @@ header .filler {
   padding: 0px;
   background-color: rgba(255, 255, 255, 0.747);
   border: #845ec2 solid 4px;
-  width: 25em;
+  width: 450px;
   height: 80vh;
   display: flex;
   flex-direction: column;
-  // justify-self: center;
   margin: 30px auto;
   border-radius: 5px;
 }
