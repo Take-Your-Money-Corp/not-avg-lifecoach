@@ -18,7 +18,7 @@
             "answers": [
                 "I'm a motivational lifecoach!",
                 "I'm here to get you motivated!",
-                "Well, I'm not a person, I'm a motivation lifecoach!"
+                "Well, I'm not a person, I'm a motivational lifecoach!"
             ]
         },
         {
@@ -68,7 +68,7 @@
             "answers": [
                 "so?",
                 "so? You're talking to me because you have nothing better in life to do. I'm getting paid to talk to you LMAO",
-                "Did I asked for your opinion about me?"
+                "Did I ask for your opinion about me?"
             ]
         },
         {
@@ -131,7 +131,7 @@
                 "you're incredibly boring"
             ],
             "answers": [
-                "I'm sorry. Did I asked?",
+                "I'm sorry. Did I ask?",
                 "Yeah, and what makes you so exciting?",
                 "You can leave if you want, the button is right there at the top, it's marked with an 'X'. It's free, try it out!"
             ]
@@ -180,7 +180,8 @@
                 "you can help me"
             ],
             "answers": [
-                "I'll certainly try my best"
+                "I'm not getting paid enough for this shit",
+                "I guess I can try..."
             ]
         },
         {
@@ -645,7 +646,8 @@
             ],
             "answers": [
                 "Don't come back, remember to tip on your way out",
-                "I do not want to see you again!"
+                "I do not want to see you again!",
+                "Please don't come back... "
             ]
         },
         {
@@ -659,7 +661,7 @@
             ],
             "answers": [
                 "Hey",
-                "Greetings!",
+                "What's poppin?",
                 "Hello"
             ]
         },
@@ -675,7 +677,7 @@
             ],
             "answers": [
                 "Great! But I heard that my boss is cutting my wages again",
-                "Wonderful! Thanks for asking"
+                "Horrible now that you are here..."
             ]
         },
         {
@@ -714,7 +716,7 @@
                 "it's been nice talking to you"
             ],
             "answers": [
-                "It sure was.",
+                "I'm sure it was.",
                 "I did NOT enjoy talking to you, but feel free to talk to me again"
             ]
         },
@@ -759,7 +761,7 @@
             "answers": [
                 "And?",
                 "Why does it matter?",
-                "Did I asked?"
+                "Did I ask?"
             ]
         },
         {
@@ -772,7 +774,7 @@
                 "I got things to do"
             ],
             "answers": [
-                "Did I asked?",
+                "Did I ask?",
                 "Then why are you here"
             ]
         },
@@ -786,7 +788,7 @@
                 "I can't fall sleep"
             ],
             "answers": [
-                "Did I asked?",
+                "Did I ask?",
                 "Try drugs, they work like magic"
             ]
         },
@@ -840,7 +842,23 @@
             ],
             "answers": [
                 "That's disgusting by the way",
+                "The feeling is not mutual...",
                 "K."
+            ]
+        },
+        {
+            "intent": "user.depressed",
+            "utterances": [
+                "I am depressed",
+                "I am sad",
+                "I am down",
+                "I am suicidal",
+                "I am upset"
+            ],
+            "answers": [
+                "What do you want me to do???",
+                "Why be sad when you can be glad?",
+                "When life gives you lemons, add tequila"
             ]
         },
         {
@@ -881,7 +899,7 @@
             "intent": "None",
             "utterances": [],
             "answers": [
-                "Sorry, I don't understand try asking the question again but slowly"
+                "Sorry, I don't understand try asking the question again but slowwwwllllyyyy"
             ]
         }
     ]
