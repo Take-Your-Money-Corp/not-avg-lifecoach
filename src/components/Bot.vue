@@ -1,7 +1,7 @@
 <template>
   <div class="bot-flexbox" v-if="conversation[index].chatStyle === 'bot'">
     <img class="botPic" src="../assets/male.png" />
-    <p class="chat-message botMessage">
+    <p data-testid="botMessage" class="chat-message botMessage">
       {{ conversation[index].message }}
     </p>
   </div>
