@@ -10,7 +10,7 @@ describe("Bot.vue", () => {
         conversation: [
           {
             chatStyle: "bot",
-            message: "Hello, I am your Motivational Lifecoach, ask me anything!"
+            message: botMessage
           }
         ],
         index: 0

@@ -30,6 +30,7 @@
 <script>
 import Vue from "vue";
 import axios from "axios";
+import { makeHandshake, postMessage, getBotReply } from "@/services/axios.js";
 import VueChatScroll from "vue-chat-scroll";
 import Bot from "@/components/Bot.vue";
 import User from "./User.vue";
@@ -63,10 +64,9 @@ export default {
   },
   methods: {
     nlpHandshake() {
-      axios
-        .get("http://localhost:3000/rest/token")
-        .then(response => {
-          this.nlpRestToken = response.data.id;
+      makeHandshake()
+        .then(dataId => {
+          this.nlpRestToken = dataId;
         })
         .catch(error => {
           console.log(error);
@@ -83,13 +83,7 @@ export default {
         this.userMessages.push(this.ourMessage);
         this.conversation.push({ chatStyle: "user", message: this.ourMessage });
 
-        axios({
-          method: "post",
-          url: `http://localhost:3000/directline/conversations/${this.nlpRestToken}/activities`,
-          data: {
-            text: this.ourMessage
-          }
-        })
+        postMessage(this.ourMessage, this.nlpRestToken)
           .then(response => {
             this.typingEnabled = false;
             setTimeout(() => {
@@ -111,10 +105,7 @@ export default {
     },
 
     getReply() {
-      axios
-        .get(
-          `http://localhost:3000/directline/conversations/${this.nlpRestToken}/activities`
-        )
+      getBotReply(this.nlpRestToken)
         .then(response => {
           this.reply =
             response.data.activities[(this.botMessageCount += 2)].text;
