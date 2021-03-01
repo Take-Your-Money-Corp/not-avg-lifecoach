@@ -1,9 +1,10 @@
 <template>
   <div id="chat-bot">
     <div id="chat-header">
-        <h3>Not Your Average Life Coach</h3>
+      <h3>Not Your Average Life Coach</h3>
     </div>
     <div class="chat-messages" v-chat-scroll>
+      <div class="filler"></div>
       <div v-for="(message, index) in conversation" :key="message.index">
         <div v-if="conversation[index].chatStyle === 'bot'">
           <img class="botPic" src="../assets/male.png" />
@@ -53,33 +54,32 @@ export default {
       botMessages: [],
       userMessages: [],
       botMessageCount: -1,
-      conversation: [],
+      conversation: []
     };
   },
 
   name: "ChatBot",
   props: {
-    msg: String,
+    msg: String
   },
   methods: {
     nlpHandshake() {
       axios
         .get("http://localhost:3000/rest/token")
-        .then((response) => {
+        .then(response => {
           this.nlpRestToken = response.data.id;
         })
-        .catch((error) => {
+        .catch(error => {
           console.log(error);
         });
     },
     initialMessage() {
       this.conversation.push({
         chatStyle: "bot",
-        message: "Hello, I am your Motivational Lifecoach, ask me anything!",
+        message: "Hello, I am your Motivational Lifecoach, ask me anything!"
       });
     },
     sendMessage() {
-      console.log(this.ourMessage);
       if (this.ourMessage != "") {
         this.userMessages.push(this.ourMessage);
         this.conversation.push({ chatStyle: "user", message: this.ourMessage });
@@ -88,14 +88,16 @@ export default {
           method: "post",
           url: `http://localhost:3000/directline/conversations/${this.nlpRestToken}/activities`,
           data: {
-            text: this.ourMessage,
-          },
+            text: this.ourMessage
+          }
         })
-          .then((response) => {
-            this.reply = response.data;
-            this.getReply();
+          .then(response => {
+            setTimeout(() => {
+              this.reply = response.data;
+              this.getReply();
+            }, Math.random() * 1500 + 500);
           })
-          .catch((error) => {
+          .catch(error => {
             console.log(error);
           })
           .finally(() => {
@@ -109,31 +111,21 @@ export default {
         .get(
           `http://localhost:3000/directline/conversations/${this.nlpRestToken}/activities`
         )
-        .then((response) => {
+        .then(response => {
           this.reply =
             response.data.activities[(this.botMessageCount += 2)].text;
           this.botMessages.push(this.reply);
           this.conversation.push({ chatStyle: "bot", message: this.reply });
         })
-        .catch((error) => {
+        .catch(error => {
           console.log(error);
         })
-        .finally(() => {
-          console.log(this.conversation);
-          this.scrollToElement();
-        });
+        .finally(() => {});
     },
     updateMessage(currentMessage) {
       this.ourMessage = currentMessage;
-    },
-    scrollToElement() {
-      const el = this.$el.getElementsByClassName("chat-messages");
-
-      if (el) {
-        el.scrollIntoView({ behavior: "smooth", block: "end" });
-      }
-    },
-  },
+    }
+  }
 };
 </script>
 
@@ -164,6 +156,7 @@ a {
   color: white;
   margin-top: 3%;
 }
+
 .send-message {
   background-color: white;
   z-index: 1;
@@ -185,11 +178,17 @@ a {
   border-top: none;
   width: -webkit-fill-available;
 }
+
+.filler {
+  height: -webkit-fill-available;
+}
+
 .chat-messages {
   display: flex;
   flex-direction: column;
   overflow: hidden;
   overflow-y: scroll;
+  height: -webkit-fill-available;
 }
 
 .chat-message {
@@ -240,7 +239,6 @@ header .filler {
 }
 #send-icon {
   width: 1.75rem;
-
 }
 
 #chat-bot {
@@ -256,7 +254,8 @@ header .filler {
   border-radius: 5px;
 }
 textarea:focus,
-input:focus, button:focus {
+input:focus,
+button:focus {
   outline: none;
 }
 </style>
