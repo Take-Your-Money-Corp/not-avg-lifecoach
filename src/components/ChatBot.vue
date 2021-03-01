@@ -22,6 +22,8 @@
     </div>
     <div class="user-input">
       <input
+        :disabled="!typingEnabled"
+        ref="textinput"
         class="text-input"
         type="text"
         @keyup.enter="sendMessage"
@@ -54,7 +56,8 @@ export default {
       botMessages: [],
       userMessages: [],
       botMessageCount: -1,
-      conversation: []
+      conversation: [],
+      typingEnabled: true
     };
   },
 
@@ -92,8 +95,13 @@ export default {
           }
         })
           .then(response => {
+            this.typingEnabled = false;
             setTimeout(() => {
               this.reply = response.data;
+              this.typingEnabled = true;
+              this.$nextTick(() => {
+                this.$refs["textinput"].focus();
+              });
               this.getReply();
             }, Math.random() * 1500 + 500);
           })
