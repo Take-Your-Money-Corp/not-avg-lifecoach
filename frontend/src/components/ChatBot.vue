@@ -142,6 +142,14 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+@media only screen and (max-width: 600px) {
+  #chat-bot {
+    width: 100vw !important;
+    height: 100vh !important;
+    margin: 0 !important;
+  }
+}
+
 h3 {
   margin: 40px 0 0;
 }
