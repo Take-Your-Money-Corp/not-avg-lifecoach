@@ -3,7 +3,10 @@
 ### Task List
 - [Project Description](#project-description)
 - [Class Organization](#class-organization)
+- [Sample Output](#sample-output)
 
-## Description
+## Project Description
 
 ## Class Organization
+
+## Sample Output
