@@ -268,7 +268,7 @@ header .filler {
   padding: 0px;
   background-color: rgba(255, 255, 255, 0.747);
   border: #845ec2 solid 4px;
-  width: 20em;
+  width: 25em;
   height: 80vh;
   display: flex;
   flex-direction: column;
