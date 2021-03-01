@@ -6,21 +6,8 @@
     <div class="chat-messages" v-chat-scroll>
       <div class="filler"></div>
       <div v-for="(message, index) in conversation" :key="message.index">
-        <div class="bot-flexbox" v-if="conversation[index].chatStyle === 'bot'">
-          <img class="botPic" src="../assets/male.png" />
-          <p class="chat-message botMessage">
-            {{ conversation[index].message }}
-          </p>
-        </div>
-        <div
-          class="user-flexbox"
-          v-if="conversation[index].chatStyle === 'user'"
-        >
-          <p class="chat-message userMessage">
-            {{ conversation[index].message }}
-          </p>
-          <img class="userPic" src="../assets/female.png" />
-        </div>
+        <Bot :conversation="conversation" :index="index" />
+        <User :conversation="conversation" :index="index" />
       </div>
     </div>
     <div class="user-input">
@@ -44,9 +31,15 @@
 import Vue from "vue";
 import axios from "axios";
 import VueChatScroll from "vue-chat-scroll";
+import Bot from "@/components/Bot.vue";
+import User from "./User.vue";
 Vue.use(VueChatScroll);
 
 export default {
+  components: {
+    Bot,
+    User
+  },
   created() {
     this.nlpHandshake();
     this.initialMessage();
@@ -140,7 +133,7 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 @media only screen and (max-width: 600px) {
   #chat-bot {
     width: 100vw !important;
