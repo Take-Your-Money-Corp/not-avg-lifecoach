@@ -1,26 +1,32 @@
 <template>
   <div id="chat-bot">
     <div id="chat-header">
-        <h3>Not Your Average Life Coach</h3>
+      <h3>Not Your Average Life Coach</h3>
     </div>
     <div class="chat-messages" v-chat-scroll>
+      <div class="filler"></div>
       <div v-for="(message, index) in conversation" :key="message.index">
-        <div v-if="conversation[index].chatStyle === 'bot'">
+        <div class="bot-flexbox" v-if="conversation[index].chatStyle === 'bot'">
           <img class="botPic" src="../assets/male.png" />
           <p class="chat-message botMessage">
             {{ conversation[index].message }}
           </p>
         </div>
-        <div v-if="conversation[index].chatStyle === 'user'">
-          <img class="userPic" src="../assets/female.png" />
+        <div
+          class="user-flexbox"
+          v-if="conversation[index].chatStyle === 'user'"
+        >
           <p class="chat-message userMessage">
             {{ conversation[index].message }}
           </p>
+          <img class="userPic" src="../assets/female.png" />
         </div>
       </div>
     </div>
     <div class="user-input">
       <input
+        :disabled="!typingEnabled"
+        ref="textinput"
         class="text-input"
         type="text"
         @keyup.enter="sendMessage"
@@ -54,32 +60,32 @@ export default {
       userMessages: [],
       botMessageCount: -1,
       conversation: [],
+      typingEnabled: true
     };
   },
 
   name: "ChatBot",
   props: {
-    msg: String,
+    msg: String
   },
   methods: {
     nlpHandshake() {
       axios
         .get("http://localhost:3000/rest/token")
-        .then((response) => {
+        .then(response => {
           this.nlpRestToken = response.data.id;
         })
-        .catch((error) => {
+        .catch(error => {
           console.log(error);
         });
     },
     initialMessage() {
       this.conversation.push({
         chatStyle: "bot",
-        message: "Hello, I am your Motivational Lifecoach, ask me anything!",
+        message: "Hello, I am your Motivational Lifecoach, ask me anything!"
       });
     },
     sendMessage() {
-      console.log(this.ourMessage);
       if (this.ourMessage != "") {
         this.userMessages.push(this.ourMessage);
         this.conversation.push({ chatStyle: "user", message: this.ourMessage });
@@ -88,14 +94,21 @@ export default {
           method: "post",
           url: `http://localhost:3000/directline/conversations/${this.nlpRestToken}/activities`,
           data: {
-            text: this.ourMessage,
-          },
+            text: this.ourMessage
+          }
         })
-          .then((response) => {
-            this.reply = response.data;
-            this.getReply();
+          .then(response => {
+            this.typingEnabled = false;
+            setTimeout(() => {
+              this.reply = response.data;
+              this.typingEnabled = true;
+              this.$nextTick(() => {
+                this.$refs["textinput"].focus();
+              });
+              this.getReply();
+            }, Math.random() * 1500 + 500);
           })
-          .catch((error) => {
+          .catch(error => {
             console.log(error);
           })
           .finally(() => {
@@ -109,36 +122,33 @@ export default {
         .get(
           `http://localhost:3000/directline/conversations/${this.nlpRestToken}/activities`
         )
-        .then((response) => {
+        .then(response => {
           this.reply =
             response.data.activities[(this.botMessageCount += 2)].text;
           this.botMessages.push(this.reply);
           this.conversation.push({ chatStyle: "bot", message: this.reply });
         })
-        .catch((error) => {
+        .catch(error => {
           console.log(error);
         })
-        .finally(() => {
-          console.log(this.conversation);
-          this.scrollToElement();
-        });
+        .finally(() => {});
     },
     updateMessage(currentMessage) {
       this.ourMessage = currentMessage;
-    },
-    scrollToElement() {
-      const el = this.$el.getElementsByClassName("chat-messages");
-
-      if (el) {
-        el.scrollIntoView({ behavior: "smooth", block: "end" });
-      }
-    },
-  },
+    }
+  }
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+@media only screen and (max-width: 600px) {
+  #chat-bot {
+    width: 100vw !important;
+    height: 100vh !important;
+    margin: 0 !important;
+  }
+}
+
 h3 {
   margin: 40px 0 0;
 }
@@ -159,11 +169,14 @@ a {
   justify-content: center;
   height: 2.5em;
   display: flex;
+  box-shadow: 0px 2px 5px 0px gray;
+  z-index: 100;
 }
 #chat-header h3 {
   color: white;
   margin-top: 3%;
 }
+
 .send-message {
   background-color: white;
   z-index: 1;
@@ -185,11 +198,17 @@ a {
   border-top: none;
   width: -webkit-fill-available;
 }
+
+.filler {
+  height: -webkit-fill-available;
+}
+
 .chat-messages {
   display: flex;
   flex-direction: column;
   overflow: hidden;
   overflow-y: scroll;
+  height: -webkit-fill-available;
 }
 
 .chat-message {
@@ -214,7 +233,18 @@ a {
 .botPic {
   width: 3em;
   height: 3em;
-  float: left;
+}
+
+.bot-flexbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-flexbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .userMessage {
@@ -232,7 +262,6 @@ a {
 .userPic {
   width: 3em;
   height: 3em;
-  float: right;
 }
 
 header .filler {
@@ -240,7 +269,6 @@ header .filler {
 }
 #send-icon {
   width: 1.75rem;
-
 }
 
 #chat-bot {
@@ -256,7 +284,8 @@ header .filler {
   border-radius: 5px;
 }
 textarea:focus,
-input:focus, button:focus {
+input:focus,
+button:focus {
   outline: none;
 }
 </style>
