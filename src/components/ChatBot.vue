@@ -6,17 +6,20 @@
     <div class="chat-messages" v-chat-scroll>
       <div class="filler"></div>
       <div v-for="(message, index) in conversation" :key="message.index">
-        <div v-if="conversation[index].chatStyle === 'bot'">
+        <div class="bot-flexbox" v-if="conversation[index].chatStyle === 'bot'">
           <img class="botPic" src="../assets/male.png" />
           <p class="chat-message botMessage">
             {{ conversation[index].message }}
           </p>
         </div>
-        <div v-if="conversation[index].chatStyle === 'user'">
-          <img class="userPic" src="../assets/female.png" />
+        <div
+          class="user-flexbox"
+          v-if="conversation[index].chatStyle === 'user'"
+        >
           <p class="chat-message userMessage">
             {{ conversation[index].message }}
           </p>
+          <img class="userPic" src="../assets/female.png" />
         </div>
       </div>
     </div>
@@ -159,6 +162,8 @@ a {
   justify-content: center;
   height: 2.5em;
   display: flex;
+  box-shadow: 0px 2px 5px 0px gray;
+  z-index: 100;
 }
 #chat-header h3 {
   color: white;
@@ -221,7 +226,18 @@ a {
 .botPic {
   width: 3em;
   height: 3em;
-  float: left;
+}
+
+.bot-flexbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-flexbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .userMessage {
@@ -239,7 +255,6 @@ a {
 .userPic {
   width: 3em;
   height: 3em;
-  float: right;
 }
 
 header .filler {
