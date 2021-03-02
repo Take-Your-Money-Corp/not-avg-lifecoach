@@ -64,6 +64,12 @@ export default {
     msg: String
   },
   methods: {
+    initialMessage() {
+      this.conversation.push({
+        chatStyle: "bot",
+        message: "Hello, I am your Motivational Lifecoach, ask me anything!"
+      });
+    },
     nlpHandshake() {
       makeHandshake()
         .then(dataId => {
@@ -72,12 +78,6 @@ export default {
         .catch(error => {
           this.error = "handshake api call is unsuccessful";
         });
-    },
-    initialMessage() {
-      this.conversation.push({
-        chatStyle: "bot",
-        message: "Hello, I am your Motivational Lifecoach, ask me anything!"
-      });
     },
     sendMessage() {
       if (this.ourMessage != "") {

@@ -1,9 +1,8 @@
 import axios from "axios";
 
-export function makeHandshake() {
-  return axios.get("http://localhost:3000/rest/token").then(response => {
-    return response.data.id;
-  });
+export async function makeHandshake() {
+  const response = await axios.get("http://localhost:3000/rest/token");
+  return response.data.id;
 }
 
 export function postMessage(ourMessage, nlpRestToken) {
@@ -13,15 +12,11 @@ export function postMessage(ourMessage, nlpRestToken) {
     data: {
       text: ourMessage
     }
-  }).then(response => {
-    return response;
-  });
+  }).then(response => response);
 }
 
 export function getBotReply(nlpRestToken) {
-  return axios
-    .get(
-      `http://localhost:3000/directline/conversations/${nlpRestToken}/activities`
-    )
-    .then(response => response);
+  return axios.get(
+    `http://localhost:3000/directline/conversations/${nlpRestToken}/activities`
+  );
 }
