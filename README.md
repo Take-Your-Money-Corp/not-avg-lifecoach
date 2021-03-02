@@ -24,7 +24,7 @@
 
 ## Sample Output
 
-<a height="500" align ="center" href="{https://user-images.githubusercontent.com/15049008/109719595-ba239080-7b5d-11eb-85da-eafd847605c6.mp4" title="Sample Usage"><img src="{https://user-images.githubusercontent.com/15049008/109720047-6bc2c180-7b5e-11eb-8749-3ef83c5cb574.gif}"/></a>
+<!-- <a height="500" align ="center" href="{https://user-images.githubusercontent.com/15049008/109719595-ba239080-7b5d-11eb-85da-eafd847605c6.mp4" title="Sample Usage"><img src="{https://user-images.githubusercontent.com/15049008/109720047-6bc2c180-7b5e-11eb-8749-3ef83c5cb574.gif}"/></a> -->
 
 ![vid](https://user-images.githubusercontent.com/15049008/109720047-6bc2c180-7b5e-11eb-8749-3ef83c5cb574.gif)
 
