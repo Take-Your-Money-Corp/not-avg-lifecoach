@@ -21,7 +21,7 @@ After Cloning the repository to your local machine , the following steps should 
 
 ![alt text](Documentation/img/split-terminal.png)
 
-**Step 4: ** run *npm install* command in one of the terminal screens
+**Step 4:** run *npm install* command in one of the terminal screens
 
 ![alt text](Documentation/img/run-npm-install.png)
 
