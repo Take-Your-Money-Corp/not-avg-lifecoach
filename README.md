@@ -4,9 +4,11 @@
 - [Getting Started](#getting-started)
 - [Project Description](#project-description)
 - [Project Limitations](#project-limitations)
+- [Project Documentation](#project-documentation)
 - [Class Organization](#class-organization)
 - [Sample Output](#sample-output)
 - [Contributors](#contributors)
+
 
 ## Getting Started
 
@@ -19,13 +21,17 @@
 
 &nbsp;&nbsp;&nbsp;&nbsp;Given that information, the chatbot cannot handle incorrect spelling, as there is no natural spell checker attached. Also, the chatbot does not handle synonyms properly and treats them as unique words. Lastly, the program does not remember the conversations it holds after refreshing the page.
 
+## Project Description
+-[Work Breakdown Structure](https://github.com/Take-Your-Money-Corp/not-avg-lifecoach/blob/master/Documentation/WBS.png)
+-[Gantt Chart](https://github.com/Take-Your-Money-Corp/not-avg-lifecoach/blob/master/Documentation/GanttChart.png)
 
 ## Class Organization
 
 ## Sample Output
-## Sample Output
 
-<a href="https://user-images.githubusercontent.com/15049008/109719595-ba239080-7b5d-11eb-85da-eafd847605c6.mp4" title="Sample Usage"><img src="https://user-images.githubusercontent.com/15049008/109720047-6bc2c180-7b5e-11eb-8749-3ef83c5cb574.gif"/></a>
+<!-- <a height="500" align ="center" href="{https://user-images.githubusercontent.com/15049008/109719595-ba239080-7b5d-11eb-85da-eafd847605c6.mp4" title="Sample Usage"><img src="{https://user-images.githubusercontent.com/15049008/109720047-6bc2c180-7b5e-11eb-8749-3ef83c5cb574.gif}"/></a> -->
+
+![vid](https://user-images.githubusercontent.com/15049008/109720047-6bc2c180-7b5e-11eb-8749-3ef83c5cb574.gif)
 
 
 
