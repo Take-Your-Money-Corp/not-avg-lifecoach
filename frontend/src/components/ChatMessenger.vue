@@ -85,10 +85,10 @@ export default {
         this.conversation.push({ chatStyle: "user", message: this.ourMessage });
 
         postMessage(this.ourMessage, this.nlpRestToken)
-          .then(response => {
+          .then(() => {
             this.typingEnabled = false;
             setTimeout(() => {
-              this.reply = response.data;
+              // this.reply = response;
               this.typingEnabled = true;
               this.$nextTick(() => {
                 this.$refs["textinput"].focus();

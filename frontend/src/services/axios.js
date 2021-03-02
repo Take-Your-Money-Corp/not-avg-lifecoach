@@ -6,13 +6,14 @@ export async function makeHandshake() {
 }
 
 export function postMessage(ourMessage, nlpRestToken) {
-  return axios({
-    method: "post",
-    url: `http://localhost:3000/directline/conversations/${nlpRestToken}/activities`,
-    data: {
-      text: ourMessage
-    }
-  }).then(response => response);
+  return axios
+    .post(
+      `http://localhost:3000/directline/conversations/${nlpRestToken}/activities`,
+      {
+        text: ourMessage
+      }
+    )
+    .then(response => response.data);
 }
 
 export function getBotReply(nlpRestToken) {
