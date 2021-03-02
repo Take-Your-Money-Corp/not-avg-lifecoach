@@ -12,10 +12,10 @@
 
 ## Getting Started
 - open split terminal
-- 'cd backend' in first window
-- 'cd frontend' in second window
-- 'npm run backend' in first window
-- 'npm run serve' in second window
+- `cd backend` in first window
+- `cd frontend` in second window
+- `npm run backend` in first window
+- `npm run serve` in second window
 - navigate to localhost:8080
 
 ## Project Description
