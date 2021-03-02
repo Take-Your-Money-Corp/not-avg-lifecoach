@@ -54,7 +54,8 @@ export default {
       userMessages: [],
       botMessageCount: -1,
       conversation: [],
-      typingEnabled: true
+      typingEnabled: true,
+      error: ""
     };
   },
 
@@ -69,7 +70,7 @@ export default {
           this.nlpRestToken = dataId;
         })
         .catch(error => {
-          console.log(error);
+          this.error = "handshake api call is unsuccessful";
         });
     },
     initialMessage() {

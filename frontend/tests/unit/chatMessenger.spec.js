@@ -9,7 +9,7 @@ beforeEach(() => {
 });
 
 describe("ChatMessenger", () => {
-  it("Makes handshake with backend and returns token id", async () => {
+  it("Calls makeHandshake and updates component data token", async () => {
     const mockToken = "I-R-A-Rest-Token";
     makeHandshake.mockResolvedValueOnce(mockToken);
     const wrapper = mount(ChatMessenger);
@@ -19,14 +19,13 @@ describe("ChatMessenger", () => {
     expect(componentToken).toEqual(mockToken);
   });
 
-  //   it("Displays an error when getMessage call fails", async () => {
-  //     const mockError = "Oops! Something went wrong.";
-  //     getMessage.mockRejectedValueOnce({ text: mockError });
-  //     const wrapper = mount(MessageDisplay);
-  //     await flushPromises();
-  //     expect(getMessage).toHaveBeenCalledTimes(1);
-  //     const error = wrapper.find('[data-testid="message-error"]').element
-  //       .textContent;
-  //     expect(error).toEqual(error);
-  //   });
+  it("Calls makeHandshake and sets error component variable", async () => {
+    const mockError = "handshake api call is unsuccessful";
+    makeHandshake.mockRejectedValueOnce(mockError);
+    const wrapper = mount(ChatMessenger);
+    await flushPromises();
+    expect(makeHandshake).toHaveBeenCalledTimes(1);
+    const errorMessage = wrapper.vm.error;
+    expect(errorMessage).toEqual(mockError);
+  });
 });
