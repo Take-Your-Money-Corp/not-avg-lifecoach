@@ -1,0 +1,17 @@
+{
+  "name": "backend",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "nodemon ."
+  },
+  "dependencies": {
+    "@nlpjs/basic": "^4.21.0",
+    "@nlpjs/directline-connector": "^4.19.1",
+    "@nlpjs/express-api-server": "^4.21.0",
+    "@nlpjs/rest-connector": "^4.21.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
