@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "backend": "nodemon ."
+    "start": "nodemon ."
   },
   "dependencies": {
     "@nlpjs/basic": "^4.21.0",
