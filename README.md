@@ -51,10 +51,10 @@ After Cloning the repository to your local machine , the following steps should 
 
 ## Class Organization
 
-## Sample Output (Click to view the full video)
+## Sample Output 
 
 <p align="center">
-  <img height="600" src="https://github.com/Take-Your-Money-Corp/not-avg-lifecoach/blob/master/Documentation/img/sample.gif">
+  <img height="700" src="https://github.com/Take-Your-Money-Corp/not-avg-lifecoach/blob/master/Documentation/img/sample.gif">
 </p>
 
 
