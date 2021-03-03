@@ -10,8 +10,8 @@
 - [Contributors](#contributors)
 
 ## Getting Started
-*pre requisites - node is installed on your device*
-After Cloning the repository to your local machine , the following steps should lead you to successfully interact with the bot - 
+
+***Pre-requisites*** - node is installed on your device. After Cloning the repository to your local machine , the following steps should lead you to successfully interact with the bot: 
 
 **Step 1:** Open the repository in your preferred ide ([Visual studio](https://visualstudio.microsoft.com/vs/) code recommended)
 
