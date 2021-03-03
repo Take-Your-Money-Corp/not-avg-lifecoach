@@ -64,7 +64,7 @@ export default {
   methods: {
     nlpHandshake() {
       axios
-        .get("http://localhost:3000/rest/token")
+        .get("https://ancient-island-10815.herokuapp.com/rest/token")
         .then(response => {
           this.nlpRestToken = response.data.id;
         })
@@ -85,7 +85,7 @@ export default {
 
         axios({
           method: "post",
-          url: `http://localhost:3000/directline/conversations/${this.nlpRestToken}/activities`,
+          url: `https://ancient-island-10815.herokuapp.com/directline/conversations/${this.nlpRestToken}/activities`,
           data: {
             text: this.ourMessage
           }
@@ -113,7 +113,7 @@ export default {
     getReply() {
       axios
         .get(
-          `http://localhost:3000/directline/conversations/${this.nlpRestToken}/activities`
+          `https://ancient-island-10815.herokuapp.com//directline/conversations/${this.nlpRestToken}/activities`
         )
         .then(response => {
           this.reply =
