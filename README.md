@@ -15,39 +15,25 @@ After Cloning the repository to your local machine , the following steps should 
 
 **Step 1:** Open the repository in your preferred ide ([Visual studio](https://visualstudio.microsoft.com/vs/) code recommended)
 
-**Step 2:** Open a terminal in your vscode by going to ***Terminal > New Terminal*** , as shown in the picture below
+**Step 2:** Open a terminal in your vscode by going to ***Terminal > New Terminal***
 
-![alt text](Documentation/img/open-terminal.png)
+**Step 3:** Split the terminal into 2 windows in vscode by clicking the *book* icon on the top left of the terminal
 
-**Step 3:** Split the terminal into 2 in vscode by clicking the *book* icon on the top left of the terminal
+**Step 4:** run `npm install` command in one of the terminal screens
 
-![alt text](Documentation/img/split-terminal.png)
+**Step 5:** after the `npm install` command has finished installing and there are no issues , type `cd frontend` in one of the terminal windows and `cd backend` into the other
 
-**Step 4:** run ***npm install*** command in one of the terminal screens
+**Step 6:**  in the terminal with `cd frontend` type `npm run serve`
 
-![alt text](Documentation/img/run-npm-install.png)
+**Step 7:** in the terminal with `cd backend` type `npm run backend`
 
-**Step 5:** after npm install command finished installing and there are no issues , type *cd frontend/* in one of the terminal and ***cd backend/*** into the other
+**Step 8:** open browser and type `localhost:8080` to run the chatbot throught the frontend of the application.
 
-![alt text](Documentation/img/cd-frontend.png)
+**Step 9:** You are ready to chat with the bot!
 
-![alt text](Documentation/img/cd-backend.png)
-
-**Step 6:**  in the terminal with ***cd frontend/*** type *npm run serve*
-
-![alt text](Documentation/img/npm-run-serve.png)
-
-**Step 7:** in the terminal with ***cd backend/*** type *node . *
-
-![alt text](Documentation/img/node-..png)
-
-**Step 8:** open browser and type ***locahost/***
-
-![alt text](Documentation/img/screen-1.png)
-
-**Step 9:** chat with the bot ! 
-
-![alt text](Documentation/img/chatbot-screen.png)
+<p align="center">
+  <img height="300" src="https://github.com/Take-Your-Money-Corp/not-avg-lifecoach/blob/master/Documentation/img/chatbot-screen.png">
+</p>
 
 ## Project Description
 
