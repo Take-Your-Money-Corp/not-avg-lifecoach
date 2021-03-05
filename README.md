@@ -45,8 +45,12 @@
 &nbsp;&nbsp;&nbsp;&nbsp;Given that information, the chatbot cannot handle incorrect spelling, as there is no natural spell checker attached. Also, the chatbot does not handle synonyms properly and treats them as unique words. Lastly, the program does not remember the conversations it holds after refreshing the page.
 
 ## Project Documentation
- - [Work Breakdown Structure](https://github.com/Take-Your-Money-Corp/not-avg-lifecoach/blob/master/Documentation/WBS.png)
- - [Gantt Chart](https://github.com/Take-Your-Money-Corp/not-avg-lifecoach/blob/master/Documentation/GanttChart.png)
+&nbsp;&nbsp;&nbsp;&nbsp;The following work breakdown structure (WBS) is a tree-like structure that allows the chatbot project to break down into smaller and more manageable portions. Overall, the WBS comprises six parent nodes that need to be divided and conquered. In this case, each parent node divides into three levels. Each level provides more detailed work to be done to complete the parent task. Furthermore, at the bottom of each section, you will find the estimated number of hours needed to complete each task. Below that, you will see the actual hours it took. On the right-hand side, there is a legend that maps a letter to everyone’s names. The letter is found on each bottom node to show who is responsible for each task. 
+- [Work Breakdown Structure](https://github.com/Take-Your-Money-Corp/not-avg-lifecoach/blob/master/Documentation/WBS.png)
+
+&nbsp;&nbsp;&nbsp;&nbsp;The following Gantt chart is a bar chart that is used for planning and scheduling each project task. The horizontal axis of the Gantt chart represents the time it takes to complete the tasks. On the other hand, the vertical axis represents the tasks that need to be complete. Furthermore, the Gantt chart shows how each responsibility group per the software development life cycle. Each bar in the Gantt chart contains several properties. These properties are a start and end date, plus the number of hours to complete a task. Lastly, each bar is color-coded for ease in readability and matches the project milestones on the left-hand side.
+- [Gantt Chart](https://github.com/Take-Your-Money-Corp/not-avg-lifecoach/blob/master/Documentation/GanttChart.png)
+ 
 
 ## Class Organization
 
