@@ -30,6 +30,7 @@
 <script>
 import Vue from "vue";
 import axios from "axios";
+import { makeHandshake, postMessage, getBotReply } from "@/services/axios.js";
 import VueChatScroll from "vue-chat-scroll";
 import Bot from "@/components/Bot.vue";
 import User from "./User.vue";
@@ -53,7 +54,8 @@ export default {
       userMessages: [],
       botMessageCount: -1,
       conversation: [],
-      typingEnabled: true
+      typingEnabled: true,
+      error: ""
     };
   },
 
@@ -62,38 +64,31 @@ export default {
     msg: String
   },
   methods: {
-    nlpHandshake() {
-      axios
-        .get("http://localhost:3000/rest/token")
-        .then(response => {
-          this.nlpRestToken = response.data.id;
-        })
-        .catch(error => {
-          console.log(error);
-        });
-    },
     initialMessage() {
       this.conversation.push({
         chatStyle: "bot",
         message: "Hello, I am your Motivational Lifecoach, ask me anything!"
       });
     },
+    nlpHandshake() {
+      makeHandshake()
+        .then(dataId => {
+          this.nlpRestToken = dataId;
+        })
+        .catch(error => {
+          this.error = "handshake api call is unsuccessful";
+        });
+    },
     sendMessage() {
       if (this.ourMessage != "") {
         this.userMessages.push(this.ourMessage);
         this.conversation.push({ chatStyle: "user", message: this.ourMessage });
 
-        axios({
-          method: "post",
-          url: `http://localhost:3000/directline/conversations/${this.nlpRestToken}/activities`,
-          data: {
-            text: this.ourMessage
-          }
-        })
-          .then(response => {
+        postMessage(this.ourMessage, this.nlpRestToken)
+          .then(() => {
             this.typingEnabled = false;
             setTimeout(() => {
-              this.reply = response.data;
+              // this.reply = response;
               this.typingEnabled = true;
               this.$nextTick(() => {
                 this.$refs["textinput"].focus();
@@ -111,10 +106,7 @@ export default {
     },
 
     getReply() {
-      axios
-        .get(
-          `http://localhost:3000/directline/conversations/${this.nlpRestToken}/activities`
-        )
+      getBotReply(this.nlpRestToken)
         .then(response => {
           this.reply =
             response.data.activities[(this.botMessageCount += 2)].text;
