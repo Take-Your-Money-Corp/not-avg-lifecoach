@@ -4,8 +4,7 @@
       "corpora": ["./corpus.json"]
     },
     "api-server": {
-      "port": 3000,
-      "serveBot": true
+      "port": 3000
     }
   },
   "use": ["Basic", "ExpressApiServer", "DirectlineConnector"]
