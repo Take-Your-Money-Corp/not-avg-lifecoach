@@ -1,13 +1,15 @@
 # NOT YOUR AVERAGE LIFE COACH
 
 ### Task List
-- [Getting Started](#getting-started)
-- [Project Description](#project-description)
-- [Project Limitations](#project-limitations) 
-- [Project Documentation](#project-documentation)
-- [Class Organization](#class-organization)
-- [Sample Output](#sample-output)
-- [Contributors](#contributors)
+- [NOT YOUR AVERAGE LIFE COACH](#not-your-average-life-coach)
+    - [Task List](#task-list)
+  - [Getting Started](#getting-started)
+  - [Project Description](#project-description)
+  - [Project Limitations](#project-limitations)
+  - [Project Documentation](#project-documentation)
+  - [Software Architecture Organization (Because this is a component based architecture not class based)](#software-architecture-organization-because-this-is-a-component-based-architecture-not-class-based)
+  - [Sample Output](#sample-output)
+  - [Contributors](#contributors)
 
 ## Getting Started
 
@@ -31,9 +33,9 @@
 
 **Step 9:** That is it. Now you are ready to chat with the bot!
 
-<p align="center">
-  <img height="300" src="https://github.com/Take-Your-Money-Corp/not-avg-lifecoach/blob/master/Documentation/img/chatbot-screen.png">
-</p>
+<div align="center">
+  <img height="300" src="./Documentation/img/chatbot-screen.png">
+</div>
 
 ## Project Description
 
@@ -45,17 +47,27 @@ In general, the chatbot can produce a sample output of good feasible conversatio
 Given that information, the chatbot cannot handle incorrect spelling, as there is no natural spell checker attached. Also, the chatbot does not handle synonyms properly and treats them as unique words. Lastly, the program does not remember the conversations it holds after refreshing the page.
 
 ## Project Documentation
-Note: When you click the link to the WBS or Gantt chart, click the `Download` button to get full view of each image. 
-- [Work Breakdown Structure](https://github.com/Take-Your-Money-Corp/not-avg-lifecoach/blob/master/Documentation/WBS.png)
-- [Gantt Chart](https://github.com/Take-Your-Money-Corp/not-avg-lifecoach/blob/master/Documentation/GanttChart.png)
- 
-## Class Organization
+ - [Work Breakdown Structure](https://github.com/Take-Your-Money-Corp/not-avg-lifecoach/blob/master/Documentation/WBS.png)
+ - [Gantt Chart](https://github.com/Take-Your-Money-Corp/not-avg-lifecoach/blob/master/Documentation/GanttChart.png)
+
+## Software Architecture Organization (Because this is a component based architecture not class based)
+- ### Context Diagram
+
+ <div align="center">
+  <img height="300" src="./Documentation/img/SoftwareArchitecture-Container-View.png">
+</div> 
+
+- ### Compenent Diagram
+ <div align="center">
+  <img height="400" src="./Documentation/img/SoftwareArchitecture-Component-View.png">
+</div> 
+
 
 ## Sample Output 
 
-<p align="center">
-  <img height="700" src="https://github.com/Take-Your-Money-Corp/not-avg-lifecoach/blob/master/Documentation/img/sample.gif">
-</p>
+<div align="center">
+  <img height="700" src="./Documentation/img/sample.gif">
+</div>
 
 
 

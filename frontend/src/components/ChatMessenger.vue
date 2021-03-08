@@ -17,7 +17,7 @@
         class="text-input"
         type="text"
         @keyup.enter="sendMessage"
-        v-model="ourMessage"
+        v-model="userMessage"
         placeholder="Type a message..."
       />
       <button @click="sendMessage" class="send-message">
@@ -29,7 +29,6 @@
 
 <script>
 import Vue from "vue";
-import axios from "axios";
 import { makeHandshake, postMessage, getBotReply } from "@/services/axios.js";
 import VueChatScroll from "vue-chat-scroll";
 import Bot from "@/components/Bot.vue";
@@ -48,7 +47,7 @@ export default {
   data() {
     return {
       nlpRestToken: "",
-      ourMessage: "",
+      userMessage: "",
       reply: "",
       botMessages: [],
       userMessages: [],
@@ -80,11 +79,11 @@ export default {
         });
     },
     sendMessage() {
-      if (this.ourMessage != "") {
-        this.userMessages.push(this.ourMessage);
-        this.conversation.push({ chatStyle: "user", message: this.ourMessage });
+      if (this.userMessage != "") {
+        this.userMessages.push(this.userMessage);
+        this.conversation.push({ chatStyle: "user", message: this.userMessage });
 
-        postMessage(this.ourMessage, this.nlpRestToken)
+        postMessage(this.userMessage, this.nlpRestToken)
           .then(() => {
             this.typingEnabled = false;
             setTimeout(() => {
@@ -100,7 +99,7 @@ export default {
             console.log(error);
           })
           .finally(() => {
-            this.ourMessage = "";
+            this.userMessage = "";
           });
       }
     },
@@ -119,7 +118,7 @@ export default {
         .finally(() => {});
     },
     updateMessage(currentMessage) {
-      this.ourMessage = currentMessage;
+      this.userMessage = currentMessage;
     }
   }
 };
