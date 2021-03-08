@@ -29,7 +29,6 @@
 
 <script>
 import Vue from "vue";
-import axios from "axios";
 import { makeHandshake, postMessage, getBotReply } from "@/services/axios.js";
 import VueChatScroll from "vue-chat-scroll";
 import Bot from "@/components/Bot.vue";
