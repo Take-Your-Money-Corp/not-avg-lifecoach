@@ -34,7 +34,7 @@
 **Step 9:** You are ready to chat with the bot!
 
 <div align="center">
-  <img height="300" src="https://github.com/Take-Your-Money-Corp/not-avg-lifecoach/blob/master/Documentation/img/chatbot-screen.png">
+  <img height="300" src="./Documentation/img/chatbot-screen.png">
 </div>
 
 ## Project Description
@@ -51,12 +51,13 @@
  - [Gantt Chart](https://github.com/Take-Your-Money-Corp/not-avg-lifecoach/blob/master/Documentation/GanttChart.png)
 
 ## Software Architecture Organization (Because this is a component based architecture not class based)
- - Context Diagram
+- ### Context Diagram
+
  <div align="center">
   <img height="300" src="./Documentation/img/SoftwareArchitecture-Container-View.png">
 </div> 
 
- - Compenent Diagram
+- ### Compenent Diagram
  <div align="center">
   <img height="400" src="./Documentation/img/SoftwareArchitecture-Component-View.png">
 </div> 
@@ -65,7 +66,7 @@
 ## Sample Output 
 
 <div align="center">
-  <img height="700" src="https://github.com/Take-Your-Money-Corp/not-avg-lifecoach/blob/master/Documentation/img/sample.gif">
+  <img height="700" src="./Documentation/img/sample.gif">
 </div>
 
 
