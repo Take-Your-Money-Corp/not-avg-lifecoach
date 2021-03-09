@@ -1,6 +1,6 @@
 # NOT YOUR AVERAGE LIFE COACH
 
-### Task List
+### Navigation
   - [Getting Started](#getting-started)
   - [Project Description](#project-description)
   - [Project Limitations](#project-limitations)
@@ -69,5 +69,70 @@ Given that information, the chatbot cannot handle incorrect spelling, as there i
 
 
 
-
 ## Contributors
+
+### Matt Borle
+#### Assignment 2:
+- Peer evaluations 
+- Helped a bit with backend (w/ Shawn and Guy)
+- Contributed project plan document (w/ everyone)
+- Created Presentation Video
+
+### Guy Kaminsky
+#### Assignment 2:
+- Organized / ran meetings (w/ Dani)
+- Did the WBS (w/ Dani)
+- Wrote project limitations 
+- Wrote gantt and WBS descriptions
+- Contributed project plan document (w/ everyone)
+- Helped a bit with backend (w/ Shawn and Matt)
+- Edit README (w/ Dani)
+- Final edit project pdf
+- Peer evaluations 
+
+### Danielle Macdonald
+#### Assignment 2:
+- Organized / ran meetings (w/ Guy)
+- Assisted with creation of project plan document
+- Created WBS (w/ Guy)
+- Assisted with task tracking in Kanban board
+- Created README file
+- Edited frontend of chatbot (w/ Harman)
+- Finalized chat bot styling and user icons (w/ JQ)
+- Tested chatbot output and recorded sample output.
+- Assigned tasks to group members (w/ Guy)
+- Peer evaluations
+
+### Shawn Paul Mountenay
+#### Assignment 2:
+- Peer evaluations 
+- Contributed project plan document (w/ everyone)
+- Contributed to Meetings
+- Taught some Web Development Concepts to other group members.
+- Made the repository and explained GitHub to other group members.
+- Setup base architecture and proposed main libraries and explained.
+- Setup project libraries on frontend and backend (with help from JQ)
+- Helped with styles
+- Contributed to all Vue Components
+- Peer evaluations
+- Made Chatbot work on mobile
+
+### Wee Jia Quan
+#### Assignment 2:
+- Reverse engineered the API of NLPJs to integrate with our Vue frontend. (w/ Shawn)
+- Added welcome message / initial message for the chatbot.
+- Finalized chat bot styling and user icons (w/ Danielle)
+- Initialized corpus.json with the message that suits the attitude of our chatbot.
+- Project plan document (w/ everyone)
+- Made animated gif / video demonstration draft
+- Peer evaluations 
+
+### Harman Sahota
+#### Assignment 2:
+- Peer evaluations 
+- Contributed project plan document (w/ everyone)
+- Contributed to making the UI(with danielle)
+- Contributed to the documentation in the github readme file
+- Wrote the task breakdown(with JQ)
+- Worked on the gantt chart (with JQ)
+- Peer evaluations
