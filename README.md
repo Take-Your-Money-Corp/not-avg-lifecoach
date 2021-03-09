@@ -47,6 +47,7 @@ Given that information, the chatbot cannot handle incorrect spelling, as there i
 
 ## Project Documentation
 
+ - [Project Plan Document](https://github.com/Take-Your-Money-Corp/not-avg-lifecoach/blob/master/Documentation/COSC%20310%20-%20Project%20Plan.pdf)
  - [Work Breakdown Structure](https://github.com/Take-Your-Money-Corp/not-avg-lifecoach/blob/master/Documentation/WBS.png)
  - [Gantt Chart](https://github.com/Take-Your-Money-Corp/not-avg-lifecoach/blob/master/Documentation/GanttChart.png)
 
