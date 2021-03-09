@@ -58,12 +58,11 @@ Given that information, the chatbot cannot handle incorrect spelling, as there i
   <img height="300" src="./Documentation/img/SoftwareArchitecture-Container-View.png">
 </div> 
 
-- ### Compenent Diagram (click to expand)
+- ### Component Diagram (click to expand)
 
  <div align="center">
   <img height="400" src="./Documentation/img/SoftwareArchitecture-Component-View.png">
 </div> 
-
 
 ## Sample Output 
 
