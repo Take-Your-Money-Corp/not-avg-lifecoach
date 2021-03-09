@@ -1,13 +1,11 @@
 # NOT YOUR AVERAGE LIFE COACH
 
 ### Task List
-- [NOT YOUR AVERAGE LIFE COACH](#not-your-average-life-coach)
-    - [Task List](#task-list)
   - [Getting Started](#getting-started)
   - [Project Description](#project-description)
   - [Project Limitations](#project-limitations)
   - [Project Documentation](#project-documentation)
-  - [Software Architecture Organization (Because this is a component based architecture not class based)](#software-architecture-organization-because-this-is-a-component-based-architecture-not-class-based)
+  - [Software Architecture Organization](#software-architecture-organization-because-this-is-a-component-based-architecture-not-class-based)
   - [Sample Output](#sample-output)
   - [Contributors](#contributors)
 
