@@ -32,7 +32,7 @@ import Vue from "vue";
 import { makeHandshake, postMessage, getBotReply } from "@/services/axios.js";
 import VueChatScroll from "vue-chat-scroll";
 import Bot from "@/components/Bot.vue";
-import User from "./User.vue";
+import User from "../components/User.vue";
 Vue.use(VueChatScroll);
 
 export default {
@@ -81,7 +81,10 @@ export default {
     sendMessage() {
       if (this.userMessage != "") {
         this.userMessages.push(this.userMessage);
-        this.conversation.push({ chatStyle: "user", message: this.userMessage });
+        this.conversation.push({
+          chatStyle: "user",
+          message: this.userMessage
+        });
 
         postMessage(this.userMessage, this.nlpRestToken)
           .then(() => {

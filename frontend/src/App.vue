@@ -1,17 +1,8 @@
 <template>
   <div id="app">
-    <ChatMessenger />
+    <router-view />
   </div>
 </template>
-<script>
-import ChatMessenger from "./components/ChatMessenger.vue";
-
-export default {
-  components: {
-    ChatMessenger
-  }
-};
-</script>
 
 <style lang="scss">
 html,
