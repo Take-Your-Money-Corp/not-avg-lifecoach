@@ -1,9 +1,8 @@
 <template>
   <div id="chat-bot">
     <div id="chat-header">
-      <h5>Not Your Average Life Coach</h5>
-      <b-icon-list></b-icon-list>
-      <b-icon icon="list"></b-icon>
+      <h5 id="chat-header-text">Not Your Average Life Coach</h5>
+      <button @click="goToChatAnalysisRoute" id="analyze">Analyze</button>
     </div>
     <div class="chat-messages" v-chat-scroll>
       <div class="filler"></div>
@@ -65,6 +64,9 @@ export default {
     msg: String
   },
   methods: {
+    goToChatAnalysisRoute() {
+      this.$router.push("chat-analysis");
+    },
     initialMessage() {
       this.conversation.push({
         chatStyle: "bot",
@@ -138,7 +140,26 @@ export default {
   }
 }
 
+#analyze {
+  height: fit-content;
+  background-color: #c044b0; /* Green */
+  border-radius: 8px;
+  border-width: 1px;
+  border-color: #845ec2;
+  text-shadow: 1px 1px 1px #7a4874;
+  color: #ffe3db;
+  padding: 3px 10px;
+  transition-duration: 0.4s;
+  text-align: center;
+  font-size: 16px;
+  margin-left: auto;
+  margin-right: 5px;
+}
 
+#analyze:hover {
+  background-color: #a03491;
+  color: #ffffff;
+}
 ul {
   list-style-type: none;
   padding: 0;
@@ -150,10 +171,17 @@ li {
 a {
   color: #42b983;
 }
+
+#chat-header-text {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 #chat-header {
   margin: 0em 0em auto 0em;
   background-color: #d65db1;
   justify-content: center;
+  align-items: center;
   height: fit-content;
   display: flex;
   box-shadow: 0px 2px 5px 0px gray;
