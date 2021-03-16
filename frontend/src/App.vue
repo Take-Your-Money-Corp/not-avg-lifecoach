@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <router-view />
+    <router-view/>
   </div>
 </template>
 
@@ -9,7 +9,7 @@ html,
 body {
   margin: 0;
   padding: 0;
-  background-color: thistle;
+  background-color: thistle !important;
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

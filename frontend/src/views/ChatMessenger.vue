@@ -1,7 +1,9 @@
 <template>
   <div id="chat-bot">
     <div id="chat-header">
-      <h3>Not Your Average Life Coach</h3>
+      <h5>Not Your Average Life Coach</h5>
+      <b-icon-list></b-icon-list>
+      <b-icon icon="list"></b-icon>
     </div>
     <div class="chat-messages" v-chat-scroll>
       <div class="filler"></div>
@@ -136,9 +138,7 @@ export default {
   }
 }
 
-h3 {
-  margin: 40px 0 0;
-}
+
 ul {
   list-style-type: none;
   padding: 0;
@@ -154,14 +154,14 @@ a {
   margin: 0em 0em auto 0em;
   background-color: #d65db1;
   justify-content: center;
-  height: 2.5em;
+  height: fit-content;
   display: flex;
   box-shadow: 0px 2px 5px 0px gray;
   z-index: 100;
 }
-#chat-header h3 {
+#chat-header h5 {
   color: white;
-  margin-top: 3%;
+  margin: 3% 2%;
 }
 
 .send-message {
