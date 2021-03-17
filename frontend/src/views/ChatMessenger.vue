@@ -132,6 +132,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import "@/scss/theme.scss";
+
 @media only screen and (max-width: 600px) {
   #chat-bot {
     width: 100vw !important;
@@ -142,12 +144,12 @@ export default {
 
 #analyze {
   height: fit-content;
-  background-color: #c044b0; /* Green */
+  background-color: $accent;
   border-radius: 8px;
   border-width: 1px;
-  border-color: #845ec2;
-  text-shadow: 1px 1px 1px #7a4874;
-  color: #ffe3db;
+  border-color: $accent;
+  text-shadow: 1px 1px 1px $accentDark;
+  color: $light;
   padding: 3px 10px;
   transition-duration: 0.4s;
   text-align: center;
@@ -157,7 +159,7 @@ export default {
 }
 
 #analyze:hover {
-  background-color: #a03491;
+  background-color: $accentDark;
   color: #ffffff;
 }
 ul {
@@ -179,29 +181,29 @@ a {
 
 #chat-header {
   margin: 0em 0em auto 0em;
-  background-color: #d65db1;
+  background-color: $primary;
   justify-content: center;
   align-items: center;
   height: fit-content;
   display: flex;
-  box-shadow: 0px 2px 5px 0px gray;
+  box-shadow: 0px 2px 5px 0px $neutral;
   z-index: 100;
 }
 #chat-header h5 {
-  color: white;
+  color: $light;
   margin: 3% 2%;
 }
 
 .send-message {
-  background-color: white;
+  background-color: $light;
   z-index: 1;
   border: none;
   width: 3em;
   border-radius: 40px;
 }
 .user-input {
-  background-color: white;
-  border-top: grey solid 2px;
+  background-color: $light;
+  border-top: $neutral solid 2px;
   margin: 0em 0em 0em 0em;
   display: flex;
 }
@@ -234,11 +236,11 @@ a {
   margin-bottom: 0.5em;
 }
 .botMessage {
-  background-color: #ff9671;
+  background-color: $tertiary;
   margin-right: auto;
   margin-left: 5px;
   border-radius: 5px;
-  box-shadow: 0px 4px 4px rgba(100, 75, 65, 0.25);
+  box-shadow: 0px 2px 5px $neutral;
   padding-left: 15px;
   padding-top: 15px;
   padding-bottom: 15px;
@@ -263,12 +265,12 @@ a {
 }
 
 .userMessage {
-  background-color: #ffc75f;
+  background-color: $secondary;
   margin-left: auto;
   margin-right: 5px;
   border-radius: 5px;
   margin-bottom: 1em;
-  box-shadow: 0px 4px 4px rgba(100, 86, 61, 0.25);
+  box-shadow: 0px 2px 5px $neutral;
   padding-left: 15px;
   padding-top: 15px;
   padding-bottom: 15px;
@@ -288,8 +290,8 @@ header .filler {
 
 #chat-bot {
   padding: 0px;
-  background-color: rgba(255, 255, 255, 0.747);
-  border: #845ec2 solid 4px;
+  background-color: $light;
+  border: $accent solid 4px;
   width: 450px;
   height: 80vh;
   display: flex;
