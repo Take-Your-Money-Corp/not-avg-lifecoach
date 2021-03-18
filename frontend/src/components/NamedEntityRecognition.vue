@@ -1,8 +1,8 @@
 <template>
   <div>
-    <h1>
+    <h3>
       Named Entity Recognition
-    </h1>
+    </h3>
   </div>
 </template>
 

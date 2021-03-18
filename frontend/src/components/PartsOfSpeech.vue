@@ -1,8 +1,8 @@
 <template>
   <div>
-    <h1>
+    <h3>
       Parts Of Speech Tagging
-    </h1>
+    </h3>
   </div>
 </template>
 

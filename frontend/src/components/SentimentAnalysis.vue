@@ -1,8 +1,8 @@
 <template>
   <div>
-    <h1>
+    <h3>
       Sentiment Analysis
-    </h1>
+    </h3>
   </div>
 </template>
 
