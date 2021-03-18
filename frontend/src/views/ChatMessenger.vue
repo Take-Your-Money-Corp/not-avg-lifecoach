@@ -39,7 +39,7 @@ Vue.use(VueChatScroll);
 export default {
   components: {
     Bot,
-    User
+    User,
   },
   created() {
     this.nlpHandshake();
@@ -55,13 +55,13 @@ export default {
       botMessageCount: -1,
       conversation: [],
       typingEnabled: true,
-      error: ""
+      error: "",
     };
   },
 
   name: "ChatBot",
   props: {
-    msg: String
+    msg: String,
   },
   methods: {
     goToChatAnalysisRoute() {
@@ -70,15 +70,15 @@ export default {
     initialMessage() {
       this.conversation.push({
         chatStyle: "bot",
-        message: "Hello, I am your Motivational Lifecoach, ask me anything!"
+        message: "Hello, I am your Motivational Lifecoach, ask me anything!",
       });
     },
     nlpHandshake() {
       makeHandshake()
-        .then(dataId => {
+        .then((dataId) => {
           this.nlpRestToken = dataId;
         })
-        .catch(error => {
+        .catch((error) => {
           this.error = "handshake api call is unsuccessful";
         });
     },
@@ -87,7 +87,7 @@ export default {
         this.userMessages.push(this.userMessage);
         this.conversation.push({
           chatStyle: "user",
-          message: this.userMessage
+          message: this.userMessage,
         });
 
         postMessage(this.userMessage, this.nlpRestToken)
@@ -102,7 +102,7 @@ export default {
               this.getReply();
             }, Math.random() * 1500 + 500);
           })
-          .catch(error => {
+          .catch((error) => {
             console.log(error);
           })
           .finally(() => {
@@ -113,21 +113,21 @@ export default {
 
     getReply() {
       getBotReply(this.nlpRestToken)
-        .then(response => {
+        .then((response) => {
           this.reply =
             response.data.activities[(this.botMessageCount += 2)].text;
           this.botMessages.push(this.reply);
           this.conversation.push({ chatStyle: "bot", message: this.reply });
         })
-        .catch(error => {
+        .catch((error) => {
           console.log(error);
         })
         .finally(() => {});
     },
     updateMessage(currentMessage) {
       this.userMessage = currentMessage;
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -214,10 +214,13 @@ a {
   border-left: none;
   border-top: none;
   width: -webkit-fill-available;
+  width: -moz-available;
 }
 
 .filler {
   height: -webkit-fill-available;
+  height: -moz-available;
+  height: inherit;
 }
 
 .chat-messages {
@@ -226,6 +229,8 @@ a {
   overflow: hidden;
   overflow-y: scroll;
   height: -webkit-fill-available;
+  height: -moz-available;
+  height: 100%;
 }
 
 .chat-message {
