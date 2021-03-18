@@ -67,6 +67,7 @@ export default {
   },
   methods: {
     goToChatAnalysisRoute() {
+      this.$store.commit("getResponseScores", this.reply);
       this.$router.push("chat-analysis");
     },
     initialMessage() {
@@ -96,7 +97,6 @@ export default {
           .then(() => {
             this.typingEnabled = false;
             setTimeout(() => {
-              // this.reply = response;
               this.typingEnabled = true;
               this.$nextTick(() => {
                 this.$refs["textinput"].focus();
@@ -116,10 +116,12 @@ export default {
     getReply() {
       getBotReply(this.nlpRestToken)
         .then(response => {
-          this.reply =
-            response.data.activities[(this.botMessageCount += 2)].text;
-          this.botMessages.push(this.reply);
-          this.conversation.push({ chatStyle: "bot", message: this.reply });
+          this.reply = response.data.activities[(this.botMessageCount += 2)];
+          this.botMessages.push(this.reply.text);
+          this.conversation.push({
+            chatStyle: "bot",
+            message: this.reply.text
+          });
         })
         .catch(error => {
           console.log(error);
