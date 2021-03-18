@@ -1,7 +1,10 @@
 <template>
   <div id="chat-bot">
     <div id="chat-header">
-      <h3>Not Your Average Life Coach</h3>
+      <h5 id="chat-header-text">Not Your Average Life Coach</h5>
+      <button @click="goToChatAnalysisRoute" class="button-link">
+        Analyze
+      </button>
     </div>
     <div class="chat-messages" v-chat-scroll>
       <div class="filler"></div>
@@ -32,7 +35,7 @@ import Vue from "vue";
 import { makeHandshake, postMessage, getBotReply } from "@/services/axios.js";
 import VueChatScroll from "vue-chat-scroll";
 import Bot from "@/components/Bot.vue";
-import User from "./User.vue";
+import User from "../components/User.vue";
 Vue.use(VueChatScroll);
 
 export default {
@@ -63,6 +66,9 @@ export default {
     msg: String
   },
   methods: {
+    goToChatAnalysisRoute() {
+      this.$router.push("chat-analysis");
+    },
     initialMessage() {
       this.conversation.push({
         chatStyle: "bot",
@@ -81,7 +87,10 @@ export default {
     sendMessage() {
       if (this.userMessage != "") {
         this.userMessages.push(this.userMessage);
-        this.conversation.push({ chatStyle: "user", message: this.userMessage });
+        this.conversation.push({
+          chatStyle: "user",
+          message: this.userMessage
+        });
 
         postMessage(this.userMessage, this.nlpRestToken)
           .then(() => {
@@ -125,6 +134,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import "@/scss/theme.scss";
+
 @media only screen and (max-width: 600px) {
   #chat-bot {
     width: 100vw !important;
@@ -133,8 +144,25 @@ export default {
   }
 }
 
-h3 {
-  margin: 40px 0 0;
+.button-link {
+  height: fit-content;
+  background-color: $accent;
+  border-radius: 8px;
+  border-width: 1px;
+  border-color: $accent;
+  text-shadow: 1px 1px 1px $accentDark;
+  color: $light;
+  padding: 3px 10px;
+  transition-duration: 0.4s;
+  text-align: center;
+  font-size: 16px;
+  margin-left: auto;
+  margin-right: 5px;
+}
+
+.button-link:hover {
+  background-color: $accentDark;
+  color: #ffffff;
 }
 ul {
   list-style-type: none;
@@ -147,30 +175,37 @@ li {
 a {
   color: #42b983;
 }
+
+#chat-header-text {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 #chat-header {
   margin: 0em 0em auto 0em;
-  background-color: #d65db1;
+  background-color: $primary;
   justify-content: center;
-  height: 2.5em;
+  align-items: center;
+  height: fit-content;
   display: flex;
-  box-shadow: 0px 2px 5px 0px gray;
+  box-shadow: 0px 2px 5px 0px $neutral;
   z-index: 100;
 }
-#chat-header h3 {
-  color: white;
-  margin-top: 3%;
+#chat-header h5 {
+  color: $light;
+  margin: 3% 2%;
 }
 
 .send-message {
-  background-color: white;
+  background-color: $light;
   z-index: 1;
   border: none;
   width: 3em;
   border-radius: 40px;
 }
 .user-input {
-  background-color: white;
-  border-top: grey solid 2px;
+  background-color: $light;
+  border-top: $neutral solid 2px;
   margin: 0em 0em 0em 0em;
   display: flex;
 }
@@ -181,10 +216,13 @@ a {
   border-left: none;
   border-top: none;
   width: -webkit-fill-available;
+  width: -moz-available;
 }
 
 .filler {
   height: -webkit-fill-available;
+  height: -moz-available;
+  height: inherit;
 }
 
 .chat-messages {
@@ -193,6 +231,8 @@ a {
   overflow: hidden;
   overflow-y: scroll;
   height: -webkit-fill-available;
+  height: -moz-available;
+  height: 100%;
 }
 
 .chat-message {
@@ -203,11 +243,11 @@ a {
   margin-bottom: 0.5em;
 }
 .botMessage {
-  background-color: #ff9671;
+  background-color: $tertiary;
   margin-right: auto;
   margin-left: 5px;
   border-radius: 5px;
-  box-shadow: 0px 4px 4px rgba(100, 75, 65, 0.25);
+  box-shadow: 0px 2px 5px $neutral;
   padding-left: 15px;
   padding-top: 15px;
   padding-bottom: 15px;
@@ -232,12 +272,12 @@ a {
 }
 
 .userMessage {
-  background-color: #ffc75f;
+  background-color: $secondary;
   margin-left: auto;
   margin-right: 5px;
   border-radius: 5px;
   margin-bottom: 1em;
-  box-shadow: 0px 4px 4px rgba(100, 86, 61, 0.25);
+  box-shadow: 0px 2px 5px $neutral;
   padding-left: 15px;
   padding-top: 15px;
   padding-bottom: 15px;
@@ -257,8 +297,8 @@ header .filler {
 
 #chat-bot {
   padding: 0px;
-  background-color: rgba(255, 255, 255, 0.747);
-  border: #845ec2 solid 4px;
+  background-color: $light;
+  border: $accent solid 4px;
   width: 450px;
   height: 80vh;
   display: flex;
