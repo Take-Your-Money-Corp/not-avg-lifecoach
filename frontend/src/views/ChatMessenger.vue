@@ -2,7 +2,9 @@
   <div id="chat-bot">
     <div id="chat-header">
       <h5 id="chat-header-text">Not Your Average Life Coach</h5>
-      <button @click="goToChatAnalysisRoute" id="analyze">Analyze</button>
+      <button @click="goToChatAnalysisRoute" class="button-link">
+        Analyze
+      </button>
     </div>
     <div class="chat-messages" v-chat-scroll>
       <div class="filler"></div>
@@ -39,7 +41,7 @@ Vue.use(VueChatScroll);
 export default {
   components: {
     Bot,
-    User,
+    User
   },
   created() {
     this.nlpHandshake();
@@ -55,13 +57,13 @@ export default {
       botMessageCount: -1,
       conversation: [],
       typingEnabled: true,
-      error: "",
+      error: ""
     };
   },
 
   name: "ChatBot",
   props: {
-    msg: String,
+    msg: String
   },
   methods: {
     goToChatAnalysisRoute() {
@@ -70,15 +72,15 @@ export default {
     initialMessage() {
       this.conversation.push({
         chatStyle: "bot",
-        message: "Hello, I am your Motivational Lifecoach, ask me anything!",
+        message: "Hello, I am your Motivational Lifecoach, ask me anything!"
       });
     },
     nlpHandshake() {
       makeHandshake()
-        .then((dataId) => {
+        .then(dataId => {
           this.nlpRestToken = dataId;
         })
-        .catch((error) => {
+        .catch(error => {
           this.error = "handshake api call is unsuccessful";
         });
     },
@@ -87,7 +89,7 @@ export default {
         this.userMessages.push(this.userMessage);
         this.conversation.push({
           chatStyle: "user",
-          message: this.userMessage,
+          message: this.userMessage
         });
 
         postMessage(this.userMessage, this.nlpRestToken)
@@ -102,7 +104,7 @@ export default {
               this.getReply();
             }, Math.random() * 1500 + 500);
           })
-          .catch((error) => {
+          .catch(error => {
             console.log(error);
           })
           .finally(() => {
@@ -113,21 +115,21 @@ export default {
 
     getReply() {
       getBotReply(this.nlpRestToken)
-        .then((response) => {
+        .then(response => {
           this.reply =
             response.data.activities[(this.botMessageCount += 2)].text;
           this.botMessages.push(this.reply);
           this.conversation.push({ chatStyle: "bot", message: this.reply });
         })
-        .catch((error) => {
+        .catch(error => {
           console.log(error);
         })
         .finally(() => {});
     },
     updateMessage(currentMessage) {
       this.userMessage = currentMessage;
-    },
-  },
+    }
+  }
 };
 </script>
 
@@ -142,7 +144,7 @@ export default {
   }
 }
 
-#analyze {
+.button-link {
   height: fit-content;
   background-color: $accent;
   border-radius: 8px;
@@ -158,7 +160,7 @@ export default {
   margin-right: 5px;
 }
 
-#analyze:hover {
+.button-link:hover {
   background-color: $accentDark;
   color: #ffffff;
 }
