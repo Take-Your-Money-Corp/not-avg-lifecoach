@@ -6,17 +6,21 @@
       >
       <button @click="goToChatRoute" class="button-link">Chat</button>
     </b-navbar>
-    <b-container fluid>
+    <b-container fixed fluid>
       <h1 class="text-dark">Chat Analysis</h1>
       <SentimentAnalysis v-show="showSentimentAnalysis" />
       <NamedEntityRecognition v-show="showNamedEntityRecognition" />
       <PartsOfSpeech v-show="showPartOfSpeech" />
+      <b-row class="py-5 my-5"
+        ><hr />
+        <hr />
+      </b-row>
     </b-container>
     <b-navbar
       toggleable="lg"
       type="dark"
-      variant="info"
       fixed="bottom"
+      variant="info"
       class="center"
     >
       <b-navbar-nav class="mx-auto">
