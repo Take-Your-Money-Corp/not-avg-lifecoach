@@ -46,11 +46,7 @@ import PartsOfSpeech from "../components/PartsOfSpeech.vue";
 export default {
   data() {
     return {
-      showComponent: {
-        sentimentAnalysis: true,
-        partOfSpeech: false,
-        namedEntityRecognition: false
-      }
+      showComponent: undefined
     };
   },
   created() {
