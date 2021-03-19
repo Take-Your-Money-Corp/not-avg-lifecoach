@@ -1,8 +1,6 @@
 <template>
   <div>
-    <h3>
-      Sentiment Analysis
-    </h3>
+    <h3>Sentiment Analysis</h3>
     <BotReplyAccordian :response="response" />
   </div>
 </template>
@@ -20,8 +18,10 @@ export default {
     };
   },
   mounted() {
-    this.response = this.$store.state.responseScore;
-    console.log(this.response.nlp.classifications);
+    if (this.$store.state.responseScore) {
+      this.response = this.$store.state.responseScore;
+      // console.log(this.response.nlp.classifications);
+    }
   }
 };
 </script>

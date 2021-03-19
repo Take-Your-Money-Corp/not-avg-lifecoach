@@ -67,13 +67,14 @@ export default {
   },
   methods: {
     goToChatAnalysisRoute() {
-      this.$store.commit("getResponseScores", this.reply);
+      this.$store.commit("setResponseScores", this.reply);
+      this.$store.commit("setConversation", this.conversation);
       this.$router.push("chat-analysis");
     },
     initialMessage() {
       this.conversation.push({
         chatStyle: "bot",
-        message: "Hello, I am your Motivational Lifecoach, ask me anything!"
+        text: "Hello, I am your Motivational Lifecoach, ask me anything!"
       });
     },
     nlpHandshake() {
@@ -90,7 +91,7 @@ export default {
         this.userMessages.push(this.userMessage);
         this.conversation.push({
           chatStyle: "user",
-          message: this.userMessage
+          text: this.userMessage
         });
 
         postMessage(this.userMessage, this.nlpRestToken)
@@ -120,7 +121,7 @@ export default {
           this.botMessages.push(this.reply.text);
           this.conversation.push({
             chatStyle: "bot",
-            message: this.reply.text
+            text: this.reply.text
           });
         })
         .catch(error => {

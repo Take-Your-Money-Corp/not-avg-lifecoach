@@ -5,11 +5,23 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    responseScore: undefined
+    responseScore: undefined,
+    conversation: undefined,
+    currentChatAnalysisComponent: {
+      sentimentAnalysis: true,
+      partOfSpeech: false,
+      namedEntityRecognition: false
+    }
   },
   mutations: {
-    getResponseScores(state, response) {
+    setResponseScores(state, response) {
       state.responseScore = response;
+    },
+    setConversation(state, conversation) {
+      state.conversation = conversation;
+    },
+    setCurrentChatAnalysisComponentBools(state, showComponents) {
+      state.currentChatAnalysisComponent = showComponents;
     }
   }
 });
