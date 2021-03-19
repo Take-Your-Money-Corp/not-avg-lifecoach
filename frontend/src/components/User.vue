@@ -1,7 +1,7 @@
 <template>
   <div class="user-flexbox" v-if="conversation[index].chatStyle === 'user'">
     <p data-testid="userMessage" class="chat-message userMessage">
-      {{ conversation[index].message }}
+      {{ conversation[index].text }}
     </p>
     <img class="userPic" src="../assets/female.png" />
   </div>
