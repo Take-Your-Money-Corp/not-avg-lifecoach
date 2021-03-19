@@ -36,7 +36,10 @@ export default {
   created() {
     if (this.$store.state.responseScore)
       this.conversation = this.$store.state.conversation;
-
+      this.NER();
+  },
+  methods: {
+    NER() {
       for(var i = 0; i < this.conversation.length; i++)
       {
         var text = this.conversation[i].text;
@@ -44,6 +47,7 @@ export default {
         // perform ner on text
         // put result for each string at conversation[i] into namedEntities[i]
       }
+    }
   }
 };
 </script>
