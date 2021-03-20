@@ -77,11 +77,6 @@ export default {
         text: "Hello, I am your Motivational Lifecoach, ask me anything!"
       });
     },
-    analyseMessage(message) {
-      var posTagger = require("wink-pos-tagger");
-      var tagger = posTagger();
-      console.log(tagger.tagSentence(message));
-},
     nlpHandshake() {
       makeHandshake()
         .then(dataId => {
@@ -109,7 +104,7 @@ export default {
               });
               this.getReply();
             }, Math.random() * 1500 + 500);
-          }, this.analyseMessage(this.userMessage))
+          })
           .catch(error => {
             console.log(error);
           })
