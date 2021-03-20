@@ -2,7 +2,9 @@
   <div id="chat-bot">
     <div id="chat-header">
       <h5 id="chat-header-text">Not Your Average Life Coach</h5>
-      <button @click="goToChatAnalysisRoute" id="analyze">Analyze</button>
+      <button @click="goToChatAnalysisRoute" class="button-link">
+        Analyze
+      </button>
     </div>
     <div class="chat-messages" v-chat-scroll>
       <div class="filler"></div>
@@ -65,12 +67,14 @@ export default {
   },
   methods: {
     goToChatAnalysisRoute() {
+      this.$store.commit("setResponseScores", this.reply);
+      this.$store.commit("setConversation", this.conversation);
       this.$router.push("chat-analysis");
     },
     initialMessage() {
       this.conversation.push({
         chatStyle: "bot",
-        message: "Hello, I am your Motivational Lifecoach, ask me anything!"
+        text: "Hello, I am your Motivational Lifecoach, ask me anything!"
       });
     },
     analyseMessage(message) {
@@ -92,14 +96,13 @@ export default {
         this.userMessages.push(this.userMessage);
         this.conversation.push({
           chatStyle: "user",
-          message: this.userMessage
+          text: this.userMessage
         });
 
         postMessage(this.userMessage, this.nlpRestToken)
           .then(() => {
             this.typingEnabled = false;
             setTimeout(() => {
-              // this.reply = response;
               this.typingEnabled = true;
               this.$nextTick(() => {
                 this.$refs["textinput"].focus();
@@ -118,10 +121,12 @@ export default {
     getReply() {
       getBotReply(this.nlpRestToken)
         .then(response => {
-          this.reply =
-            response.data.activities[(this.botMessageCount += 2)].text;
-          this.botMessages.push(this.reply);
-          this.conversation.push({ chatStyle: "bot", message: this.reply });
+          this.reply = response.data.activities[(this.botMessageCount += 2)];
+          this.botMessages.push(this.reply.text);
+          this.conversation.push({
+            chatStyle: "bot",
+            text: this.reply.text
+          });
         })
         .catch(error => {
           console.log(error);
@@ -146,7 +151,7 @@ export default {
   }
 }
 
-#analyze {
+.button-link {
   height: fit-content;
   background-color: $accent;
   border-radius: 8px;
@@ -162,7 +167,7 @@ export default {
   margin-right: 5px;
 }
 
-#analyze:hover {
+.button-link:hover {
   background-color: $accentDark;
   color: #ffffff;
 }
@@ -218,10 +223,13 @@ a {
   border-left: none;
   border-top: none;
   width: -webkit-fill-available;
+  width: -moz-available;
 }
 
 .filler {
   height: -webkit-fill-available;
+  height: -moz-available;
+  height: inherit;
 }
 
 .chat-messages {
@@ -230,6 +238,8 @@ a {
   overflow: hidden;
   overflow-y: scroll;
   height: -webkit-fill-available;
+  height: -moz-available;
+  height: 100%;
 }
 
 .chat-message {
