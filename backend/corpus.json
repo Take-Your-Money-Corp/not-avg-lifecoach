@@ -916,11 +916,33 @@
             ]
         },
         {
+            "intent": "user.loveadvice",
+            "utterances": [
+                "I need love advice",
+                "I need some love advice",
+                "can you give me some love advice?",
+                "give me some love advice",
+                "love advice",
+                "does he love me",
+                "does she love me"
+            ],
+            "answers": [
+                "dump him/her lol",
+                "you are dating? Pathetic.",
+                "You'd think that I would have some good advice to give you, but to be frank, I don't care about your love life.",
+                "Not worth spending your time to do shit like this to be honest.",
+                "Just stay single LMAO"
+            ]
+        },
+        {
             "intent": "None",
             "utterances": [],
             "answers": [
                 "Sorry, I don't understand try asking the question again but slowwwwllllyyyy",
-                "Try asking another question, I don't understand your question."
+                "Try asking another question, I don't understand your question.",
+                "I don't understand, I might be dumb",
+                "The number you're dialing is unavailable, please try again with a different question",
+                "are you speaking English?"
             ]
         }
     ]
