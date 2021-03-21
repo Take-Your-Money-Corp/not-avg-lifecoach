@@ -1,13 +1,13 @@
 <template>
   <div>
     <h3>
-      Part of Speech Tagging
+      Synonym Recognition
     </h3>
     <div v-if="conversation">
       <div v-html="fullText"></div>
     </div>
     <div v-else>
-      Please chat first before POS Tagging analysis is available
+      Please chat first before Synonym Recognition analysis is available
     </div>
   </div>
 </template>
@@ -24,20 +24,19 @@ export default {
   },
   created() {
     var posTagger = require("wink-pos-tagger");
+    var thesaurus = require("thesaurus");
     if (this.$store.state.responseScore)
       this.conversation = this.$store.state.conversation;
 
-    var i;
-    var f;
     var flag;
     this.flag = 0;
     try {
-      for (i = 1; i < this.conversation.length; i = i + 2) {
+      for (var i = 1; i < this.conversation.length; i = i + 2) {
         var tagger = posTagger();
         this.word = tagger.tagSentence(this.conversation[i].text);
         this.fullText +=
           '<table style="width:20%; margin-left: auto; margin-right: auto;" cellpadding="0" cellspacing="0">';
-        for (f = 0; f < this.word.length; f++) {
+        for (var f = 0; f < this.word.length; f++) {
           if (this.flag == 0) {
             this.fullText +=
               "<tr><h3><b>" + this.conversation[i].text + "</h3></b></tr>";
@@ -50,6 +49,7 @@ export default {
             this.word[f].pos +
             "</td></tr>";
           this.flag = 1;
+            console.log(thesaurus.find(this.word[f].value))
         }
         this.flag = 0;
         this.fullText += "</table>";
