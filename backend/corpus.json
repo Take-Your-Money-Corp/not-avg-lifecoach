@@ -935,6 +935,21 @@
             ]
         },
         {
+            "intent": "user.educationadvice",
+            "utterances": [
+                "How to study for a test?",
+                "How important are university grades?",
+                "How can I pay attention in class?",
+                "Do you have any advice on note taking?"
+            ],
+            "answers": [
+                "Make sure when you study, you focus on understanding the material. In addition, it is important to focus on recall rather than recognition. This can apply to math, science or any subject really.",
+                "Grades are not the most important thing in the world but they help. The most important thing is to focus on work life balance in order to have a succesful university career. As this is suppose to be the best time of your life.",
+                "An advice I give everyone that seems to help is to sit in the front row. This will minimize your distractions and makes it easier to focus on the teacher.",
+                "Note taking is a very helpful! You can find many different method for note taking and some work better for you than others. The most important thing is to focus on what the teacher is saying. If you have access to the notes, do no rewrite what is on those notes but foucus on what the teacher says. Most of of the time the teacher even gives hints on what will be on the"
+            ]
+        },
+        {
             "intent": "None",
             "utterances": [],
             "answers": [
