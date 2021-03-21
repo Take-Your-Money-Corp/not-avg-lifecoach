@@ -32,16 +32,14 @@ export default {
       console.log(this.response.nlp.classifications[0].intent);
       console.log(this.response.nlp.classifications[0].score);
       // console.log(this.response.nlp.classifications);
-      var i;
-      var f;
       var flag;
       this.flag = 0;
       try {
-        for (i = 1; i < this.response.nlp.classifications.length; i++) {
+        for (var i = 1; i < this.response.nlp.classifications.length; i++) {
           this.word = "test";
           this.fullText +=
             '<table style="width:20%; margin-left: auto; margin-right: auto;" cellpadding="0" cellspacing="0">';
-          for (f = 0; f < this.word.length; f++) {
+          for (var f = 0; f < this.word.length; f++) {
             if (this.flag == 0) {
               this.fullText +=
                 "<tr><h3><b>" + this.conversation[i].text + "</h3></b></tr>";
