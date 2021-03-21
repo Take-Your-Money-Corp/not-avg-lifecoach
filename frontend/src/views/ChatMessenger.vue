@@ -113,7 +113,6 @@ export default {
           });
       }
     },
-
     getReply() {
       getBotReply(this.nlpRestToken)
         .then(response => {
