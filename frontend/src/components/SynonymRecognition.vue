@@ -44,7 +44,7 @@ export default {
             this.fullText += "<tr><th>Word</th><th>Analysis</th></tr>";
           }
           if (thesaurus.find(this.word[f].value).length > 0) {
-            for (var g = 0;g < thesaurus.find(this.word[f].value).length; g++) {
+            for (var g = 0; g < thesaurus.find(this.word[f].value).length; g++) {
               if (g == thesaurus.find(this.word[f].value).length - 1) {
                 this.thesaurusText += thesaurus.find(this.word[f].value)[g];
               } else {
@@ -64,7 +64,6 @@ export default {
             "</td></tr>";
           this.flag = 1;
           this.thesaurusText = "";
-          console.log(thesaurus.find(this.word[f].value));
         }
         this.flag = 0;
         this.fullText += "</table>";

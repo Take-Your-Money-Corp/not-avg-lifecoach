@@ -25,12 +25,8 @@ export default {
   created() {
     if (this.$store.state.responseScore) {
       this.response = this.$store.state.responseScore;
-
-      console.log(this.$store);
       //console.log(this.response.nlp.classifications);
       //console.log(this.response.nlp);
-      console.log(this.response.nlp.classifications[0].intent);
-      console.log(this.response.nlp.classifications[0].score);
       // console.log(this.response.nlp.classifications);
       var flag;
       this.flag = 0;
