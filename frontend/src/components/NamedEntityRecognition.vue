@@ -11,7 +11,8 @@
               <b-list-group-item>
                 <h4 align="left">{{ message.chatStyle }} said: </h4>
                 <p align="left">{{ message.text }}</p>
-                <p align="left" style="font-weight: 600;">Named Entities:</p>
+                <div align="left" style="font-weight: 600;">Named Entities:</div>
+                <div align="left" style="color: rgb(116, 0, 170);">{{message.namedEntities}}</div>
               </b-list-group-item>
               
             </div>
@@ -30,7 +31,6 @@ export default {
   data() {
     return {
       conversation: undefined,
-      namedEntities: undefined,
     };
   },
   created() {
@@ -42,10 +42,10 @@ export default {
     NER() {
       for(var i = 0; i < this.conversation.length; i++)
       {
-        var text = this.conversation[i].text;
-        console.log(text);
+        this.conversation[i].namedEntities = i;
         // perform ner on text
-        // put result for each string at conversation[i] into namedEntities[i]
+        // put result for each string at conversation[i].namedEntities
+        // Format: [type0, name0, type0, name0, ... , typen, namen]
       }
     }
   }
