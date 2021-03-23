@@ -42,8 +42,8 @@ export default {
   created() {
     if (this.$store.state.responseScore)
       this.conversation = this.$store.state.conversation;
-      //this.WINKNER();
-      this.STANFORDNER();
+      this.WINKNER();
+      //this.STANFORDNER();
   },
   methods: {
     STANFORDNER() {
