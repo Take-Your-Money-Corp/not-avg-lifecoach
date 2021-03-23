@@ -1,7 +1,10 @@
 <template>
   <div>
     <h3>Sentiment Analysis</h3>
-    <BotReplyAccordian :response="response" />
+    <BotReplyAccordian
+      :repliesAndSentimentAnalyses="repliesAndSentimentAnalyses"
+      :conversation="conversation"
+    />
   </div>
 </template>
 
@@ -14,12 +17,14 @@ export default {
   },
   data() {
     return {
-      response: undefined
+      repliesAndSentimentAnalyses: undefined,
+      conversation: undefined
     };
   },
   mounted() {
-    if (this.$store.state.responseScore) {
-      this.response = this.$store.state.responseScore;
+    if (this.$store.state.allConvoData) {
+      this.repliesAndSentimentAnalyses = this.$store.state.allConvoData.activities;
+      this.conversation = this.$store.state.conversation;
       // console.log(this.response.nlp.classifications);
     }
   }

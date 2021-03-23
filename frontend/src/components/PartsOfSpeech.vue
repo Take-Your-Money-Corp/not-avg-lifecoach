@@ -24,7 +24,7 @@ export default {
   },
   created() {
     var posTagger = require("wink-pos-tagger");
-    if (this.$store.state.responseScore)
+    if (this.$store.state.conversation)
       this.conversation = this.$store.state.conversation;
 
     var i;

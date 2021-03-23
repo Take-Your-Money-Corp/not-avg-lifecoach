@@ -46,12 +46,16 @@ export default {
   created() {
     this.nlpHandshake();
     this.initialMessage();
+    this.$nextTick(() => {
+      this.$refs["textinput"].focus();
+    });
   },
   data() {
     return {
       nlpRestToken: "",
       userMessage: "",
       reply: "",
+      allConvoData: undefined,
       botMessages: [],
       userMessages: [],
       botMessageCount: -1,
@@ -67,7 +71,7 @@ export default {
   },
   methods: {
     goToChatAnalysisRoute() {
-      this.$store.commit("setResponseScores", this.reply);
+      this.$store.commit("setAllConvoData", this.allConvoData);
       this.$store.commit("setConversation", this.conversation);
       this.$router.push("chat-analysis");
     },
@@ -117,6 +121,7 @@ export default {
       getBotReply(this.nlpRestToken)
         .then(response => {
           this.reply = response.data.activities[(this.botMessageCount += 2)];
+          this.allConvoData = response.data;
           this.botMessages.push(this.reply.text);
           this.conversation.push({
             chatStyle: "bot",
