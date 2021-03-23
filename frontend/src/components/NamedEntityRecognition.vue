@@ -9,15 +9,15 @@
             <div v-for="message in conversation" :key="message.index">
 
               <b-list-group-item>
-                <h4 align="left">{{ message.chatStyle }} said: </h4>
-                <p align="left">{{ message.text }}</p>
+                <h5 align="left">{{ message.chatStyle }}</h5>
+                <p align="left" style="font-size: 150%;">{{ message.text }}</p>
                 <div align="left" style="font-weight: 600;">Named Entities:</div>
-                <table style="margin: 0.5em;">
+                <table style="width: 100%; margin-top: 1em;">
                   <tr>
-                    <th>Type</th>
-                    <th>Value</th>
+                    <th style="width:50%; text-align:left; background-color: rgb(236, 220, 255);">Value</th>
+                    <th style="width:50%; text-align:left; background-color: rgb(236, 220, 255);">Type</th>
                   </tr>
-                  <tr style="color: rgb(116, 0, 170);" v-for="entity in message.namedEntities" :key="entity.index"><td align="left" style="padding: 0.1em;">{{entity.tag}}</td><td align="left" style="padding: 0.1em;">"{{entity.value}}"</td></tr>
+                  <tr style="color: rgb(116, 0, 170);" v-for="entity in message.namedEntities" :key="entity.index"><td align="left" style="padding: 0.1em;">"{{entity.value}}"</td><td align="left" style="padding: 0.1em;">{{entity.tag}}</td></tr>
                 </table>
               </b-list-group-item>
               
@@ -124,7 +124,7 @@ export default {
 </script>
 
 <style>
-h4 {
+h5 {
   color: rgb(116, 0, 170);
   font-weight: 600;
 }
