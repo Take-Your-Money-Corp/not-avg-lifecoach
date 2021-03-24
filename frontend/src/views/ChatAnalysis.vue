@@ -7,8 +7,9 @@
       <button @click="goToChatRoute" class="button-link">Chat</button>
     </b-navbar>
     <b-container fixed fluid>
+      <br />
       <h1 class="text-dark">Chat Analysis</h1>
-
+      <br />
       <SentimentAnalysis v-show="showComponent.sentimentAnalysis" />
       <NamedEntityRecognition v-show="showComponent.namedEntityRecognition" />
       <PartsOfSpeech v-show="showComponent.partOfSpeech" />
