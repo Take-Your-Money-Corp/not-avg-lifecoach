@@ -8,6 +8,7 @@
   - [Software Architecture Organization](#software-architecture-organization-because-this-is-a-component-based-architecture-not-class-based)
   - [Sample Output](#sample-output)
   - [Project Additions](#project-additions)
+  - [Features Programmed](#features-programmed)
   - [Contributors](#contributors)
 
 ## Getting Started
@@ -77,7 +78,9 @@ After finishing A2, we continued to add more features to the "not your average l
 
 The bulk of the work came with the new features we implemented. Our chatbot from A2 had the means to use synonym recognition, part of speech tagging, named entity recognition to hold a good conversation. The difference from A2 is now you can visually see how the bot recognizes all of these. 
 
-You began by chatting with the bot, and when you finish, you click the newly created analyze button at the top right.
+You begin by chatting with the bot, and when you finish, you click the newly created analyze button at the top right. This action will take you to a newly created page that will display a new feature, the sentiment analysis. From this page, you can click on the bottom navigation bar to view how the chatbot uses synonym recognition, part of speech tagging, named entity recognition. 
+
+## Features Programmed
 
 ## Contributors
 
