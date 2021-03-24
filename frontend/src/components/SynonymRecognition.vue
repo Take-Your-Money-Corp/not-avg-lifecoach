@@ -26,8 +26,9 @@ export default {
   created() {
     var posTagger = require("wink-pos-tagger");
     var thesaurus = require("thesaurus");
-    if (this.$store.state.responseScore)
+    if (this.$store.state.conversation)
       this.conversation = this.$store.state.conversation;
+      console.log(this.$store.state.conversation);
 
     var flag;
     this.flag = 0;
