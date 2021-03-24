@@ -7,6 +7,7 @@
   - [Project Documentation](#project-documentation)
   - [Software Architecture Organization](#software-architecture-organization-because-this-is-a-component-based-architecture-not-class-based)
   - [Sample Output](#sample-output)
+  - [Project Additions](project-additions)
   - [Contributors](#contributors)
 
 ## Getting Started
@@ -70,6 +71,13 @@ Given that information, the chatbot cannot handle incorrect spelling, as there i
 <div align="center">
   <img height="700" src="./Documentation/img/sample.gif">
 </div>
+
+## Project Additions
+After finishing A2, we continued to add more features to the "not your average life coach" chatbot. We began by adding two topics to the chatbot's repertoire. In particular, the chatbot's repertoire now includes advising about studying for school and giving romantic help. Next, the chatbot can produce five reasonable responses when given a topic outside of what is in its arsenal. Therefore, you can have small talk with the chatbot about different subject manners. 
+
+The bulk of the work came with the new features we implemented. Our chatbot from A2 had the means to use synonym recognition, part of speech tagging, named entity recognition to hold a good conversation. The difference from A2 is now you can visually see how the bot recognizes all of these. 
+
+You began by chatting with the bot, and when you finish, you click the newly created analyze button at the top right.
 
 ## Contributors
 
