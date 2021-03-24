@@ -7,7 +7,7 @@
   - [Project Documentation](#project-documentation)
   - [Software Architecture Organization](#software-architecture-organization-because-this-is-a-component-based-architecture-not-class-based)
   - [Sample Output](#sample-output)
-  - [Project Additions](project-additions)
+  - [Project Additions](#project-additions)
   - [Contributors](#contributors)
 
 ## Getting Started
