@@ -2,7 +2,11 @@
   <div id="chat-bot">
     <div id="chat-header">
       <h5 id="chat-header-text">Not Your Average Life Coach</h5>
-      <button @click="goToChatAnalysisRoute" class="button-link">
+      <button
+        :disabled="userMessages.length === 0"
+        @click="goToChatAnalysisRoute"
+        class="button-link"
+      >
         Analyze
       </button>
     </div>
