@@ -20,7 +20,7 @@
           role="tabpanel"
         >
           <b-card-body>
-            <b-card-text>
+            <b-card-text class="mx-auto">
               <SentimentAnalalysisGraph
                 :chartData="chartData[Math.floor(index / 2)]"
                 :height="300"
@@ -104,11 +104,5 @@ export default {
 canvas#bar-chart {
   display: flex;
   margin: auto;
-}
-
-@media (max-width: 600px) {
-  canvas#bar-chart {
-    width: 100% !important;
-  }
 }
 </style>
