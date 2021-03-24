@@ -1,6 +1,7 @@
 <template>
   <div>
     <h3>Sentiment Analysis</h3>
+    <br />
     <BotReplyAccordian
       v-if="repliesAndSentimentAnalyses"
       :repliesAndSentimentAnalyses="repliesAndSentimentAnalyses"

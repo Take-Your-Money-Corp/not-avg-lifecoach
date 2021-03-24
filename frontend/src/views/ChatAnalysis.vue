@@ -8,6 +8,7 @@
     </b-navbar>
     <b-container fixed fluid>
       <h1 class="text-dark">Chat Analysis</h1>
+
       <SentimentAnalysis v-show="showComponent.sentimentAnalysis" />
       <NamedEntityRecognition v-show="showComponent.namedEntityRecognition" />
       <PartsOfSpeech v-show="showComponent.partOfSpeech" />

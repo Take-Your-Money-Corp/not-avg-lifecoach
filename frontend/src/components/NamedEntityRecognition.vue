@@ -3,7 +3,7 @@
     <h3>
       Named Entity Recognition
     </h3>
-    <div v-if="$store.state.repliesAndSentimentAnalyses">
+    <div v-if="conversation">
       <div v-for="message in conversation" :key="message.index">
         {{ message.chatStyle }} said: {{ message.text }}
       </div>

@@ -4,7 +4,7 @@
       Part of Speech Tagging
     </h3>
     <br />
-    <div v-if="$store.state.repliesAndSentimentAnalyses">
+    <div v-if="conversation">
       <div v-if="conversation.length > 0" v-html="fullText"></div>
     </div>
     <div v-else>

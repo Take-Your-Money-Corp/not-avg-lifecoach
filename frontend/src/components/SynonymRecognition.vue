@@ -3,7 +3,7 @@
     <h3>
       Synonym Recognition
     </h3>
-    <div v-if="$store.state.repliesAndSentimentAnalyses">
+    <div v-if="conversation">
       <div v-html="fullText"></div>
     </div>
     <div v-else>
