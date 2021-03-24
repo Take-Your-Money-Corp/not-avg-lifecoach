@@ -85,15 +85,29 @@ You begin by chatting with the bot, and when you finish, you click the newly cre
 Note: Since all of these features were implemented in A2, these snippets will contain the same conversation. However, each featured programmed will give a visual representation of how the chatbot analyses each conversation. 
 
 ### Main Conversation
-![Main Converation]()
+<div align="center">
+  <img height="500" src="./Documentation/img/A3_screenshots/main-convo.png">
+</div>
 
 ### 1. Synonym Recognition 
+<div align="center">
+  <img height="500" src="./Documentation/img/A3_screenshots/sr.png">
+</div>
 
 ### 2. Part of Speech Tagging
+<div align="center">
+  <img height="500" src="./Documentation/img/A3_screenshots/POS.png">
+</div>
 
 ### 3. Named Entity Recognition
+<div align="center">
+  <img height="500" src="./Documentation/img/A3_screenshots/ner.png">
+</div>
 
 ### 4. Sentiment Analysis
+<div align="center">
+  <img height="500" src="./Documentation/img/A3_screenshots/sta.png">
+</div>
 
 ## Contributors
 
