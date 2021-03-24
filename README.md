@@ -74,6 +74,7 @@ Given that information, the chatbot cannot handle incorrect spelling, as there i
 </div>
 
 ## Project Additions
+
 After finishing A2, we continued to add more features to the "not your average life coach" chatbot. We began by adding two topics to the chatbot's repertoire. In particular, the chatbot's repertoire now includes advising about studying for school and giving romantic help. Next, the chatbot can produce five reasonable responses when given a topic outside of what is in its arsenal. Therefore, you can have small talk with the chatbot about different subject manners. 
 
 The bulk of the work came with the new features we implemented. Our chatbot from A2 had the means to use synonym recognition, part of speech tagging, named entity recognition to hold a good conversation. The difference from A2 is now you can visually see how the bot recognizes all of these. 
@@ -81,6 +82,15 @@ The bulk of the work came with the new features we implemented. Our chatbot from
 You begin by chatting with the bot, and when you finish, you click the newly created analyze button at the top right. This action will take you to a newly created page that will display a new feature, the sentiment analysis. From this page, you can click on the bottom navigation bar to view how the chatbot uses synonym recognition, part of speech tagging, named entity recognition. 
 
 ## Features Programmed
+Note: Since all of these features were implemented in A2, these snippets will contain the same conversation. However, each featured program will give a visual representation of how the chatbot analyses each conversation. 
+
+### 1. Synonym Recognition 
+
+### 2. Part of Speech Tagging
+
+### 3. Named Entity Recognition
+
+### 4. Sentiment Analysis
 
 ## Contributors
 
