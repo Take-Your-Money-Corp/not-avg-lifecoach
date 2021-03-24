@@ -1,17 +1,17 @@
 <template>
-  <div class="accordion" role="tablist">
+  <div
+    v-if="loaded && conversation && chartData.length > 0"
+    class="accordion"
+    role="tablist"
+  >
     <div v-for="(message, index) in conversation" :key="message.id">
-      <b-card v-if="index % 2 === 1" class="mb-1">
+      <b-card v-if="index % 2 === 0" class="mb-1">
         User said: {{ message.text }}
       </b-card>
       <b-card v-if="index % 2 === 1" no-body class="mb-1">
         <b-card-header header-tag="header" class="p-1" role="tab">
-          <b-button
-            @click="loadGraph(repliesAndSentimentAnalyses[index])"
-            block
-            v-b-toggle="'accordion-' + index"
-            variant="info"
-            >Bot replied: {{ repliesAndSentimentAnalyses[index].text }}
+          <b-button block v-b-toggle="'accordion-' + index" variant="info">
+            Bot replied: {{ repliesAndSentimentAnalyses[index].text }}
           </b-button>
         </b-card-header>
         <b-collapse
@@ -20,11 +20,12 @@
           role="tabpanel"
         >
           <b-card-body>
-            <b-card-text> </b-card-text>
-            <SentimentAnalalysisGraph
-              :intentNames="intentNames"
-              :intentScores="intentScores"
-            />
+            <b-card-text class="mx-auto">
+              <SentimentAnalalysisGraph
+                :chartData="chartData[Math.floor(index / 2)]"
+                :height="300"
+              />
+            </b-card-text>
           </b-card-body>
         </b-collapse>
       </b-card>
@@ -48,24 +49,60 @@ export default {
   data() {
     return {
       intentNames: [],
-      intentScores: []
+      intentScores: [],
+      chartData: [],
+      once: true,
+      loaded: false
     };
   },
-  mounted() {},
+  mounted() {
+    new Promise(resolve => {
+      this.repliesAndSentimentAnalyses.forEach(
+        (replyAndSentimentAnalysis, idx, array) => {
+          if (idx % 2 === 1) {
+            this.loadGraph(replyAndSentimentAnalysis);
+          }
+          if (idx === array.length - 1) {
+            resolve();
+          }
+        }
+      );
+    }).then(() => {
+      this.loaded = true;
+    });
+  },
   methods: {
     loadGraph(replyAndSentimentAnalysis) {
-      const classifications = [
-        ...replyAndSentimentAnalysis.nlp.classifications
-      ];
-
-      console.log(this.intentNames);
-      classifications.forEach((intent, idx) => {
-        if (idx < 6) {
-          this.intentNames.push(intent.intent);
-          this.intentScores.push(intent.score);
+      this.intentScores = [];
+      this.intentNames = [];
+      let finalIndex = false;
+      replyAndSentimentAnalysis.nlp.classifications.some(classification => {
+        if (classification.score !== 0) {
+          this.intentNames.push(classification.intent);
+          this.intentScores.push(classification.score);
+        } else if (finalIndex === false && classification.score === 0) {
+          finalIndex = true;
+          this.chartData.push({
+            labels: this.intentNames,
+            datasets: [
+              {
+                label: "Top Intent Scores",
+                backgroundColor: "#f87979",
+                data: this.intentScores
+              }
+            ]
+          });
+          return;
         }
       });
     }
   }
 };
 </script>
+
+<style>
+canvas#bar-chart {
+  display: flex;
+  margin: auto;
+}
+</style>

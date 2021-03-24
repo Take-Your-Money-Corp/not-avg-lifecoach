@@ -18,14 +18,14 @@ export default {
   data() {
     return {
       repliesAndSentimentAnalyses: undefined,
-      conversation: undefined
+      conversation: []
     };
   },
-  mounted() {
-    if (this.$store.state.allConvoData) {
+  created() {
+    if (this.$store.state.conversation && this.$store.state.allConvoData) {
       this.repliesAndSentimentAnalyses = this.$store.state.allConvoData.activities;
       this.conversation = this.$store.state.conversation;
-      // console.log(this.response.nlp.classifications);
+      this.conversation.shift();
     }
   }
 };
