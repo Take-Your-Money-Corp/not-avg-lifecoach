@@ -20,7 +20,7 @@
           role="tabpanel"
         >
           <b-card-body>
-            <b-card-text >
+            <b-card-text>
               <SentimentAnalalysisGraph
                 :chartData="chartData[Math.floor(index / 2)]"
                 :height="300"

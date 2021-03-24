@@ -3,7 +3,7 @@
     <h3>
       Synonym Recognition
     </h3>
-    <div v-if="conversation">
+    <div v-if="$store.state.repliesAndSentimentAnalyses">
       <div v-html="fullText"></div>
     </div>
     <div v-else>
@@ -28,7 +28,6 @@ export default {
     var thesaurus = require("thesaurus");
     if (this.$store.state.conversation)
       this.conversation = this.$store.state.conversation;
-      console.log(this.$store.state.conversation);
 
     var flag;
     this.flag = 0;
@@ -45,7 +44,11 @@ export default {
             this.fullText += "<tr><th>Word</th><th>Analysis</th></tr>";
           }
           if (thesaurus.find(this.word[f].value).length > 0) {
-            for (var g = 0; g < thesaurus.find(this.word[f].value).length; g++) {
+            for (
+              var g = 0;
+              g < thesaurus.find(this.word[f].value).length;
+              g++
+            ) {
               if (g == thesaurus.find(this.word[f].value).length - 1) {
                 this.thesaurusText += thesaurus.find(this.word[f].value)[g];
               } else {

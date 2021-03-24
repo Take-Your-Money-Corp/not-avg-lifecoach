@@ -2,9 +2,13 @@
   <div>
     <h3>Sentiment Analysis</h3>
     <BotReplyAccordian
+      v-if="repliesAndSentimentAnalyses"
       :repliesAndSentimentAnalyses="repliesAndSentimentAnalyses"
       :conversation="conversation"
     />
+    <div v-else>
+      Please go to chat
+    </div>
   </div>
 </template>
 
