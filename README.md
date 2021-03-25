@@ -81,6 +81,16 @@ The bulk of the work came with the new features we implemented. Our chatbot from
 
 You begin by chatting with the bot, and when you finish, you click the newly created analyze button at the top right. This action will take you to a newly created page that will display a new feature, the sentiment analysis. From this page, you can click on the bottom navigation bar to view how the chatbot uses synonym recognition, part of speech tagging, named entity recognition. 
 
+These are the following additions to be marked on:
+|   Points   |                                                              Programming Features                                                             |
+|:----------:|:---------------------------------------------------------------------------------------------------------------------------------------------:|
+|      2     | Add an extra topic to your agent's repertoire.                                                                                                |
+|      3     | Add a feature that enables your agent to give at least 5 different reasonable responses when the user enters something outside the two topics |
+|     10     | Sentiment analysis tools                                                                                                                      |
+|     10     | POS tagging                                                                                                                                   |
+|     10     | Named entity recognition                                                                                                                      |
+| 10 (Extra) | Synonym recognition                                                                                                                           |
+
 ## Features Programmed
 **Note:** Since all of these features were implemented in A2, these snippets will refer to the main conversation. However, each featured programmed will give a visual representation of how the chatbot analyses each conversation. 
 
