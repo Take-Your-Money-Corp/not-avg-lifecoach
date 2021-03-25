@@ -5,7 +5,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    responseScore: undefined,
+    allConvoData: undefined,
     conversation: undefined,
     currentChatAnalysisComponent: {
       sentimentAnalysis: true,
@@ -14,8 +14,8 @@ export default new Vuex.Store({
     }
   },
   mutations: {
-    setResponseScores(state, response) {
-      state.responseScore = response;
+    setAllConvoData(state, data) {
+      state.allConvoData = data;
     },
     setConversation(state, conversation) {
       state.conversation = conversation;

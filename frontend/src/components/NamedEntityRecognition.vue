@@ -9,7 +9,7 @@
       </div>
     </div>
     <div v-else>
-      Please chat
+      Please chat.
     </div>
   </div>
 </template>
@@ -22,7 +22,7 @@ export default {
     };
   },
   created() {
-    if (this.$store.state.responseScore)
+    if (this.$store.state.conversation)
       this.conversation = this.$store.state.conversation;
   }
 };
