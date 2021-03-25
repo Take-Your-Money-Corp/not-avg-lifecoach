@@ -81,7 +81,7 @@ The bulk of the work came with the new features we implemented. Our chatbot from
 
 You begin by chatting with the bot, and when you finish, you click the newly created analyze button at the top right. This action will take you to a newly created page that will display a new feature, the sentiment analysis. From this page, you can click on the bottom navigation bar to view how the chatbot uses synonym recognition, part of speech tagging, named entity recognition. 
 
-These are the following additions to be marked on:
+<ins>These are the following additions to be marked on:</ins>
 |   Points   |                                                              Programming Features                                                             |
 |:----------:|:---------------------------------------------------------------------------------------------------------------------------------------------:|
 |      2     | Add an extra topic to your agent's repertoire.                                                                                                |
