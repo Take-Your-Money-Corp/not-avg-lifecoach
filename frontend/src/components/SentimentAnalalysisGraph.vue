@@ -20,15 +20,14 @@ export default {
     };
   },
   mounted() {
-    if (this.chartData.datasets[0].data.length > 0)
-      this.renderChart(this.chartData, this.chartOptions);
+    if (this.chartData) this.renderChart(this.chartData, this.chartOptions);
     else {
       this.renderChart(
         {
           labels: ["Unknown Intent"],
           datasets: [
             {
-              label: "Top Intent Scores",
+              label: "Unknown Intent",
               backgroundColor: "lightgray",
               data: [1]
             }
