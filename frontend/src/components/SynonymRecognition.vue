@@ -36,7 +36,7 @@ export default {
         var tagger = posTagger();
         this.word = tagger.tagSentence(this.conversation[i].text);
         this.fullText +=
-          '<table style="width:70%; margin-left: auto; margin-right: auto; text-align: left;" cellpadding="15" >';
+          '<table class = "table">';
         for (var f = 0; f < this.word.length; f++) {
           if (this.flag == 0) {
             this.fullText +=
@@ -73,4 +73,11 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.table{
+  width: 50%;
+  margin: auto;
+  border: none;
+  overflow:scroll;
+}
+</style>
