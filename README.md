@@ -82,7 +82,7 @@ The bulk of the work came with the new features we implemented. Our chatbot from
 You begin by chatting with the bot, and when you finish, you click the newly created analyze button at the top right. This action will take you to a newly created page that will display a new feature, the sentiment analysis. From this page, you can click on the bottom navigation bar to view how the chatbot uses synonym recognition, part of speech tagging, named entity recognition. 
 
 ## Features Programmed
-Note: Since all of these features were implemented in A2, these snippets will refer to the main conversation. However, each featured programmed will give a visual representation of how the chatbot analyses each conversation. 
+**Note:** Since all of these features were implemented in A2, these snippets will refer to the main conversation. However, each featured programmed will give a visual representation of how the chatbot analyses each conversation. 
 
 ### Main Conversation
 <div align="center">
@@ -105,6 +105,7 @@ The chatbot uses the parts of speech feature by again breaking up each conversat
 </div>
 
 ### 3. Named Entity Recognition
+The chatbot can break apart a sentence and recognize what type of character or string the user inputs. In particular, the chatbot can distinguish between a word and what a punctuation mark is. 
 <div align="center">
   <img height="500" src="./Documentation/img/A3_screenshots/ner.png">
 </div>
