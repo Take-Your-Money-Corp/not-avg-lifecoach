@@ -20,7 +20,8 @@ export default {
     };
   },
   mounted() {
-    if (this.chartData) this.renderChart(this.chartData, this.chartOptions);
+    if (this.chartData.datasets[0].data.length > 0)
+      this.renderChart(this.chartData, this.chartOptions);
     else {
       this.renderChart(
         {
