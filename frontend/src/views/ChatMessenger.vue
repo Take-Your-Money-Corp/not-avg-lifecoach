@@ -3,7 +3,7 @@
     <div id="chat-header">
       <h5 id="chat-header-text">Not Your Average Life Coach</h5>
       <button
-        :disabled="userMessages.length === 0"
+        :disabled="userMessages.length === 0 || typingEnabled === false"
         @click="goToChatAnalysisRoute"
         class="button-link"
       >
