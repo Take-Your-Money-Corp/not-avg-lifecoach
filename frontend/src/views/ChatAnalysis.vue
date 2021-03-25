@@ -7,10 +7,13 @@
       <button @click="goToChatRoute" class="button-link">Chat</button>
     </b-navbar>
     <b-container fixed fluid>
+      <br />
       <h1 class="text-dark">Chat Analysis</h1>
+      <br />
       <SentimentAnalysis v-show="showComponent.sentimentAnalysis" />
       <NamedEntityRecognition v-show="showComponent.namedEntityRecognition" />
       <PartsOfSpeech v-show="showComponent.partOfSpeech" />
+      <SynonymRecognition v-show="showComponent.synonymRecognition" />
       <b-row class="py-5 my-5"
         ><hr />
         <hr />
@@ -33,6 +36,9 @@
         <b-nav-item @click="showNamedEntityRecognition"
           >Named Entity Recognition</b-nav-item
         >
+        <b-nav-item @click="showSynonymRecognition"
+          >Synonym Recognition</b-nav-item
+        >
       </b-navbar-nav>
     </b-navbar>
   </div>
@@ -42,6 +48,7 @@
 import SentimentAnalysis from "@/components/SentimentAnalysis.vue";
 import NamedEntityRecognition from "../components/NamedEntityRecognition.vue";
 import PartsOfSpeech from "../components/PartsOfSpeech.vue";
+import SynonymRecognition from "../components/SynonymRecognition.vue";
 
 export default {
   data() {
@@ -55,7 +62,8 @@ export default {
   components: {
     SentimentAnalysis,
     PartsOfSpeech,
-    NamedEntityRecognition
+    NamedEntityRecognition,
+    SynonymRecognition
   },
   methods: {
     goToChatRoute() {
@@ -66,7 +74,8 @@ export default {
       this.$store.commit("setCurrentChatAnalysisComponentBools", {
         sentimentAnalysis: true,
         partOfSpeech: false,
-        namedEntityRecognition: false
+        namedEntityRecognition: false,
+        synonymRecognition: false
       });
       this.updateComponent();
     },
@@ -75,7 +84,19 @@ export default {
       this.$store.commit("setCurrentChatAnalysisComponentBools", {
         sentimentAnalysis: false,
         partOfSpeech: true,
-        namedEntityRecognition: false
+        namedEntityRecognition: false,
+        synonymRecognition: false
+      });
+      this.updateComponent();
+    },
+
+    showSynonymRecognition() {
+      this.$store.commit("setConversation", this.conversation);
+      this.$store.commit("setCurrentChatAnalysisComponentBools", {
+        sentimentAnalysis: false,
+        partOfSpeech: false,
+        namedEntityRecognition: false,
+        synonymRecognition: true
       });
       this.updateComponent();
     },
@@ -85,7 +106,8 @@ export default {
       this.$store.commit("setCurrentChatAnalysisComponentBools", {
         sentimentAnalysis: false,
         partOfSpeech: false,
-        namedEntityRecognition: true
+        namedEntityRecognition: true,
+        synonymRecognition: false
       });
       this.updateComponent();
     },

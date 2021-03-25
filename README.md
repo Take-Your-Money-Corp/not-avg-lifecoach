@@ -7,6 +7,8 @@
   - [Project Documentation](#project-documentation)
   - [Software Architecture Organization](#software-architecture-organization-because-this-is-a-component-based-architecture-not-class-based)
   - [Sample Output](#sample-output)
+  - [Project Additions](#project-additions)
+  - [Features Programmed](#features-programmed)
   - [Contributors](#contributors)
 
 ## Getting Started
@@ -55,7 +57,7 @@ Given that information, the chatbot cannot handle incorrect spelling, as there i
 
 - ### Context Diagram (click to expand)
 
- <div align="center">
+ <div align="right">
   <img height="300" src="./Documentation/img/SoftwareArchitecture-Container-View.png">
 </div> 
 
@@ -69,6 +71,59 @@ Given that information, the chatbot cannot handle incorrect spelling, as there i
 
 <div align="center">
   <img height="700" src="./Documentation/img/sample.gif">
+</div>
+
+## Project Additions
+
+After finishing A2, we continued to add more features to the "not your average life coach" chatbot. We began by adding two topics to the chatbot's repertoire. In particular, the chatbot's repertoire now includes advising about studying for school and giving romantic help. Next, the chatbot can produce five reasonable responses when given a topic outside of what is in its arsenal. Therefore, you can have small talk with the chatbot about different subject manners. 
+
+The bulk of the work came with the new features we implemented. Our chatbot from A2 had the means to use synonym recognition, part of speech tagging, named entity recognition to hold a good conversation. The difference from A2 is now you can visually see how the bot recognizes all of these. 
+
+You begin by chatting with the bot, and when you finish, you click the newly created analyze button at the top right. This action will take you to a newly created page that will display a new feature, the sentiment analysis. From this page, you can click on the bottom navigation bar to view how the chatbot uses synonym recognition, part of speech tagging, named entity recognition. 
+
+<ins>These are the following additions to be marked on:</ins>
+|   Points   |                                                              Programming Features                                                             |
+|:----------:|:---------------------------------------------------------------------------------------------------------------------------------------------:|
+|      2     | Add an extra topic to your agent's repertoire.                                                                                                |
+|      3     | Add a feature that enables your agent to give at least 5 different reasonable responses when the user enters something outside the two topics |
+|     10     | Sentiment analysis tools                                                                                                                      |
+|     10     | POS tagging                                                                                                                                   |
+|     10     | Named entity recognition                                                                                                                      |
+| 10 (Extra) | Synonym recognition                                                                                                                           |
+
+## Features Programmed
+**Note:** Since all of these features were implemented in A2, these snippets will refer to the main conversation. However, each featured programmed will give a visual representation of how the chatbot analyses each conversation. 
+
+### Main Conversation
+<div align="center">
+  <img height="500" src="./Documentation/img/A3_screenshots/main-convo.png">
+</div>
+
+### 1. Synonym Recognition 
+
+The chatbot uses the synonym recognition feature by extracting every sentence the user inputs and breaking up each sentence into the words that compose it. As displayed in the picture below, the chatbot can recognize different synonyms, which will allow the chatbot to convey similar responses by using synonyms instead of the original word used. 
+
+<div align="center">
+  <img height="500" src="./Documentation/img/A3_screenshots/sr.png">
+</div>
+
+### 2. Part of Speech Tagging
+
+The chatbot uses the parts of speech feature by again breaking up each conversation into sentences. Then further breaking up those sentences into individual words which compose the original sentence. This time, however, the chatbot recognizes the meaning of each word, which allows the chatbot to output the correct response back. 
+<div align="center">
+  <img height="500" src="./Documentation/img/A3_screenshots/POS.png">
+</div>
+
+### 3. Named Entity Recognition
+The chatbot can break apart a sentence and recognize what type of character or string the user inputs. In particular, the chatbot can distinguish between a word and what a punctuation mark is. 
+<div align="center">
+  <img height="500" src="./Documentation/img/A3_screenshots/ner.png">
+</div>
+
+### 4. Sentiment Analysis
+The sentiment analysis is the first page that pops up when you click the analyze button. The sentiment analysis is the best representation of what we attempted to do with our features, which gives a visual representation of how the chatbot sees the conversations. A pop-down appears, which comes with a graph to show how the chatbot preceded the user's input. In this case, the chatbot preceded the user's intent to be of acquaintance, with other possibilities yielding lower scores. 
+<div align="center">
+  <img height="500" src="./Documentation/img/A3_screenshots/sta.png">
 </div>
 
 ## Contributors

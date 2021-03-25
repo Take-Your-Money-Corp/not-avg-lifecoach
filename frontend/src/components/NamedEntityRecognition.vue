@@ -26,7 +26,7 @@
     </div>
 
     <div v-else>
-      Please chat with the bot before attempting to inspect messages
+      Please chat.
     </div>
 
   </div>
@@ -40,7 +40,7 @@ export default {
     };
   },
   created() {
-    if (this.$store.state.responseScore)
+    if (this.$store.state.conversation)
       this.conversation = this.$store.state.conversation;
       this.WINKNER();
       //this.STANFORDNER();

@@ -1,7 +1,15 @@
 <template>
   <div>
     <h3>Sentiment Analysis</h3>
-    <BotReplyAccordian :response="response" />
+    <br />
+    <BotReplyAccordian
+      v-if="repliesAndSentimentAnalyses"
+      :repliesAndSentimentAnalyses="repliesAndSentimentAnalyses"
+      :conversation="conversation"
+    />
+    <div v-else>
+      Please go to chat
+    </div>
   </div>
 </template>
 
@@ -14,13 +22,15 @@ export default {
   },
   data() {
     return {
-      response: undefined
+      repliesAndSentimentAnalyses: undefined,
+      conversation: []
     };
   },
-  mounted() {
-    if (this.$store.state.responseScore) {
-      this.response = this.$store.state.responseScore;
-      // console.log(this.response.nlp.classifications);
+  created() {
+    if (this.$store.state.conversation && this.$store.state.allConvoData) {
+      this.repliesAndSentimentAnalyses = this.$store.state.allConvoData.activities;
+      this.conversation = this.$store.state.conversation;
+      this.conversation.shift();
     }
   }
 };
