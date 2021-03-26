@@ -57,52 +57,53 @@ export default {
     WINKNER() {
       // Load wink ner.
       var ner = require( 'wink-ner' );
+      // Since recognize() requires tokens, use wink-tokenizer.
+      var winkTokenizer = require( 'wink-tokenizer' );
       // Create your instance of wink ner & use default config.
       var myNER = ner();
       // Define training data.
       var trainingData = [
         //names
-        { text: 'Danielle', entityType: 'name' },
-        { text: 'Matt', entityType: 'name' },
-        { text: 'James', entityType: 'name' },
-        { text: 'John', entityType: 'name' },
-        { text: 'Robert', entityType: 'name' },
-        { text: 'Michael', entityType: 'name' },
-        { text: 'William', entityType: 'name' },
-        { text: 'David', entityType: 'name' },
-        { text: 'Olivia', entityType: 'name' },
-        { text: 'Ava', entityType: 'name' },
-        { text: 'Sophia', entityType: 'name' },
-        { text: 'Isabella', entityType: 'name' },
+        { text: 'Danielle', tag: 'name' },
+        { text: 'Matt', tag: 'name' },
+        { text: 'James', tag: 'name' },
+        { text: 'John', tag: 'name' },
+        { text: 'Robert', tag: 'name' },
+        { text: 'Michael', tag: 'name' },
+        { text: 'William', tag: 'name' },
+        { text: 'David', tag: 'name' },
+        { text: 'Olivia', tag: 'name' },
+        { text: 'Ava', tag: 'name' },
+        { text: 'Sophia', tag: 'name' },
+        { text: 'Isabella', tag: 'name' },
+        { text: 'Devon', tag: 'name' },
         //countries
-        { text: 'canada', entityType: 'country' },
-        { text: 'united states', entityType: 'country' },
-        { text: 'spain', entityType: 'country' },
-        { text: 'france', entityType: 'country' },
-        { text: 'india', entityType: 'country' },
-        { text: 'mexico', entityType: 'country' },
-        { text: 'greece', entityType: 'country' },
-        { text: 'australia', entityType: 'country' },
-        { text: 'japan', entityType: 'country' },
-        { text: 'china', entityType: 'country' },
+        { text: 'canada', tag: 'country' },
+        { text: 'united states', tag: 'country' },
+        { text: 'spain', tag: 'country' },
+        { text: 'france', tag: 'country' },
+        { text: 'india', tag: 'country' },
+        { text: 'mexico', tag: 'country' },
+        { text: 'greece', tag: 'country' },
+        { text: 'australia', tag: 'country' },
+        { text: 'japan', tag: 'country' },
+        { text: 'china', tag: 'country' },
         //cities
-        { text: 'kelowna', entityType: 'city' },
-        { text: 'vernon', entityType: 'city' },
-        { text: 'vancouver', entityType: 'city' },
-        { text: 'new york', entityType: 'city' },
-        { text: 'toronto', entityType: 'city' },
-        { text: 'regina', entityType: 'city' },
-        { text: 'winnipeg', entityType: 'city' },
-        { text: 'sydney', entityType: 'city' },
-        { text: 'albury', entityType: 'city' },
-        { text: 'brisbane', entityType: 'city' },
-        { text: 'atlanta', entityType: 'city' },
-        { text: 'denver', entityType: 'city' },
+        { text: 'kelowna', tag: 'city' },
+        { text: 'vernon', tag: 'city' },
+        { text: 'vancouver', tag: 'city' },
+        { text: 'new york', tag: 'city' },
+        { text: 'toronto', tag: 'city' },
+        { text: 'regina', tag: 'city' },
+        { text: 'winnipeg', tag: 'city' },
+        { text: 'sydney', tag: 'city' },
+        { text: 'albury', tag: 'city' },
+        { text: 'brisbane', tag: 'city' },
+        { text: 'atlanta', tag: 'city' },
+        { text: 'denver', tag: 'city' },
       ];
       // Learn from the training data.
       myNER.learn( trainingData );
-      // Since recognize() requires tokens, use wink-tokenizer.
-      var winkTokenizer = require( 'wink-tokenizer' );
       // Instantiate it and extract tokenize() api.
       var tokenize = winkTokenizer().tokenize;
 

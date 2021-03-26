@@ -15,13 +15,17 @@
     "core-js": "^3.6.5",
     "ner": "^1.0.0",
     "readline": "^1.3.0",
+    "thesaurus": "^0.0.1",
     "vue": "^2.6.11",
+    "vue-chartjs": "^3.5.1",
     "vue-chat-scroll": "^1.4.0",
     "vue-router": "^3.2.0",
     "vuex": "^3.6.2",
-    "wink-ner": "^2.1.0"
+    "wink-ner": "^2.1.0",
+    "wink-pos-tagger": "^2.2.2"
   },
   "devDependencies": {
+    "@types/wink-tokenizer": "^4.0.2",
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
     "@vue/cli-plugin-router": "~4.5.0",
