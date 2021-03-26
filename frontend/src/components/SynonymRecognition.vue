@@ -32,7 +32,7 @@ export default {
     var flag;
     this.flag = 0;
     try {
-      for (var i = 1; i < this.conversation.length; i = i + 2) {
+      for (var i = 0; i < this.conversation.length; i = i + 2) {
         var tagger = posTagger();
         this.word = tagger.tagSentence(this.conversation[i].text);
         this.fullText += '<table class = "table">';
