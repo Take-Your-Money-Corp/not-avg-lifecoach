@@ -35,7 +35,7 @@ export default {
     var meaning;
     this.flag = 0;
     try {
-      for (i = 1; i < this.conversation.length; i = i + 2) {
+      for (i = 0; i < this.conversation.length; i = i + 2) {
         var tagger = posTagger();
         this.word = tagger.tagSentence(this.conversation[i].text);
         this.fullText += '<table class = "table">';

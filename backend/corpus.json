@@ -64,6 +64,7 @@
         {
             "intent": "agent.bad",
             "utterances": [
+                "idiot",
                 "you're bad",
                 "you're horrible",
                 "you're useless",
