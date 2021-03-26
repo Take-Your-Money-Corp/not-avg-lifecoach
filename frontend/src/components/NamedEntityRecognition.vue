@@ -76,6 +76,7 @@ export default {
         { text: 'Wei', entityType: 'name', tag: 'name' },
         { text: 'Mohammad', entityType: 'name', tag: 'name' },
         { text: 'Ahmed', entityType: 'name', tag: 'name' },
+        { text: 'Guy', entityType: 'guy', tag: 'guy' },
         { text: 'Devon', entityType: 'chad', tag: 'chad' },
         //countries
         { text: 'canada',entityType: 'country', tag: 'country' },
