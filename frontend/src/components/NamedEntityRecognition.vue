@@ -115,11 +115,10 @@ export default {
           var tokens = tokenize(this.conversation[i].text);
           // Detect entities
           tokens = myNER.recognize(tokens);
-          console.log(i + ": ");console.log(tokens);
           // put result for each string at conversation[i].namedEntities
           this.conversation[i].namedEntities = tokens;
         }
-      }else{console.log("Conversation is empty or undefined!")}
+      }
     }
   }
 };

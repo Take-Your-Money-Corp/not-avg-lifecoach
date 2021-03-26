@@ -35,12 +35,12 @@ export default {
       for (var i = 0; i < this.conversation.length; i = i + 2) {
         var tagger = posTagger();
         this.word = tagger.tagSentence(this.conversation[i].text);
-        this.fullText += '<table class = "table">';
+        this.fullText += '<br><table class = "table">';
         for (var f = 0; f < this.word.length; f++) {
           if (this.flag == 0) {
             this.fullText +=
-              "<tr><h3><b>" + this.conversation[i].text + "</h3></b></tr>";
-            this.fullText += "<tr><th>Word</th><th>Analysis</th></tr>";
+              "<tr class = 'tr'><h3><b>" + this.conversation[i].text + "</h3></b></tr>";
+            this.fullText += "<tr class = 'tr'><th>Word</th><th>Analysis</th></tr>";
           }
           if (thesaurus.find(this.word[f].value).length > 0) {
             for (
@@ -60,7 +60,7 @@ export default {
           }
 
           this.fullText +=
-            "<tr><td>" +
+            "<tr class = 'tr'><td>" +
             this.word[f].value +
             "</td><td>" +
             this.thesaurusText +
@@ -83,4 +83,6 @@ export default {
   border: none;
   overflow:scroll;
 }
+.tr:nth-child(odd) {background-color: #f0f0f0;}
+.tr:hover {background-color: rgb(234, 225, 238);}
 </style>

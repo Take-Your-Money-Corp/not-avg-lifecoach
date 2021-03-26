@@ -42,9 +42,9 @@ export default {
         for (f = 0; f < this.word.length; f++) {
           if (this.flag == 0) {
             this.fullText +=
-              "<tr><h3><b>" + this.conversation[i].text + "</h3></b></tr>";
+              "<tr class = 'tr'><h3><b>" + this.conversation[i].text + "</h3></b></tr>";
             this.fullText +=
-              "<tr><th> Word </th><th> Abbreviation </th><th> Meaning </th></tr>";
+              "<tr class = 'tr'><th> Word </th><th> Abbreviation </th><th> Meaning </th></tr>";
           }
           if (this.word[f].pos == "UH") meaning = "interjection";
           if (this.word[f].pos == "CC") meaning = "coordinating conjunction";
@@ -85,7 +85,7 @@ export default {
           if (this.word[f].pos == "WRB") meaning = "wh-adverb";
 
           this.fullText +=
-            "<tr><td>" +
+            "<tr class = 'tr'><td>" +
             this.word[f].value +
             "</td><td>" +
             this.word[f].pos +
@@ -109,4 +109,6 @@ export default {
   border: none;
   overflow: scroll;
 }
+.tr:nth-child(odd) {background-color: #f0f0f0;}
+.tr:hover {background-color: rgb(234, 225, 238);}
 </style>
