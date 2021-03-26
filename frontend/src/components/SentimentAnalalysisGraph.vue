@@ -28,7 +28,7 @@ export default {
           labels: ["Unknown Intent"],
           datasets: [
             {
-              label: "Top Intent Scores",
+              label: "Unknown Intent",
               backgroundColor: "lightgray",
               data: [1]
             }
