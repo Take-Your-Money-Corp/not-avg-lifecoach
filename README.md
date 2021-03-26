@@ -9,6 +9,7 @@
   - [Sample Output](#sample-output)
   - [Project Additions](#project-additions)
   - [Features Programmed](#features-programmed)
+  - [Unit Tests](#unit-tests)
   - [Extractable APIs](#extractable-apis)
   - [Contributors](#contributors)
 
@@ -129,6 +130,16 @@ The sentiment analysis is the first page that pops up when you click the analyze
 <div align="center">
   <img height="500" src="./Documentation/img/A3_screenshots/sta.png">
 </div>
+
+## Unit Tests
+### 1. bot.spec.js
+This tests if the bot message from its parent component is rendered to the DOM.
+
+### 2. chatMessenger.spec.js
+This tests if the frontend is communicating with the backend - passing data through. It forms a handshake with the NLP API when the chat messenger component is mounted.It sets the error variable on API request failure when the component mounts. If the exchange occurs the test case passes.
+
+### 3. user.spec.js
+This tests if the user message from its parent component is rendered to the DOM.
 
 ## Extractable APIs
 - Bot.vue: Could be designed to receive and return data processed by our chatbot.
