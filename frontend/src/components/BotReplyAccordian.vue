@@ -75,13 +75,12 @@ export default {
     loadGraph(replyAndSentimentAnalysis) {
       this.intentScores = [];
       this.intentNames = [];
-      let finalIndex = false;
-      replyAndSentimentAnalysis.nlp.classifications.some(classification => {
-        if (classification.score !== 0) {
-          this.intentNames.push(classification.intent);
-          this.intentScores.push(classification.score);
-        } else if (finalIndex === false && classification.score === 0) {
-          finalIndex = true;
+
+      const classifications = [
+        ...replyAndSentimentAnalysis.nlp.classifications
+      ];
+      classifications.some(classification => {
+        if (classification.score < 0.001) {
           this.chartData.push({
             labels: this.intentNames,
             datasets: [
@@ -92,7 +91,10 @@ export default {
               }
             ]
           });
-          return;
+          return true;
+        } else if (classification.score !== 0) {
+          this.intentNames.push(classification.intent);
+          this.intentScores.push(classification.score);
         }
       });
     }
