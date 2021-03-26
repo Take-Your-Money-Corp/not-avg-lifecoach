@@ -9,6 +9,7 @@
   - [Sample Output](#sample-output)
   - [Project Additions](#project-additions)
   - [Features Programmed](#features-programmed)
+  - [Extractable APIs](#extractable-apis)
   - [Contributors](#contributors)
 
 ## Getting Started
@@ -126,6 +127,13 @@ The sentiment analysis is the first page that pops up when you click the analyze
   <img height="500" src="./Documentation/img/A3_screenshots/sta.png">
 </div>
 
+## Extractable APIs
+- Bot.vue: Could be designed to receive and return data processed by our chatbot.
+- NamedEntityRecognition.vue: Can be used as an API to allow users to process their own text and return the result in JSON form. 
+- PartsOfSpeech.vue: Can be used as an API to allow users to process their own text and return the result in JSON form. 
+- SentimentAnalysis.vue: Can be used as an API to allow users to process their own text and return the result in JSON form. 
+- User.vue: Could be used to link a global profile / profile from another project. 
+ 
 ## Contributors
 
 ### Matt Borle
