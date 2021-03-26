@@ -133,13 +133,15 @@ The sentiment analysis is the first page that pops up when you click the analyze
 
 ## Unit Tests
 ### 1. bot.spec.js
-This tests if the bot message from its parent component is rendered to the DOM.
+ - We create a wrapper that artificially injects prop data (props are variables that are sent from parent to child). From there we check the data-testid attribute of the message and see if what is displayed on the dom matches the props data that we artificially injected. Simply, this tests if the bot message from its parent component is rendered to the DOM.
 
 ### 2. chatMessenger.spec.js
-This tests if the frontend is communicating with the backend - passing data through. It forms a handshake with the NLP API when the chat messenger component is mounted.It sets the error variable on API request failure when the component mounts. If the exchange occurs the test case passes.
+ - First Test: Mocks an axios get request by giving a fake rest-token string. From there we mount an instance of the ChatMessenger component. From there we test to see if the rest token variable of the component matches the fake rest-token that we gave it in the beginning.
+ - Second Test: Mocks a failed axios get request, mounts the ChatMessenger component, and checks to see that the error message of the ChatMessenger component is being correctly triggered on the failed axios request. 
 
 ### 3. user.spec.js
-This tests if the user message from its parent component is rendered to the DOM.
+ - We create a wrapper that artificially injects prop data (props are variables that are sent from parent to child). From there we check the data-testid attribute of the message and see if what is displayed on the dom matches the props data that we artificially injected. Simply, this tests if the user message from its parent component is rendered to the DOM.
+
 
 ## Extractable APIs
 - Bot.vue: Could be designed to receive and return data processed by our chatbot.
