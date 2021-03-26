@@ -35,8 +35,7 @@ export default {
       for (var i = 1; i < this.conversation.length; i = i + 2) {
         var tagger = posTagger();
         this.word = tagger.tagSentence(this.conversation[i].text);
-        this.fullText +=
-          '<table class = "table">';
+        this.fullText += '<table class = "table">';
         for (var f = 0; f < this.word.length; f++) {
           if (this.flag == 0) {
             this.fullText +=
@@ -74,7 +73,7 @@ export default {
 </script>
 
 <style>
-.table{
+.table {
   width: 50%;
   margin: auto;
   border: none;
