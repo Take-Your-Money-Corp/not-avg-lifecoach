@@ -51,12 +51,12 @@ Given that information, the chatbot cannot handle incorrect spelling, as there i
 
 ## Project Documentation
 
- - [Project Plan Document](https://github.com/Take-Your-Money-Corp/not-avg-lifecoach/blob/master/Documentation/COSC%20310%20-%20Project%20Plan.pdf)
- - [Work Breakdown Structure](https://github.com/Take-Your-Money-Corp/not-avg-lifecoach/blob/master/Documentation/WBS.png)
- - [Gantt Chart](https://github.com/Take-Your-Money-Corp/not-avg-lifecoach/blob/master/Documentation/GanttChart.png)
- - [Level 0 DFD](https://github.com/Take-Your-Money-Corp/not-avg-lifecoach/blob/finalize-readme/Documentation/DFD-lvl0.png)
- - [Level 1 DFD](https://github.com/Take-Your-Money-Corp/not-avg-lifecoach/blob/finalize-readme/Documentation/DFD-lvl1.png)
- - [Branch & Commits Graph](https://github.com/Take-Your-Money-Corp/not-avg-lifecoach/blob/master/Documentation/NetworkGraph.png)
+ - [Project Plan Document](./Documentation/COSC%20310%20-%20Project%20Plan.pdf)
+ - [Work Breakdown Structure](./Documentation/WBS.png)
+ - [Gantt Chart](./Documentation/GanttChart.png)
+ - [Level 0 DFD](./Documentation/DFD-lvl0.png)
+ - [Level 1 DFD](./Documentation/DFD-lvl1.png)
+ - [Branch & Commits Graph](./Documentation/NetworkGraph.png)
 
 ## Software Architecture Organization (Because this is a component based architecture not class based)
 
