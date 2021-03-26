@@ -43,17 +43,8 @@ export default {
     if (this.$store.state.conversation)
       this.conversation = this.$store.state.conversation;
       this.WINKNER();
-      //this.STANFORDNER();
   },
   methods: {
-    STANFORDNER() {
-      if(this.conversation != null){
-        for(var i = 0; i < this.conversation.length; i++)
-        {
-          this.conversation[i].namedEntities = "test";
-        }
-      }else{console.log("Conversation is empty or undefined!")}
-    },
     WINKNER() {
       // Load wink ner.
       var ner = require( 'wink-ner' );
@@ -76,6 +67,15 @@ export default {
         { text: 'Ava', entityType: 'name', tag: 'name' },
         { text: 'Sophia', entityType: 'name', tag: 'name' },
         { text: 'Isabella', entityType: 'name', tag: 'name' },
+        { text: 'Maria', entityType: 'name', tag: 'name' },
+        { text: 'Nushi', entityType: 'name', tag: 'name' },
+        { text: 'Mohammed', entityType: 'name', tag: 'name' },
+        { text: 'Jose', entityType: 'name', tag: 'name' },
+        { text: 'Muhammad', entityType: 'name', tag: 'name' },
+        { text: 'Mohamed', entityType: 'name', tag: 'name' },
+        { text: 'Wei', entityType: 'name', tag: 'name' },
+        { text: 'Mohammad', entityType: 'name', tag: 'name' },
+        { text: 'Ahmed', entityType: 'name', tag: 'name' },
         { text: 'Devon', entityType: 'chad', tag: 'chad' },
         //countries
         { text: 'canada',entityType: 'country', tag: 'country' },
