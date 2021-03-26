@@ -43,66 +43,68 @@ export default {
     if (this.$store.state.conversation)
       this.conversation = this.$store.state.conversation;
       this.WINKNER();
-      //this.STANFORDNER();
   },
   methods: {
-    STANFORDNER() {
-      if(this.conversation != null){
-        for(var i = 0; i < this.conversation.length; i++)
-        {
-          this.conversation[i].namedEntities = "test";
-        }
-      }else{console.log("Conversation is empty or undefined!")}
-    },
     WINKNER() {
       // Load wink ner.
       var ner = require( 'wink-ner' );
+      // Since recognize() requires tokens, use wink-tokenizer.
+      var winkTokenizer = require( 'wink-tokenizer' );
       // Create your instance of wink ner & use default config.
       var myNER = ner();
       // Define training data.
       var trainingData = [
         //names
-        { text: 'Danielle', entityType: 'name' },
-        { text: 'Matt', entityType: 'name' },
-        { text: 'James', entityType: 'name' },
-        { text: 'John', entityType: 'name' },
-        { text: 'Robert', entityType: 'name' },
-        { text: 'Michael', entityType: 'name' },
-        { text: 'William', entityType: 'name' },
-        { text: 'David', entityType: 'name' },
-        { text: 'Olivia', entityType: 'name' },
-        { text: 'Ava', entityType: 'name' },
-        { text: 'Sophia', entityType: 'name' },
-        { text: 'Isabella', entityType: 'name' },
+        { text: 'Danielle', entityType: 'name', tag: 'name' },
+        { text: 'Matt', entityType: 'name', tag: 'name' },
+        { text: 'James', entityType: 'name', tag: 'name' },
+        { text: 'John', entityType: 'name', tag: 'name' },
+        { text: 'Robert', entityType: 'name', tag: 'name' },
+        { text: 'Michael', entityType: 'name', tag: 'name' },
+        { text: 'William', entityType: 'name', tag: 'name' },
+        { text: 'David', entityType: 'name', tag: 'name' },
+        { text: 'Olivia', entityType: 'name', tag: 'name' },
+        { text: 'Ava', entityType: 'name', tag: 'name' },
+        { text: 'Sophia', entityType: 'name', tag: 'name' },
+        { text: 'Isabella', entityType: 'name', tag: 'name' },
+        { text: 'Maria', entityType: 'name', tag: 'name' },
+        { text: 'Nushi', entityType: 'name', tag: 'name' },
+        { text: 'Mohammed', entityType: 'name', tag: 'name' },
+        { text: 'Jose', entityType: 'name', tag: 'name' },
+        { text: 'Muhammad', entityType: 'name', tag: 'name' },
+        { text: 'Mohamed', entityType: 'name', tag: 'name' },
+        { text: 'Wei', entityType: 'name', tag: 'name' },
+        { text: 'Mohammad', entityType: 'name', tag: 'name' },
+        { text: 'Ahmed', entityType: 'name', tag: 'name' },
+        { text: 'Guy', entityType: 'guy', tag: 'guy' },
+        { text: 'Devon', entityType: 'chad', tag: 'chad' },
         //countries
-        { text: 'canada', entityType: 'country' },
-        { text: 'united states', entityType: 'country' },
-        { text: 'spain', entityType: 'country' },
-        { text: 'france', entityType: 'country' },
-        { text: 'india', entityType: 'country' },
-        { text: 'mexico', entityType: 'country' },
-        { text: 'greece', entityType: 'country' },
-        { text: 'australia', entityType: 'country' },
-        { text: 'japan', entityType: 'country' },
-        { text: 'china', entityType: 'country' },
+        { text: 'canada',entityType: 'country', tag: 'country' },
+        { text: 'united states',entityType: 'country', tag: 'country' },
+        { text: 'spain',entityType: 'country', tag: 'country' },
+        { text: 'france',entityType: 'country', tag: 'country' },
+        { text: 'india',entityType: 'country', tag: 'country' },
+        { text: 'mexico',entityType: 'country', tag: 'country' },
+        { text: 'greece',entityType: 'country', tag: 'country' },
+        { text: 'australia',entityType: 'country', tag: 'country' },
+        { text: 'japan',entityType: 'country', tag: 'country' },
+        { text: 'china',entityType: 'country', tag: 'country' },
         //cities
-        { text: 'kelowna', entityType: 'city' },
-        { text: 'vernon', entityType: 'city' },
-        { text: 'vancouver', entityType: 'city' },
-        { text: 'new york', entityType: 'city' },
-        { text: 'toronto', entityType: 'city' },
-        { text: 'regina', entityType: 'city' },
-        { text: 'winnipeg', entityType: 'city' },
-        { text: 'sydney', entityType: 'city' },
-        { text: 'albury', entityType: 'city' },
-        { text: 'brisbane', entityType: 'city' },
-        { text: 'atlanta', entityType: 'city' },
-        { text: 'denver', entityType: 'city' },
+        { text: 'kelowna',entityType: 'city', tag: 'city' },
+        { text: 'vernon', entityType: 'city', tag: 'city' },
+        { text: 'vancouver', entityType: 'city', tag: 'city' },
+        { text: 'new york', entityType: 'city', tag: 'city' },
+        { text: 'toronto', entityType: 'city', tag: 'city' },
+        { text: 'regina', entityType: 'city', tag: 'city' },
+        { text: 'winnipeg', entityType: 'city', tag: 'city' },
+        { text: 'sydney', entityType: 'city', tag: 'city' },
+        { text: 'albury', entityType: 'city', tag: 'city' },
+        { text: 'brisbane', entityType: 'city', tag: 'city' },
+        { text: 'atlanta', entityType: 'city', tag: 'city' },
+        { text: 'denver', entityType: 'city', tag: 'city' },
       ];
       // Learn from the training data.
       myNER.learn( trainingData );
-      // Since recognize() requires tokens, use wink-tokenizer.
-      var winkTokenizer = require( 'wink-tokenizer' );
       // Instantiate it and extract tokenize() api.
       var tokenize = winkTokenizer().tokenize;
 
