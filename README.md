@@ -55,6 +55,7 @@ Given that information, the chatbot cannot handle incorrect spelling, as there i
  - [Gantt Chart](https://github.com/Take-Your-Money-Corp/not-avg-lifecoach/blob/master/Documentation/GanttChart.png)
  - [Level 0 DFD](https://github.com/Take-Your-Money-Corp/not-avg-lifecoach/blob/finalize-readme/Documentation/DFD-lvl0.png)
  - [Level 1 DFD](https://github.com/Take-Your-Money-Corp/not-avg-lifecoach/blob/finalize-readme/Documentation/DFD-lvl1.png)
+ - [Branch & Commits Graph](https://github.com/Take-Your-Money-Corp/not-avg-lifecoach/blob/master/Documentation/NetworkGraph.png)
 
 ## Software Architecture Organization (Because this is a component based architecture not class based)
 
