@@ -145,6 +145,10 @@ The sentiment analysis is the first page that pops up when you click the analyze
 - Helped a bit with backend (w/ Shawn and Guy)
 - Contributed project plan document (w/ everyone)
 - Created Presentation Video
+#### Assignment 3:
+- Named Entity Recognition
+- Formatting Feature Pages
+- Worked on final bug fixes (w/ JQ and Dani)
 
 ### Guy Kaminsky
 #### Assignment 2:
@@ -157,6 +161,12 @@ The sentiment analysis is the first page that pops up when you click the analyze
 - Edit README (w/ Dani)
 - Final edit project pdf
 - Peer evaluations 
+#### Assignment 3:
+- Worked on synonym name recognition with JQ
+- Start sentiment analysis with Shawn, he finished it
+- Add extra topic to agent repertoire with JQ 
+- Write Project Additions section
+- Write Featured Programmed section
 
 ### Danielle Macdonald
 #### Assignment 2:
@@ -170,6 +180,13 @@ The sentiment analysis is the first page that pops up when you click the analyze
 - Tested chatbot output and recorded sample output.
 - Assigned tasks to group members (w/ Guy)
 - Peer evaluations
+#### Assignment 3: 
+- Worked on POS tagging (w/ JQ)
+- Worked on GUI (w/ JQ)
+- Github commit & branch graph
+- Sample output & feature demonstration
+- Worked on final bug fixes (w/ Matt and JQ)
+- Finalize README file and Submission
 
 ### Shawn Paul Mountenay
 #### Assignment 2:
@@ -184,6 +201,12 @@ The sentiment analysis is the first page that pops up when you click the analyze
 - Contributed to all Vue Components
 - Peer evaluations
 - Made Chatbot work on mobile
+#### Assignment 3:
+- Sentiment Analysis Component
+- Chat Analysis Page Scaffolding
+- App routing
+- Vue Global state variables setup
+- Jest Frontend Unit Testing
 
 ### Wee Jia Quan
 #### Assignment 2:
@@ -194,6 +217,12 @@ The sentiment analysis is the first page that pops up when you click the analyze
 - Project plan document (w/ everyone)
 - Made animated gif / video demonstration draft
 - Peer evaluations 
+#### Assignment 3: 
+- Worked on POS tagging (w/Dani)
+- Worked on GUI (w/ Dani)
+- Worked on synonym name recognition with Guy
+- Add extra topic to agent repertoire with Guy 
+- Work on Bug Fixes before submission with Danielle & Matt
 
 ### Harman Sahota
 #### Assignment 2:
@@ -204,3 +233,8 @@ The sentiment analysis is the first page that pops up when you click the analyze
 - Wrote the task breakdown(with JQ)
 - Worked on the gantt chart (with JQ)
 - Peer evaluations
+#### Assignment 3: 
+- Worked on named entity recognition(with matt)
+- Created Level 0/ Level 1 DFDs
+- Created Videos
+
