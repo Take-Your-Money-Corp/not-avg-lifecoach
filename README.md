@@ -9,6 +9,7 @@
   - [Sample Output](#sample-output)
   - [Project Additions](#project-additions)
   - [Features Programmed](#features-programmed)
+  - [Extractable APIs](#extractable-apis)
   - [Contributors](#contributors)
 
 ## Getting Started
@@ -52,6 +53,8 @@ Given that information, the chatbot cannot handle incorrect spelling, as there i
  - [Project Plan Document](https://github.com/Take-Your-Money-Corp/not-avg-lifecoach/blob/master/Documentation/COSC%20310%20-%20Project%20Plan.pdf)
  - [Work Breakdown Structure](https://github.com/Take-Your-Money-Corp/not-avg-lifecoach/blob/master/Documentation/WBS.png)
  - [Gantt Chart](https://github.com/Take-Your-Money-Corp/not-avg-lifecoach/blob/master/Documentation/GanttChart.png)
+ - [Level 0 DFD](https://github.com/Take-Your-Money-Corp/not-avg-lifecoach/blob/finalize-readme/Documentation/DFD-lvl0.png)
+ - [Level 1 DFD](https://github.com/Take-Your-Money-Corp/not-avg-lifecoach/blob/finalize-readme/Documentation/DFD-lvl1.png)
 
 ## Software Architecture Organization (Because this is a component based architecture not class based)
 
@@ -126,6 +129,13 @@ The sentiment analysis is the first page that pops up when you click the analyze
   <img height="500" src="./Documentation/img/A3_screenshots/sta.png">
 </div>
 
+## Extractable APIs
+- Bot.vue: Could be designed to receive and return data processed by our chatbot.
+- NamedEntityRecognition.vue: Can be used as an API to allow users to process their own text and return the result in JSON form. 
+- PartsOfSpeech.vue: Can be used as an API to allow users to process their own text and return the result in JSON form. 
+- SentimentAnalysis.vue: Can be used as an API to allow users to process their own text and return the result in JSON form. 
+- User.vue: Could be used to link a global profile / profile from another project. 
+ 
 ## Contributors
 
 ### Matt Borle
