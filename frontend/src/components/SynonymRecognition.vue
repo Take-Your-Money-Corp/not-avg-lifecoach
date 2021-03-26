@@ -26,7 +26,7 @@ export default {
   created() {
     var posTagger = require("wink-pos-tagger");
     var thesaurus = require("thesaurus");
-    if (this.$store.state.responseScore)
+    if (this.$store.state.conversation)
       this.conversation = this.$store.state.conversation;
 
     var flag;
@@ -43,7 +43,11 @@ export default {
             this.fullText += "<tr><th>Word</th><th>Analysis</th></tr>";
           }
           if (thesaurus.find(this.word[f].value).length > 0) {
-            for (var g = 0; g < thesaurus.find(this.word[f].value).length; g++) {
+            for (
+              var g = 0;
+              g < thesaurus.find(this.word[f].value).length;
+              g++
+            ) {
               if (g == thesaurus.find(this.word[f].value).length - 1) {
                 this.thesaurusText += thesaurus.find(this.word[f].value)[g];
               } else {

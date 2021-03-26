@@ -9,7 +9,7 @@ describe("User.vue", () => {
         conversation: [
           {
             chatStyle: "user",
-            message: userMessage
+            text: userMessage
           }
         ],
         index: 0

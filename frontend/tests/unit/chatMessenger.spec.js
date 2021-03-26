@@ -1,4 +1,4 @@
-import ChatMessenger from "@/components/ChatMessenger";
+import ChatMessenger from "@/views/ChatMessenger";
 import { mount } from "@vue/test-utils";
 import { makeHandshake, postMessage } from "@/services/axios";
 import flushPromises from "flush-promises";
