@@ -69,19 +69,19 @@ Given that information, the chatbot cannot handle incorrect spelling, as there i
 - ### Component Diagram (click to expand)
 
  <div align="center">
-  <img height="400" src="./Documentation/img/SoftwareArchitecture-Component-View.png">
+  <img height="300" src="./Documentation/img/SoftwareArchitecture-Component-View.png">
 </div> 
 
 ## Sample Output 
 
 <div align="center">
-  <img height="700" src="./Documentation/img/sample.gif">
+  <img height="500" src="./Documentation/img/sample.gif">
 </div>
 
 ### New Feature Demonstration
 
 <div align="center">
-  <img height="700" src="./Documentation/img/featuredemo.gif">
+  <img height="500" src="./Documentation/img/featuredemo.gif">
 </div>
 
 ## Project Additions
