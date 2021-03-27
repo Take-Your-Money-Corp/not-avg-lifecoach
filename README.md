@@ -78,6 +78,12 @@ Given that information, the chatbot cannot handle incorrect spelling, as there i
   <img height="700" src="./Documentation/img/sample.gif">
 </div>
 
+### New Feature Demonstration
+
+<div align="center">
+  <img height="700" src="./Documentation/img/featuredemo.gif">
+</div>
+
 ## Project Additions
 
 After finishing A2, we continued to add more features to the "not your average life coach" chatbot. We began by adding two more topics to the chatbot's repertoire. In particular, the chatbot's repertoire now includes advising about studying for school and giving romantic help. Next, the chatbot can produce five reasonable responses when given a topic outside of what is in its arsenal. Therefore, you can have small talk with the chatbot about different subject manners. 
