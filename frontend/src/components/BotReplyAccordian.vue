@@ -80,7 +80,14 @@ export default {
         ...replyAndSentimentAnalysis.nlp.classifications
       ];
       classifications.some(classification => {
-        if (classification.score < 0.001) {
+        let score = parseFloat(classification.score.toFixed(2));
+        console.log(classification.intent);
+        console.log(score);
+        if (score <= 0.01) {
+          if (score !== 0) {
+            this.intentNames.push(classification.intent);
+            this.intentScores.push(score);
+          }
           this.chartData.push({
             labels: this.intentNames,
             datasets: [
@@ -92,9 +99,9 @@ export default {
             ]
           });
           return true;
-        } else if (classification.score !== 0) {
+        } else if (score !== 0) {
           this.intentNames.push(classification.intent);
-          this.intentScores.push(classification.score);
+          this.intentScores.push(score);
         }
       });
     }
