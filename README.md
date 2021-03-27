@@ -49,6 +49,10 @@ In general, the chatbot can produce a sample output of good feasible conversatio
 
 Given that information, the chatbot cannot handle incorrect spelling, as there is no natural spell checker attached. Also, the chatbot does not handle synonyms properly and treats them as unique words. Lastly, the program does not remember the conversations it holds after refreshing the page.
 
+#### Improper Conversation Handling Examples
+1. [Spelling Errors](./Documentation/img/improper2.png): Occasionally the bot is unable to interpret user spelling errors.
+2. [Out of Scope Words](./Documentation/img/improper1.png): The bot is unable to handle words outside of its known range of words. For example, country names are unknown.
+
 ## Project Documentation
 
  - [Project Plan Document](./Documentation/COSC%20310%20-%20Project%20Plan.pdf)
