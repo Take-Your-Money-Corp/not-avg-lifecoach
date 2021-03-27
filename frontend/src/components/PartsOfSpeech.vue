@@ -5,7 +5,9 @@
     </h3>
     <br />
     <div v-if="conversation">
-      <div v-if="conversation.length > 0" v-html="fullText"></div>
+      <div v-if="conversation.length > 0" v-html="fullText">
+        <hr />
+      </div>
     </div>
     <div v-else>
       Please chat to enable POS Tagging

@@ -5,6 +5,7 @@
     </h3>
     <div v-if="conversation">
       <div v-html="fullText"></div>
+      <hr />
     </div>
     <div v-else>
       Please chat first before Synonym Recognition analysis is available
