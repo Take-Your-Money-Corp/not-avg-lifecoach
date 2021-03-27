@@ -42,7 +42,9 @@ export default {
         for (f = 0; f < this.word.length; f++) {
           if (this.flag == 0) {
             this.fullText +=
-              "<tr class = 'tr'><h3><b>" + this.conversation[i].text + "</h3></b></tr>";
+              "<tr class = 'tr'><br/><hr/><h3><b>" +
+              this.conversation[i].text +
+              "</h3></b></tr>";
             this.fullText +=
               "<tr class = 'tr'><th> Word </th><th> Abbreviation </th><th> Meaning </th></tr>";
           }
@@ -109,6 +111,10 @@ export default {
   border: none;
   overflow: scroll;
 }
-.tr:nth-child(odd) {background-color: #f0f0f0;}
-.tr:hover {background-color: rgb(234, 225, 238);}
+.tr:nth-child(odd) {
+  background-color: #f0f0f0;
+}
+.tr:hover {
+  background-color: rgb(234, 225, 238);
+}
 </style>
