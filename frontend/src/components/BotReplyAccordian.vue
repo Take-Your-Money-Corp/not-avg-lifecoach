@@ -81,8 +81,6 @@ export default {
       ];
       classifications.some(classification => {
         let score = parseFloat(classification.score.toFixed(2));
-        console.log(classification.intent);
-        console.log(score);
         if (score <= 0.01) {
           if (score !== 0) {
             this.intentNames.push(classification.intent);
