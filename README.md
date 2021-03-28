@@ -122,7 +122,7 @@ The chatbot uses the parts of speech feature by again breaking up each conversat
 ### 3. Named Entity Recognition
 The chatbot can break apart a sentence and recognize what type of character or string the user inputs. In particular, the chatbot can distinguish between a word and what a punctuation mark is. 
 <div align="center">
-  <img height="500" src="./Documentation/img/A3_screenshots/ner.png">
+  <img height="500" src="./Documentation/img/A3_screenshots/ner.PNG">
 </div>
 
 ### 4. Sentiment Analysis
