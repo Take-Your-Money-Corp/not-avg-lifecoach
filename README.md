@@ -128,7 +128,7 @@ The chatbot can break apart a sentence and recognize what type of character or s
 ### 4. Sentiment Analysis
 The sentiment analysis is the first page that pops up when you click the analyze button. The sentiment analysis is the best representation of what we attempted to do with our features, which gives a visual representation of how the chatbot sees the conversations. A pop-down appears, which comes with a graph to show how the chatbot preceded the user's input. In this case, the chatbot preceded the user's intent to be of acquaintance, with other possibilities yielding lower scores. 
 <div align="center">
-  <img height="500" src="./Documentation/img/A3_screenshots/sta.png">
+  <img height="500" src="./Documentation/img/A3_screenshots/sta-good-ver.png">
 </div>
 
 ## Unit Tests
