@@ -2,9 +2,6 @@
   <div id="chat-bot">
     <div id="chat-header">
       <h5 id="chat-header-text">Not Your Average Life Coach</h5>
-  <div>
-     <b-form-select v-model="selected" :options="options"></b-form-select>
-  </div>
       <button
         :disabled="userMessages.length === 0 || typingEnabled === false"
         @click="goToChatAnalysisRoute"
@@ -40,15 +37,10 @@
 <script>
 import Vue from "vue";
 import { makeHandshake, postMessage, getBotReply } from "@/services/axios.js";
-import { FormSelectPlugin } from 'bootstrap-vue'
 import VueChatScroll from "vue-chat-scroll";
 import Bot from "@/components/Bot.vue";
 import User from "../components/User.vue";
-import translate from "translate";
 Vue.use(VueChatScroll);
-Vue.use(FormSelectPlugin)
-
-translate.engine = "libre";
 
 export default {
   components: {
@@ -73,22 +65,7 @@ export default {
       botMessageCount: -1,
       conversation: [],
       typingEnabled: true,
-      error: "",
-      selected: "en",
-        options: [
-          { value: 'ar', text: 'Arabic' },
-          { value: 'zh', text: 'Chinese' },
-          { value: "en", text: 'English' },
-          { value: 'fr', text: 'French' },
-          { value: 'de', text: 'German' },
-          { value: 'hi', text: 'Hindi' },
-          { value: 'it', text: 'Italian' },
-          { value: 'ja', text: 'Japanese' },
-          { value: 'ko', text: 'Korean' },
-          { value: 'pt', text: 'Portuguese' },
-          { value: 'ru', text: 'Russain' },
-          { value: 'es', text: 'Spanish' }
-        ]
+      error: ""
     };
   },
 
@@ -102,9 +79,6 @@ export default {
       this.$store.commit("setConversation", this.conversation);
       this.$router.push("chat-analysis");
     },
-  setLanguage(e){
-
-  },
     initialMessage() {
       this.conversation.push({
         chatStyle: "bot",
@@ -153,12 +127,13 @@ export default {
           this.reply = response.data.activities[(this.botMessageCount += 2)];
           this.allConvoData = response.data;
           this.botMessages.push(this.reply.text);
-          translate(this.reply.text, this.selected).then(data =>{
-            this.conversation.push({
+          this.conversation.push({
             chatStyle: "bot",
-            text: data
+            text: this.reply.text
           });
-         })
+        })
+        .catch(error => {
+          console.log(error);
         })
         .finally(() => {});
     },
