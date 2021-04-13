@@ -2,6 +2,9 @@
   <div id="chat-bot">
     <div id="chat-header">
       <h5 id="chat-header-text">Not Your Average Life Coach</h5>
+      <button @click="languageSwap" class="mx-1 button-language">
+        {{ language }}
+      </button>
       <button
         :disabled="userMessages.length === 0 || typingEnabled === false"
         @click="goToChatAnalysisRoute"
@@ -13,7 +16,7 @@
     <div class="chat-messages" v-chat-scroll>
       <div class="filler"></div>
       <div v-for="(message, index) in conversation" :key="message.index">
-        <Bot :conversation="conversation" :index="index" />
+        <Bot :language="language" :conversation="conversation" :index="index" />
         <User :conversation="conversation" :index="index" />
       </div>
     </div>
@@ -56,6 +59,7 @@ export default {
   },
   data() {
     return {
+      language: "French",
       nlpRestToken: "",
       userMessage: "",
       reply: "",
@@ -74,6 +78,10 @@ export default {
     msg: String
   },
   methods: {
+    languageSwap() {
+      if (this.language === "English") this.language = "French";
+      else if (this.language === "French") this.language = "English";
+    },
     goToChatAnalysisRoute() {
       this.$store.commit("setAllConvoData", this.allConvoData);
       this.$store.commit("setConversation", this.conversation);
@@ -173,6 +181,27 @@ export default {
 
 .button-link:hover {
   background-color: $accentDark;
+  color: #ffffff;
+}
+
+.button-language {
+  height: fit-content;
+  background-color: $tertiary;
+  border-radius: 8px;
+  border-width: 1px;
+  border-color: $tertiary;
+  text-shadow: 1px 1px 1px $tertiaryDark;
+  color: $light;
+  padding: 3px 10px;
+  transition-duration: 0.4s;
+  text-align: center;
+  font-size: 16px;
+  margin-left: auto;
+  margin-right: 5px;
+}
+
+.button-language:hover {
+  background-color: $tertiaryDark;
   color: #ffffff;
 }
 ul {
