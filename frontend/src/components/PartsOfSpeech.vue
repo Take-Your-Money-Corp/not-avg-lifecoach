@@ -16,92 +16,131 @@
 </template>
 
 <script>
+const wiki = require("wikipedia");
+
 export default {
   data() {
     return {
       conversation: undefined,
       word: undefined,
       sentence: "",
-      fullText: ""
+      fullText: "",
+      wikiSummaries: []
     };
   },
-  created() {
-    var posTagger = require("wink-pos-tagger");
-    ('<div class = "msg">');
-    if (this.$store.state.conversation)
-      this.conversation = this.$store.state.conversation;
-    ("</div>");
-    var i;
-    var f;
-    var flag;
-    var meaning;
-    this.flag = 0;
-    try {
-      for (i = 0; i < this.conversation.length; i = i + 2) {
-        var tagger = posTagger();
-        this.word = tagger.tagSentence(this.conversation[i].text);
-        this.fullText += '<table class = "table">';
-        for (f = 0; f < this.word.length; f++) {
-          if (this.flag == 0) {
-            this.fullText +=
-              "<tr class = 'tr'><br/><hr/><h3><b>" +
-              this.conversation[i].text +
-              "</h3></b></tr>";
-            this.fullText +=
-              "<tr class = 'tr'><th> Word </th><th> Abbreviation </th><th> Meaning </th></tr>";
-          }
-          if (this.word[f].pos == "UH") meaning = "interjection";
-          if (this.word[f].pos == "CC") meaning = "coordinating conjunction";
-          if (this.word[f].pos == "CD") meaning = "cardinal digit";
-          if (this.word[f].pos == "DT") meaning = "determiner";
-          if (this.word[f].pos == "EX") meaning = "existential there";
-          if (this.word[f].pos == "FW") meaning = "foreign word";
-          if (this.word[f].pos == "IN")
-            meaning = "preposition/subordinating conjunction";
-          if (this.word[f].pos == "JJ") meaning = "adjective";
-          if (this.word[f].pos == "JJR") meaning = "adjective, comparitive";
-          if (this.word[f].pos == "JJS") meaning = "adjective, superlative";
-          if (this.word[f].pos == "LS") meaning = "list market";
-          if (this.word[f].pos == "MD") meaning = "modal";
-          if (this.word[f].pos == "NN") meaning = "noun, singular";
-          if (this.word[f].pos == "NNS") meaning = "noun, plural";
-          if (this.word[f].pos == "NNP") meaning = "proper noun";
-          if (this.word[f].pos == "NNPS") meaning = "proper noun, plural";
-          if (this.word[f].pos == "PDT") meaning = "predeterminer";
-          if (this.word[f].pos == "POS") meaning = "possessive ending";
-          if (this.word[f].pos == "PRP") meaning = "personal pronoun";
-          if (this.word[f].pos == "PRP$") meaning = "possessive pronoun";
-          if (this.word[f].pos == "RB") meaning = "adverb";
-          if (this.word[f].pos == "RBR") meaning = "adverb, comparitive";
-          if (this.word[f].pos == "RBS") meaning = "adverb, superlative";
-          if (this.word[f].pos == "RP") meaning = "particle";
-          if (this.word[f].pos == "TO") meaning = "infinite marker";
-          if (this.word[f].pos == "VB") meaning = "verb";
-          if (this.word[f].pos == "VBG") meaning = "verb gerund";
-          if (this.word[f].pos == "VBD") meaning = "verb past tense";
-          if (this.word[f].pos == "VBN") meaning = "verb past participle";
-          if (this.word[f].pos == "VBP")
-            meaning = "verb, present tense not 3rd person singular";
-          if (this.word[f].pos == "VBZ")
-            meaning = "verb, present tense with 3rd person singular";
-          if (this.word[f].pos == "WDT") meaning = "wh-determiner";
-          if (this.word[f].pos == "WP") meaning = "wh-pronoun";
-          if (this.word[f].pos == "WRB") meaning = "wh-adverb";
+  methods: {
+    async getWikiSummary(word, index, meaning) {
+      try {
+        const page = await wiki.page(word);
+        console.log(page);
+        //Response of type @Page object
+        const summary = await page.summary();
+        console.log(summary);
 
+        let wikiDescription = summary.description
+          ? summary.description
+          : "No wiki info found";
+
+        this.fullText +=
+          "<tr class = 'tr'><td>" +
+          this.word[index].value +
+          "</td><td>" +
+          this.word[index].pos +
+          "</td><td>" +
+          meaning +
+          "</td><td>" +
+          wikiDescription +
+          "</td></tr>";
+        this.flag = 1;
+      } catch (error) {
+        if (!this.word[index.value]) {
           this.fullText +=
-            "<tr class = 'tr'><td>" +
-            this.word[f].value +
+            "<tr class = 'tr' colwidth='4'><td>" +
+            this.word[index].value +
             "</td><td>" +
-            this.word[f].pos +
+            this.word[index].pos +
             "</td><td>" +
-            meaning;
-          ("</td></tr>");
-          this.flag = 1;
+            meaning +
+            "</td><td>No wiki page found</td></tr>";
         }
-        this.flag = 0;
-        this.fullText += "</table>";
+        this.flag = 1;
       }
-    } catch {}
+    },
+    async showPosData() {
+      var posTagger = require("wink-pos-tagger");
+      ('<div class = "msg">');
+      if (this.$store.state.conversation)
+        this.conversation = this.$store.state.conversation;
+      ("</div>");
+      var i;
+      var f;
+      var flag;
+      var meaning;
+      this.flag = 0;
+      try {
+        for (i = 0; i < this.conversation.length; i = i + 2) {
+          var tagger = posTagger();
+          this.word = tagger.tagSentence(this.conversation[i].text);
+          this.fullText += '<table class = "table">';
+          for (f = 0; f < this.word.length; f++) {
+            if (this.flag == 0) {
+              this.fullText +=
+                "<tr class = 'tr'><br/><hr/><h3><b>" +
+                this.conversation[i].text +
+                "</h3></b></tr>";
+
+              this.fullText +=
+                "<tr class = 'tr'><th> Word </th><th> Abbreviation </th><th> Meaning </th><th> Wikipedia </th></tr>";
+            }
+            if (this.word[f].pos == "UH") meaning = "interjection";
+            if (this.word[f].pos == "CC") meaning = "coordinating conjunction";
+            if (this.word[f].pos == "CD") meaning = "cardinal digit";
+            if (this.word[f].pos == "DT") meaning = "determiner";
+            if (this.word[f].pos == "EX") meaning = "existential there";
+            if (this.word[f].pos == "FW") meaning = "foreign word";
+            if (this.word[f].pos == "IN")
+              meaning = "preposition/subordinating conjunction";
+            if (this.word[f].pos == "JJ") meaning = "adjective";
+            if (this.word[f].pos == "JJR") meaning = "adjective, comparitive";
+            if (this.word[f].pos == "JJS") meaning = "adjective, superlative";
+            if (this.word[f].pos == "LS") meaning = "list market";
+            if (this.word[f].pos == "MD") meaning = "modal";
+            if (this.word[f].pos == "NN") meaning = "noun, singular";
+            if (this.word[f].pos == "NNS") meaning = "noun, plural";
+            if (this.word[f].pos == "NNP") meaning = "proper noun";
+            if (this.word[f].pos == "NNPS") meaning = "proper noun, plural";
+            if (this.word[f].pos == "PDT") meaning = "predeterminer";
+            if (this.word[f].pos == "POS") meaning = "possessive ending";
+            if (this.word[f].pos == "PRP") meaning = "personal pronoun";
+            if (this.word[f].pos == "PRP$") meaning = "possessive pronoun";
+            if (this.word[f].pos == "RB") meaning = "adverb";
+            if (this.word[f].pos == "RBR") meaning = "adverb, comparitive";
+            if (this.word[f].pos == "RBS") meaning = "adverb, superlative";
+            if (this.word[f].pos == "RP") meaning = "particle";
+            if (this.word[f].pos == "TO") meaning = "infinite marker";
+            if (this.word[f].pos == "VB") meaning = "verb";
+            if (this.word[f].pos == "VBG") meaning = "verb gerund";
+            if (this.word[f].pos == "VBD") meaning = "verb past tense";
+            if (this.word[f].pos == "VBN") meaning = "verb past participle";
+            if (this.word[f].pos == "VBP")
+              meaning = "verb, present tense not 3rd person singular";
+            if (this.word[f].pos == "VBZ")
+              meaning = "verb, present tense with 3rd person singular";
+            if (this.word[f].pos == "WDT") meaning = "wh-determiner";
+            if (this.word[f].pos == "WP") meaning = "wh-pronoun";
+            if (this.word[f].pos == "WRB") meaning = "wh-adverb";
+            await this.getWikiSummary(this.word[f].value, f, meaning);
+          }
+          this.flag = 0;
+          this.fullText += "</table>";
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  },
+  created() {
+    this.showPosData();
   }
 };
 </script>
